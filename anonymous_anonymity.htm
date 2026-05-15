@@ -1,0 +1,615 @@
+<html>
+
+<head>
+<meta name=Title content="Anonymous Anonymity - Request For Comments">
+<title>Anonymous Anonymity - Request For Comments</title>
+</head>
+
+<body>
+
+<p align=center style='text-align:center'>Anonymous Anonymity - Request For
+Comments</p>
+
+<p>&nbsp;</p>
+
+<p>On The Internet - July 4, 2005<br>
+A Declaration of Anonymity<br>
+Revised August 29, 2005<br>
+<br>
+Anonymous Anonymity - Request For Comments<br>
+<br>
+<br>
+&quot;I think paranoia can be instructive in the right doses. Paranoia is a
+skill.&quot; - John Shirley<br>
+<br>
+<br>
+This document is available / updated at the following:<br>
+<a href="https://gandalfddi.z19.web.core.windows.net/anonymous_anonymity.htm">https://gandalfddi.z19.web.core.windows.net/anonymous_anonymity.htm</a><br>
+<br>
+Richard W. Hamming has said 'Indeed, one of my major complaints about the
+computer field is that whereas Newton could say, &quot;If I have seen a little
+farther than others, it is because I have stood on the shoulders of
+giants,&quot; I am forced to say, &quot;Today we stand on each other's
+feet.&quot;'.<br>
+<br>
+Where this may be true with many aspects of Computer Science, Anonymity is one
+area where this is absolutely not true.&nbsp; I found many helpful resources
+and people while working on this idea.&nbsp; Everybody was helpful and pointed
+me towards other areas to search.&nbsp; There are volumes of data going back to
+1981 when D. Chaum first discussed this subject.&nbsp; It remains to me a
+fascinating area of study.<br>
+<br>
+I would like to ask the community to read this and comment on the
+&quot;Issues&quot; section.&nbsp; I am struggling with the how to fix the
+issues presented.&nbsp; If you can conceive a better way to fix the first issue
+I would appreciate that input.&nbsp; If there is a solution that is already
+well known, please tell me.&nbsp; Thanks.<br>
+<br>
+Table Of Contents:<br>
+1) Abstract<br>
+2) High Level Description<br>
+3) Description<br>
+4) Issues<br>
+<br>
+Abstract:<br>
+The current state of anonymous proxies does not provide adequate protection for
+the entity wishing to preserve their anonymity.&nbsp; Anonymous remailers and
+their ISP's have had court orders to have their logs subpoenaed in court
+(i).&nbsp; There is also a &quot;trust&quot; that the anonymous proxy is truly
+anonymous.<br>
+<br>
+Given that Country &quot;C&quot; restricts access to certain sites on &quot;The
+Internet&quot; located in country &quot;A&quot;.&nbsp; Also given that country
+&quot;C&quot; wishes to gain knowledge of which of its citizens are trying to
+access restricted sites, country &quot;C&quot; could set up anonymous proxies
+in country &quot;N&quot; to monitor its own citizens.&nbsp; In addition if
+country &quot;C&quot; wished to monitor already popular anonymous sites for
+traffic, they could install a employee in the offices of the ISP that serves
+the popular anonymous site and have that employee surreptitiously monitor the
+traffic going to / leaving that site.<br>
+<br>
+Proposed is a truly anonymous system wherein no one entity has a complete picture
+of the transaction.&nbsp; This system can be installed on a corporate LAN
+(Local Area Network) to allow anonymous access of &quot;sensitive&quot; data
+(Example Anonymous employee suggestions, Human Resources &quot;sensitive&quot;
+procedures / documentation (medical forms, complaint procedures)) or it can be
+installed on &quot;The Internet&quot;.<br>
+<br>
+I have seen the statement &quot;Information Wants to Be Free&quot;.&nbsp; I
+would revise that statement to &quot;Information Will Be Free&quot;.&nbsp; The
+information does not care one way or the other.&nbsp; But humans, simply by
+their curiosity and need to explore ideas will make the information free.<br>
+<br>
+High Level Description:<br>
+<br>
+The software will facilitate the transfer of files (HTTP, FTP, etc.) between
+two computers using anonymous proxies.&nbsp; Every machine will have &quot;the
+least&quot; amount of knowledge to make the transfer possible.&nbsp; One
+computer (the end point) will have access to the data and will know the
+intermediary proxy but will not know what computer the file is ultimately
+destined for.&nbsp; Another computer (the intermediary server or the
+intermediary proxy) will know what two computers the file is being transferred
+between but will not know the contents of the file.&nbsp; The last computer
+(The destination / anonymous machine) will know what the file is and who the
+proxy is, but not where the file is coming from.<br>
+<br>
+When the software is launched, it decides how much bandwidth is available for
+the connection.&nbsp; If it is a low bandwidth then the machine will perform
+the services of an Intermediate Proxy or End Point.&nbsp; If high bandwidth
+then the machine can perform as a Intermediary Server and / or as a
+Intermediary Proxy.&nbsp; This information is only known by the machine that
+runs the software, it is not told to any other computer.&nbsp; This way nobody
+know if a computer is a server or just a transfer agent.<br>
+<br>
+Connections are made to other computers, requests are sent out for additional
+connections until &quot;enough&quot; (depending on bandwidth) connections are
+made.&nbsp; Scalability is not an issue, as connections / servers are
+overloaded traffic will simply be dropped or passed onto other servers that are
+not as loaded.<br>
+<br>
+Searches are passed to all connected machines.&nbsp; If the operator makes a
+selection then that data is transferred to the machine.&nbsp; Searches are
+performed via full URI Scheme (ii) request, by words or phrases contained in
+the file or by filename (or parts thereof).&nbsp; Files retrieved (either from
+&quot;The Internet&quot; or from another machine) are saved in cache on each
+machine.&nbsp; When the file cache is full, the files that haven't been accessed
+for the longest time are deleted.&nbsp; This allows for a &quot;shadow&quot;
+Internet, sites that are censored or deleted are still available via the
+Anonymous Anonymity network.<br>
+<br>
+In addition it would also circumvent the blocking of searches for specific
+information / items by people living in certain countries.<br>
+<br>
+I have looked at The Freenet Project (iii), and they deserve the credit in this
+project for the idea of a &quot;shadow&quot; Internet, but the Anonymous
+Anonymity Network is fundamentally different. On The Freenet Project web pages
+are published only on The Freenet Project (and does not allow for searching),
+the Anonymous Anonymity Network allows for searching of not only files on the
+Anonymous Anonymity Network but also the anonymous transfer of files into the
+Anonymous Anonymity Network from &quot;The Internet&quot;, thus connecting
+&quot;The Internet&quot; with the Anonymous Anonymity Network. Also, the files
+do not have to be passed from node to node to get to the final destination (as
+in The Freenet Project), they are fetched and sent (via one hop) to the final
+requestor.<br>
+<br>
+I have also looked and run The Onion Router (Tor) (xii).&nbsp; While this
+system is very well conceived, I have a few issues with the system:<br>
+1) Anybody from country &quot;C&quot; that communicates with any of the Tor
+well known directories immediately exposes themselves as wanting
+anonymity.&nbsp; Duck tells me that hostnames, ports and fingerprints of the
+trusted dir servers are hardcoded in the source.&nbsp; If I was administering a
+network and told to look for a specific activity, I would allow and log that
+activity to see who was going to that site.<br>
+2) Many of the Tor Routers seem to be running on ephemeral ports, usually in
+the TCP port 9000 to TCP port 10000 range.&nbsp; This is a huge flag to the
+network operators that someone is doing something that isn't quite right,
+specifically (if the network operators know about Tor) that someone is
+accessing an anonymous network.&nbsp; Tor asks that they run on ports 80 and
+443 and this could be mitigated by an outgoing firewall on the client.<br>
+3) If country &quot;C&quot; can control all exit points then they can set up
+their own fake directory server(s), assuming that they have enough CPU power to
+break the known directory servers fingerprint key(s).<br>
+<br>
+Detailed Description:<br>
+There are up to five devices involved in each transaction.<br>
+1) Destination Machine - The machine that wishes to remain anonymous<br>
+2) Intermediary Server.<br>
+3) Intermediary Proxy.<br>
+4) End point - HTTP anonymous Proxy or file server<br>
+5) The (HTTP, FTP, NNTP, etc) server that the Anonymous Machine wishes to
+reach.<br>
+<br>
+With this anonymous network, as with the original design of &quot;The
+Internet&quot;, there is no central server.&nbsp; The software is initiated on
+the users machine.&nbsp; The bandwidth is detected:<br>
+1) &quot;Low Bandwidth&quot; - Less than 512 kilobits / second the machine
+establishes itself mainly as a Intermediary Proxy / End Point.<br>
+2) &quot;High Bandwidth&quot; - Greater than 512 kilobits per second and TCP
+port inbound is available, the machine establishes itself mainly as a
+Intermediary Server.<br>
+<br>
+All connections / communications will use the specific protocol encoding (see
+next paragraph for an example).&nbsp; Since some providers block port 80 the
+following standard protocols will be tested to see if they are available for
+traffic flow (In the same fashion AOLIM searches for any open port):<br>
+1) Port 20 - FTP Data<br>
+2) Port 21 - FTP Control<br>
+3) Port 80 - HTTP (Also port 81, 8080)<br>
+4) Port 443 - SSL<br>
+5) Instant Messenger<br>
+6) IRC<br>
+7) NNTP - The originator would specify the URI they wish encoded, the newsgroup
+and message title they wished and their public key.&nbsp; The data would be
+encoded via HTTPEncode from a random Google page fetch, without the HTML, per
+the description in the next paragraph.<br>
+<br>
+An example of protocol encoding is HTTPEncode encoding.&nbsp; See <a
+href="https://gandalfddi.z19.web.core.windows.net/anonymous_httpencode.htm">https://gandalfddi.z19.web.core.windows.net/anonymous_httpencode.htm</a>
+for a complete description.<br>
+<br>
+When using FTPEncode for port 20, the data port, UUEncoding will suffice.&nbsp;
+When using port 21, again the data will need to be messaged to look like FTP
+commands.&nbsp; Port 443 is encoded already so the data conversion should be
+minimal.<br>
+<br>
+When the software is installed the user is asked if they have any filtering
+software that blocks what sites they are able to go to / monitors what sites
+they go to.&nbsp; If they do then their machine is not allowed to be an end
+point that fetches &quot;fresh&quot; web pages.&nbsp; Any firewall devices will
+have to be set up to allow inbound port 80 (or port &quot;X&quot;, user defined
+(since some ISP's block port 80)) connections.&nbsp; If this cannot be done
+then this machine is primarily a outbound / Intermediary Proxy connect
+machine.&nbsp; If a machine can accept inbound connections it will receive
+preferential service from other machines.&nbsp; Note:&nbsp; If an unexpected
+HTTP connection occurs, then the server will display a previous page that it
+has displayed per the &lt;word&gt;.html request from the Destination machine
+(see above HTTPEncode page).&nbsp; This will prevent an attacker from figuring
+out that the server is not a &quot;real&quot; http server, same with FTP or SSL
+connections.&nbsp; Of course if the attacker assumes that this system is
+running the Anonymous Anonymity network then they could just use a normal
+connect request and if the machine connects then they are right.<br>
+<br>
+The software then attempts connection to a Intermediary Server.&nbsp; The IP
+address of an initial intermediary server can be entered manually (as obtained
+through a social network, sneakernet, etc.), downloaded from a web site or
+retrieved from a periodic post to UseNet news groups or banner ads (suggested
+by Sherwood B.).&nbsp; Note:&nbsp; If the initial IP address is downloaded this
+can indicate to anybody watching that the Anonymous Anonymity software is being
+used, the user should be aware that they may be exposing themselves. &nbsp; The
+IP addresses are checked against the internal Autonomous System database to see
+if they are geographically diverse, per Feamster and Dingledine (v) and to
+mitigate a organization setting up multiple servers that are (in essence) same
+machine (viii).&nbsp; If possible make connections to countries that are not
+particularly friendly to your country.&nbsp; IPv6 will make this process easier
+because it addresses according to the location of the machine.&nbsp; Servers
+that are &quot;farthest away&quot; will be chosen over servers that are
+&quot;close&quot;.&nbsp; If the machine is set at the highest security setting,
+then the software should not connect to known cable home user networks (Cox,
+Shaw, Etc.) as these networks do not generally host web servers and connecting
+to them might raise suspicion.&nbsp; Intermediary servers should have port 80
+(for example, but any &quot;standard&quot; protocol port would be open, FTP,
+FTP Data, NNTP, etc.) open as an inbound connection so that they appear to be
+another web server.&nbsp; If the machine has determined that it has the
+capabilities to be a Intermediary Server then it should allow connections to
+itself as a Intermediary Server.&nbsp; The machine should also search for other
+Intermediary Servers so that requests are distributed between many
+servers.&nbsp; Note:&nbsp; If inbound port 80 cannot be established then that
+machine can still act as a server by making the port 80 outbound connection
+when asked to by another machine (see next paragraph handing off to another
+server).&nbsp; Obviously when the port 80 outbound connection is made two way
+communications can then ensue.<br>
+<br>
+If a server has too many nodes, it should pass any new connections off to
+another server and notify the machine that is trying to connect of this handoff
+so that it can establish a direct connection to the other server.&nbsp; If an
+Intermediary Proxy is using more than 50% of its bandwidth proxying
+connections, then additional connection requests should be denied.<br>
+<br>
+All connections / communications should be encrypted.&nbsp; Elliptic curve 
+cryptography (ECC) encryption is the standard
+since this is a less CPU intensive / smaller key method than the other
+encryption algorithms (xiv).&nbsp; Each connection creates a unique encryption
+public/private key pair for use in communication (this is so that the user
+cannot be identified by using the same public key over and over again).&nbsp;
+For destination machines, since &quot;Get&quot; and &quot;Post&quot; requests
+should not be made frequently, or of large amounts of data to minimize raising
+suspicion about that node.<br>
+<br>
+Routing - Since data is routed node to node, the routing will not allow least
+cost (efficient) routing.&nbsp; Just individual direct connections will be in
+the routing table (IP Address / Search Request).&nbsp; Data would be
+&quot;routed&quot; by each node keeping a table of incoming IP Address / search
+request hashes paired with outgoing IP Address / search request hashes.&nbsp;
+The route back being (of course) the path of pairs of IP Address's and search
+request hashes that are related.&nbsp; This gives each node the &quot;least
+knowledge&quot; of the source and destination.&nbsp; An Intermediary Server should
+not know whether a node that is connected is another Intermediary Server or a
+Anonymous Machine or an End Point.<br>
+<br>
+Searches can be of the form:<br>
+1) URI Scheme request (http, https, ftp, gopher, file, etc)<br>
+2) File Name (or parts of file name)<br>
+3) Data in file (words, phrases, ANDed words or ORed words)<br>
+<br>
+The search request and the public key are concatenated and then hashed (ix).
+&nbsp; This is referred to as the search hash.&nbsp;&nbsp; For each search
+request, each node will concatenate their available search terms with the
+public key and compare, if there is a favorable match then the search term will
+be encrypted with the public key and returned.&nbsp; The search hash with a
+unique public key is passed from the Anonymous Machine to all Intermediary
+Servers.&nbsp; When a search request is seen, a lookup of the search hash is
+made on the server in the &quot;already known searches&quot; search table and
+if the hash of the search matches a already received search, the search is
+dropped (this search has already been through this machine).&nbsp; If the
+search is not dropped, the search hash is stored in a lookup table with the IP
+Address that the search was received from.&nbsp; The Intermediary Server passes
+the entire search to all Intermediary Servers Anonymous Machines and End Point
+machines it knows except for the machine the search request came from (the
+server doesn't know what &quot;kind&quot; of machine it is connected to).&nbsp;
+If an end point machine can satisfy the request / has matches for the request
+then that data relating to the request is encrypted using the public key and
+passed back to the Intermediary Server with the search response hash
+number.&nbsp; The response data from the end point machine is the URI, the URI
+hash, the size of the file, and the date of the file (when the file was
+created).&nbsp; When positive responses are received then those responses are
+returned via the routing (above) to the IP Address that initiated the
+request.&nbsp; The search request table will age out after a &quot;short&quot;
+amount of time (2 minutes or so) so that tracing the connection will be more
+difficult and memory utilization in each machine will be minimized.<br>
+<br>
+To better optimize bandwidth and protect against replay attacks / attempts / to
+find the end point (x) and spam attacks, replies that hash as the same value
+are duplicates and will be dropped.<br>
+<br>
+Stanislav S. mentioned that the system needs to prevent an attacker from
+posting a page that is &quot;interesting&quot; in hopes of luring unsuspecting
+anonymous users and convincing them to view a page with the page sending
+information about the anonymous user (IP Address, etc) back to the
+attacker.&nbsp; The end point machine should act like a http proxy.&nbsp; When
+fetching a URI From &quot;The Internet&quot;, all JAVA scripts / ActiveX
+controls should be converted to animated GIF's / sanitized.&nbsp; All GIF's /
+JPEG's should (obviously) be imported and transferred as data.&nbsp; All drop
+down menus should be sanitized. <br>
+<br>
+The Anonymous Machine then (by operator choice or by random) chooses a one of
+the hashes to act on the request.&nbsp; If no node or only one or two nodes has
+the URI available in cache then a node that can connect to the URI is
+chosen.&nbsp; If only one or two nodes return a positive search result, it is
+possible that these results are an attacker (x), to protect against false
+information and to better populate the network the Anonymous machine should
+request a new version of the URI, and if that does not work then retrieve one
+of the stored versions.&nbsp; If any node returns a hash indicating that they
+have the file, then a second search request is sent out via another connection
+(i.e. do not send the hash request out via the server that the original search
+response came in from) using the hash as the search request.&nbsp; Nodes that
+have that hash return the hash and hash dictionary (see below).&nbsp; Again,
+any duplicate replies that hash the same are dropped.&nbsp; If the file is
+large, this search hash / hash dictionary will allow the Anonymous Machine to
+transfer parts of the file from many sources.&nbsp; The Anonymous Machine will
+also be able to offer portions of the file out when as they are received if
+other machines are looking for that same file.&nbsp; Note: To further obfuscate
+the &quot;real&quot; requests, Anonymous Machines should take random incoming
+requests / pick random words and send them out as fake requests to Intermediary
+Servers.&nbsp; Results from these fake requests are, of course, ignored.<br>
+<br>
+When the search table fills, requests are dropped in a FIFO manner for a
+specific IP Address.&nbsp; If someone tries to flood the network with requests
+to empty the tables, only the IP Address they are connected to will suffer, not
+other IP Address's.<br>
+<br>
+Note:&nbsp; The positive responses to the search may be a form of &quot;I can
+act as your proxy for that URL, but I don't have the URL&quot; or &quot;I have
+the entire URL, and this is the last date that I accessed that page plus here
+is the hash of the data on that page&quot;.&nbsp; The operator can choose
+whether they want a copy (possibly stale) or if they want to chose a proxy that
+can get the current page.&nbsp; All links on that page are different files that
+are searched / requested for.&nbsp; Additionally (in this manner) the Anonymous
+Anonymity network could host its own WWW network where those pages were only
+accessible to someone connected to the Anonymous Anonymity network, or via a
+machine proxying for the Anonymous Anonymity network.<br>
+<br>
+When the Anonymous Requester receives a request that is acceptable, a
+connection request is sent along the path that is in the response data using
+the IP Address / search hash connection pair generated in the previous
+paragraph.&nbsp; This connection request has a new public key associated with the
+request.&nbsp; The Intermediary Proxy Server sends out a request on all
+connections for a proxy and randomly chooses one of those responses and
+requests that Intermediary Proxy IP address.&nbsp; The IP address of this
+Intermediary Proxy is sent to the path of both the End Point machine and the
+Anonymous Requester.&nbsp; Note: To minimize tracking of a specific file and to
+minimize &quot;fingerprinting&quot; of web site interaction (&quot;Y&quot;
+bytes of a web page on a monitored circuit = &quot;Y&quot; bytes out on a
+suspected circuit, with a specific pattern), chunks of the file should be
+requested from as many sources as possible (x).<br>
+<br>
+The user of both the Endpoint machine and the Anonymous Requestor configures a
+value for the number of servers they wish to include in the chain called a
+chain link value.&nbsp; The Endpoint
+machine and the Anonymous Requestor choose a random intermediary and sends the
+chain link value to their first server.&nbsp;
+That server subtracts one from the chain link value and then chooses a
+geographically diverse server as the next link in the chain and sends the chain
+link value to that server.&nbsp; When
+the chain link value is 0, the server encodes sends a public key to the Endpoint
+machine or the Anonymous Requestor (whichever machine initiated the chain).&nbsp;
+When the Endpoint machine / the Anonymous Requestor receives that public
+key they encode the IP address of the Intermediary Proxy and send that address
+to the last &quot;Link 0&quot; Server.<br>
+<br>
+The End Point &quot;Link 0&quot; server and the Anonymous Requester &quot;Link
+0&quot; server set up connections with the Intermediary Proxy on TCP Port
+80.&nbsp; Again, data is encrypted and then HTTPEncoded.&nbsp; The Intermediary
+Proxy knows about two servers in the chain, but not what data is being
+exchanged or who the source and destination are.&nbsp; When the data exchange
+is complete the connection is terminated.<br>
+<br>
+The whole idea behind this network is for each node to know the minimum
+information for the system to work.&nbsp; The less a node knows the less
+information that can be pieced together to get the whole picture.&nbsp; In
+training for Security Clearances the quote goes something like
+&quot;Unclassified information can easily be combined to reveal classified
+information.&quot;<br>
+<br>
+File name:<br>
+The file name is retuned with a SHA-2 hash and a SHA-2 hash dictionary.&nbsp;
+The SHA-2 hash is just a SHA-2 hash of the file.&nbsp; The SHA-2 Hash
+Dictionary is a SHA-2 hash of &quot;X&quot; bytes of the file (where
+&quot;X&quot; is size of file / 1023 and where &quot;X&quot; is greater than 16
+KBytes).&nbsp; The Anonymous Machine would request chunk &quot;y&quot; of the
+file from the End Point.&nbsp; These requests would continue until the
+Anonymous Machine has all the chunks it needs or until the connection is
+broken.&nbsp; In this manner the Anonymous Machine could be requesting parts of
+a particular file while also sending out parts of a particular file to other
+users.&nbsp; If the file is less than 32 MBytes then the hash table would be 32
+KBytes chunks of the file with the number of hashes indicated in the hash
+table.&nbsp; This hash allows (in the case, for example, of large FTP URI
+Scheme requests) requests to be made of parts of the file being requested if it
+is a large file.&nbsp; The file hash and the hash segment of the file would be
+requested, therefore several machines could be sending parts of the file to the
+anonymous requester at the same time.<br>
+<br>
+Communications via Anonymous Chat:<br>
+Another phase of this project would be to use a version of the Mimicry (vi,
+vii) software for Internet Relay Chat (IRC) or Instant Messenger (IM)
+communication.&nbsp; The first portion of the conversation would be an exchange
+of public keys from a generated set of public / private keys. From there on the
+conversation would be encrypted before it is sent out to the IRC / IM channel.&nbsp;
+The software could also be used to download HTTP / files from the Anonymous
+Anonymity network.<br>
+<br>
+Communications via UseNet:<br>
+Using the above HTTPEncode algorithm, with the &quot;fetch a page via Google,
+encrypt it and post it&quot;, two parties can communicate or post requested
+URIs via Usenet.&nbsp; Because this is a broadcast medium, if someone read all
+the messages in a particular newsgroup then nobody could tell who the message
+was bound for.&nbsp; Each message would (obviously) have to use some kind of
+anonymizing NNTP server to post the message.&nbsp; The software would support a
+&quot;output message to a text file&quot; option.<br>
+<br>
+Software Distribution:<br>
+Thomas J. Boschloo asked &quot;The problem remains, how to download this
+software without drawing attention onto oneself!&quot;.<br>
+<br>
+Stanislav S. answered &quot; Put a modified Knoppix (that does what you want)
+on CDs.&nbsp; Go to country C with 1000 of these disks.&nbsp; Meet
+dissidents.&nbsp; Give them the disks and leaflets with SHA256 hash of the disk
+content.&nbsp; Provide an easy way for disk replication (on machines with CD-Rs)
+from inside the software.&nbsp; If it doesn't spread, it's not needed or
+doesn't solve the problem.&nbsp; Find dissidents from country C in your
+country.&nbsp; (My town has weekly meetings, if I am not mistaken.)&nbsp; Talk
+to them.&quot; And he also added &quot;If you do write code, and decide to
+release it, I urge you to at least make sure it's clearly marked as unsuitable
+for use in life-and-death situations such as those that arise when viewing
+dissenting material in oppressive countries.&quot;. &nbsp;He also mentioned
+that Operating System companies / antivirus could imbed a detection for the
+software, and report back to a central authority the presence of that
+software.&nbsp; I mentioned Polymorphic code of some kind might be useful in
+this case.&nbsp; In addition, Network Interface Cards (NICs) that allow MAC
+address modification should insert a random number in the last 3 bytes and test
+to see if the machine still has network connectivity, if so then that MAC
+address should be used for communication.&nbsp; This will help to obfuscate the
+computer used of layer 2 detection is used.<br>
+<br>
+Sherwood B adds that the data should be encrypted and the key stored in RAM
+&quot;On installation the kernel generates a key to be used for the data
+partition.&nbsp; This is stored at known locations in the kernel itself.&nbsp;
+(Allocate several hundred char sized variables short int space, and use the
+upper byte to store keys.)&quot;<br>
+<br>
+Alternately the keys could be stored as yet another file on the Anonymous
+Anonymity network that only the owner knows what the file is and what it is
+good for.<br>
+<br>
+Issues:<br>
+1) The issue with a party owning the server and the anonymous proxier and / or
+the intermediary machine.&nbsp; This is essentially the Man In The Middle
+attack.&nbsp; The attacker &quot;owns&quot; the server in the middle which
+directs the anonymous machine to proxies and end point devices that it also
+controls, therefore the server knows the anonymous machine and what they are
+requesting.&nbsp; Same thing if the attacker wants to find out what files are
+on the end point machine, they act like the anonymous requester and the
+intermediary servers / proxies and make requests.&nbsp; While this issue is not
+completely solved by the above scheme, it is mitigated by the Anonymous Machine
+searching on the hash after the initial responses are received.&nbsp; Even if
+the server is acting as a man in the middle, the server would need to maintain
+a table of URIs / hashes returned.&nbsp; As the network grows this table would
+become huge.<br>
+<br>
+2) HTTPS connections.&nbsp; The HTTPS transfer would require several data
+requests that would require the end point to serve up multiple pages to the
+anonymous requester.&nbsp; The Man In The Middle attack would be mitigated by
+the fact that the anonymous requester would be able to verify the SSL
+certificate of the site that they are visiting.<br>
+<br>
+3) Abuse of the anonymous system by someone who is stalking, etc.&nbsp; The IP
+address of the proxier is the address that shows up on the logs and stalking /
+spamming / etc. would be blamed on whoever owns the IP Proxier address.<br>
+<br>
+4) Not being able to make HTTP requests that divulge the end stations IP
+address. (Example <a href="http://www.whatismyip.com/">http://www.whatismyip.com/</a>
+)<br>
+<br>
+5) Spammers - Assuming that the this system is programmed in open source, you
+will (at some time) have some smart spammer figure out a way to redirect HTTP
+requests to them and they will serve out their own spamvertized pages.&nbsp;
+Same with data files, nodes could put out data files that have nothing to do
+with the request made.&nbsp; A local file should be kept where the user can
+ignore all responses from a specific connection or ignore a specific
+hash.&nbsp; The file would be only locally significant because if it became
+global then nefarious people could &quot;poison&quot; sites that are serving
+out good information and say that these are &quot;bad&quot; sites.<br>
+<br>
+6) There has always been an issue of false data flooded into the network.&nbsp;
+This will still be an issue and the user will have to make several requests to
+get the correct data (this is in conjunction with item 6 above).<br>
+<br>
+7) The most important feature of this network is education, making sure that
+users don't do things to hurt themselves.&nbsp; Because we are security
+experts, the users of the software need to be completely aware of the dangers
+and risk they are taking by using the software.&nbsp; It is OUR responsibility
+to educate them enough that they know the risks that they are taking, what is
+the smallest risk and what risks are greater.&nbsp; If the Internet connection
+of the person that is using this system is monitored, long enough analysis of
+the connections and data will inevitably lead to the conclusion that they are
+using some kind of software to evade detection. &nbsp; The user should be
+warned (over and over again) against using this kind of software on a machine
+that will / could be monitored for any length of time. &nbsp; If they can jump
+from machine to machine they should.&nbsp; Part of the responsibility of
+programming the system is also education the user as to all the risks that they
+may be taking by using the software (see software distribution section).&nbsp;
+We need to warn the users of such things as Stylometry <a
+href="http://en.wikipedia.org/wiki/Stylometry">http://en.wikipedia.org/wiki/Stylometry</a>
+, that if they are posting messages they need someone to change their style.<br>
+<br>
+8) A government entity can (essentially) &quot;NAT&quot; all the known server
+or end point connections and try to look like those servers or end points and
+learn who is going where by directing all connections to yourself.<br>
+<br>
+9) Stanislav S. mentions that the software should not have a
+&quot;pattern&quot; of communicating that can be profiled, i.e. when people web
+surf they take some time between clicks, the software should emulate this
+rather than immediately fetching the next page.<br>
+<br>
+i) Newman, Ron and Copeland, Frank &quot;The Church of Scientology vs. Grady
+Ward&quot; (Specifically &quot;Scientology targets ISPs and anonymous
+remailers&quot;).&nbsp; URL: <a
+href="http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html">http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html</a>
+Wednesday, July 24, 1996 (Accessed July 4, 2005)<br>
+<br>
+ii) IANA Registry of URI Schemes &quot;Uniform Resource Identifier (URI)
+SCHEMES&quot;.&nbsp; URL: <a href="http://www.iana.org/assignments/uri-schemes">http://www.iana.org/assignments/uri-schemes</a>
+03 June 2005 (Accessed July 4, 2005)<br>
+<br>
+iii) The Freenet Project &quot;The Freenet Project - index - beginner&quot;.&nbsp;
+URL: <a href="http://freenetproject.org/">http://freenetproject.org,</a> 04
+July 2005<br>
+<br>
+iv) Simova, Martina Pollett, Chris and Stamp, Mark &quot;STEALTHY
+CIPHERTEXT&quot;.&nbsp; URL: <a
+href="http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf">http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf</a>,
+,March,2005 (Accessed July 23, 2005)<br>
+<br>
+v) Nick Feamster, Roger Dingledine &quot;Location Diversity in Anonymity
+Networks&quot;.&nbsp; URL: <a
+href="http://www.freehaven.net/doc/routing-zones/routing-zones.ps">http://www.freehaven.net/doc/routing-zones/routing-zones.ps</a>
+,&nbsp; 2004 (Accessed July 23, 2005)<br>
+<br>
+vi) Mystic &quot;Mimicry&quot;. &nbsp;URLs: <a
+href="http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic">http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic</a>
+<a href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt</a>
+&nbsp; (Accessed July 23, 2005).<br>
+<br>
+vii) Mystic &quot;Mimicry&quot; software. URL: <a
+href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/</a>
+&nbsp;(Accessed July 23, 2005)<br>
+<br>
+viii) John R. Douceur &quot;The Sybil Attack&quot;.&nbsp; URL: <a
+href="http://www.cs.rice.edu/Conferences/IPTPS02/101.pdf">http://www.cs.rice.edu/Conferences/IPTPS02/101.pdf</a>
+(Accessed July 30, 2005)<br>
+<br>
+ix) Jianning Yang &quot;APTPFS: Anonymous Peer-to-Peer File
+Sharing&quot;.&nbsp; URL: <a
+href="http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc">http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc</a>
+April, 2005<br>
+<br>
+x) Nick Mathewson, 5th hope conference 2004 &quot;How To Break Anonymity
+Networks&quot;. URL: <a
+href="http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml#panel029">http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml#panel029</a>
+July 10, 2004 (Accessed July 31, 2005)<br>
+<br>
+xi) D. Chaum. Untraceable electronic mail, return addresses, and digital
+pseudo-nyms. Communications of the ACM, 4(2), February 1981.<br>
+<br>
+xii) Tor: An anonymous Internet communication system. URL: <a
+href="http://tor.eff.org/">http://tor.eff.org/</a> (Accessed August 1, 2005)<br>
+<br>
+xiii) Certicom.Com &quot;ECC Cryptography Tutorial - 1.0 Introduction&quot;.
+URL: <a href="http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0">http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0</a>
+2005 (Accessed August 20,2005)<br>
+<br>
+xiv) Levent Ertaul, Weimin Lu &quot;ECC Based Threshold Cryptography for Secure
+Data<span style="mso-spacerun: yes">&nbsp; </span>Forwarding and Secure Key
+Exchange in MANET (I)&quot;.<span style="mso-spacerun: yes">&nbsp; </span>URL: <a
+href="http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf">http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf</a>
+2005 (Accessed August 20,2005)<br>
+<br>
+I would appreciate any and all comments on the above Anonymous Anonymity
+network.&nbsp; Specifically any solutions to the presented problems or if
+someone has already covered this ground I would appreciate pointers to their
+work.<br>
+<br>
+Thank you for your comments.<br>
+<br>
+Ken Hollis<br>
+<br>
+---------------------------------------------------------------<br>
+Do not meddle in the affairs of wizards for they are subtle and<br>
+quick to anger.<br>
+Ken Hollis - Gandalf The White - O- TINLC<br>
+WWW Page - <a href="https://gandalfddi.z19.web.core.windows.net/"> https://gandalfddi.z19.web.core.windows.net/</a><br>
+
+<p align=center style='text-align:center'><a href="index.html">Home</a></p>
+
+</body>
+
+</html>

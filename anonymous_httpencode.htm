@@ -1,0 +1,97 @@
+﻿<html>
+
+<head>
+<meta name=Title content="Anonymous HTTPEncode - Request For Comments">
+<title>Anonymous HTTPEncode - Request For Comments</title>
+</head>
+
+<body>
+
+<p align=center style='text-align:center'>HTTPEncode - Request For Comments</p>
+
+<p>&nbsp;</p>
+
+<p><br>
+Last Revised August 1, 2005<br>
+<br>
+An example of protocol encoding is HTTPEncode encoding (v, iv).&nbsp;
+HTTPEncode uses the same idea as UUEncode with a slight difference.&nbsp;
+Whereas UUEncode takes binary data and encodes it into &quot;plain text&quot;,
+HTTPEncode takes that binary data one step further.&nbsp; The binary data is
+not only encoded but the HTTPEncode will create HTTP wrappers that add HTTP
+tags to the beginning and end of the data, and throw in random HTML tags inside
+the data.&nbsp; The encoding will &quot;normal&quot; HTML pages that cannot be
+distinguished when analyzed by Hidden Markov Model (HMM) or Shamir’s test for
+entropy (i) .&nbsp; This is to avoid transport layer --&gt; application layer
+firewalls that look for tunneling over port 80.<br>
+<br>
+For the highest-level security of HTTPEncode encoding, the data would be sorted
+for the &quot;highest&quot; recurring numbers. &nbsp; Random words would be
+chosen by the destination machine in their native language and sent to the end
+point machine along with the security setting. &nbsp; Random pages would be
+fetched via Google by the end point machine using the random words.&nbsp; As
+per the above referenced paper (i) word substitution and JPEG steganography
+would occur via a dictionary that is contained within the software, the higher
+the security setting the lower amount of data that would occur per block of
+data (to try to avoid steganography detection).&nbsp; A random number would be
+chosen, the dictionary of nouns, verbs, adverbs, etc would be randomized using
+the number chosen, with some words at the end of the dictionary becoming the
+&quot;escape&quot; and &quot;escape plus&quot; words.&nbsp; The destination
+machine would make the http request with a &lt;random word(s)&gt;.html.&nbsp;
+The random function would, of course, be a pseudo random number generator with
+the seed sent as the first part of the &quot;conversation&quot;.&nbsp; Word
+substitution would ensue substituting the correct word for the dictionary words
+of that value.&nbsp; Certain words would be &quot;escape&quot; and &quot;escape
+plus&quot; words, i.e. that word or that word and the next word should be
+ignored.&nbsp; This would allow &quot;correct&quot; grammar that should escape
+casual observation of the encoded data.&nbsp; When images are present in the
+page that was fetched via Google, stenography can be used on the image to
+increase the data sent.&nbsp; The page would be sent back as &lt;word&gt;.html
+(per the request of the destination machine).&nbsp; Additionally other elements
+of http (ActiveX, JAVA scripts, cookies, etc.) could be used to hide data
+transmissions.<br>
+<br>
+This same idea was discussed in a talk by Mystic at Defcon XI (iii), however
+his software randomly generates text rather than using a input source.&nbsp;
+The idea was originally written in 1996 in a book named &quot;Disappearing
+Cryptography&quot; by Peter Wayner.&nbsp; Mystic wrote a tool ircMimic (iv) to
+perform this function.<br>
+<br>
+When using FTPEncode for port 20, the data port, UUEncoding will suffice.&nbsp;
+When using port 21, again the data will need to be messaged to look like FTP
+commands.&nbsp; Port 443 is encoded already so the data conversion should be
+minimal.<br>
+<br>
+i) Simova, Martina Pollett, Chris and Stamp, Mark &quot;STEALTHY
+CIPHERTEXT&quot;.&nbsp; URL: <a
+href="http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf">http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf</a>,
+March 2005 (Accessed July 23, 2005)<br>
+<br>
+ii) Krista Bennett &quot;LINGUISTIC STEGANOGRAPHY: SURVEY, ANALYSIS, AND
+ROBUSTNESS&nbsp; CONCERNS FOR HIDING INFORMATION IN TEXT&quot;.&nbsp; URL : <a
+href="https://www.cerias.purdue.edu/tools_and_resources/bibtex_archive/archive/2004-13.pdf">https://www.cerias.purdue.edu/tools_and_resources/bibtex_archive/archive/2004-13.pdf</a>
+&nbsp;(Accessed July 23, 2005)<br>
+<br>
+iii) Mystic &quot;Mimicry&quot;. &nbsp;URLs: <a
+href="http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic">http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic</a>
+<a href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt</a>
+&nbsp;(Accessed July 23, 2005).<br>
+<br>
+iv) Mystic &quot;Mimicry&quot; software. URL: <a
+href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/</a>
+&nbsp;(Accessed July 23, 2005)<br>
+<br>
+v) Matthias Bauer &quot;New Covert Channels in HTTP&quot;.&nbsp; URL: <a
+href="http://www.freehaven.net/anonbib/cache/bauer:wpes2003.ps">http://www.freehaven.net/anonbib/cache/bauer:wpes2003.ps</a>
+October 30, 2003, (Accessed July 30, 2005)<br>
+<br>
+vi) H. Balakrishnan, D. Karger, N. Feamster, M. Balazinska, W. Wang, G. Harfst
+&quot;Infranet&quot;.&nbsp; URL: <a
+href="http://nms.csail.mit.edu/projects/infranet/">http://nms.csail.mit.edu/projects/infranet/</a>
+(accessed July 30, 2005)</p>
+
+<p align=center style='text-align:center'><a href="anonymous_anonymity.htm">Back</a></p>
+
+</body>
+
+</html>

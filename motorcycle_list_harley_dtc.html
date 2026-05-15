@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>2005 Harley Road King FLHRI - Diagnostic Trouble Code (DTC) Reference</TITLE>
+<META NAME="description" CONTENT="Complete Diagnostic Trouble Code (DTC) reference for the 2005 Harley-Davidson Road King FLHRI - all P-codes, B-codes, U-codes for ECM, TSM, Speedometer and Tachometer modules.">
+<META NAME="keywords" CONTENT="Harley Davidson, Road King, FLHRI, 2005, DTC, diagnostic trouble codes, B1121, B1122, TSM, ECM, speedometer, 67033-04A, 68920-01C">
+<STYLE TYPE="text/css">
+TABLE.dtc { border-collapse: collapse; margin: 8px 0; }
+TABLE.dtc TD, TABLE.dtc TH { border: 1px solid #888; padding: 3px 10px; text-align: left; vertical-align: top; }
+TABLE.dtc TH { background: #ddd; }
+TABLE.dtc TR.alt TD { background: #f4f4f4; }
+DIV.note { background: #fff8dc; border-left: 3px solid #c90; padding: 8px 12px; margin: 12px 0; }
+</STYLE>
+</HEAD>
+<BODY>
+
+<H1>2005 Harley Road King FLHRI - Diagnostic Trouble Code (DTC) Reference</H1>
+
+Delphi EFI, serial bus, plain TSM (no security, no ABS).<BR>
+Module part numbers on this bike: TSM <B>68920-01C</B>, Speedometer <B>67033-04A</B>.<BR>
+<BR>
+This is a complete table compiled because every other table I could find is the abbreviated one. If you have additions or corrections send me e-mail (see bottom of page).<BR>
+
+<H4>1. How to Access the Codes</H4>
+
+<OL>
+<LI>Ignition switch <B>OFF</B>, Run/Stop switch to <B>RUN</B>.</LI>
+<LI>Press and <B>hold</B> the odometer reset button.</LI>
+<LI>Turn ignition switch to <B>IGN</B>, then release reset button. Background lighting illuminates, needle sweeps full range, indicator lamps (battery, security, low fuel, check engine, cruise) illuminate. The word <B>"diag"</B> appears.</LI>
+<LI>Press reset button once - selection menu <B>"PSSPt"</B> appears with the first P flashing.</LI>
+<LI>Each letter is one diagnostic area. Press reset to advance: P -&gt; S -&gt; SP -&gt; t -&gt; P ...
+	<UL>
+	<LI><B>P</B> = ECM (Electronic Control Module)</LI>
+	<LI><B>S</B> = TSM (Turn Signal Module)</LI>
+	<LI><B>SP</B> = Speedometer / Instruments</LI>
+	<LI><B>t</B> = Tachometer</LI>
+	</UL></LI>
+<LI>To read DTCs in the current area, press and <B>hold</B> reset for 5 seconds, release. Code displays, or <B>"none"</B> if clear. Press reset again for additional codes.</LI>
+<LI>Record the codes. <B>NOTE: a "6" in the first digit is actually a "b"</B> - 7-segment display limitation.</LI>
+<LI>If not clearing, press and release reset to advance. Module part number displays, then advances to the next module.</LI>
+<LI>To clear, press and hold reset &gt; 5 sec until <B>"clear"</B> displays. Release.</LI>
+<LI>Ignition <B>OFF</B> to exit.</LI>
+</OL>
+
+<DIV class="note"><B>Current vs. historic:</B> Without Digital Technician, the only way to differentiate is clear -&gt; run a heat cycle -&gt; re-read. If a code reappears it is current. If not it was historic.</DIV>
+
+After cycling through all four modules, the speedo displays <B>PPU</B> (Pulses Per Unit) calibration value. Not a DTC, just the speedo's calibration constant. Worth recording for reference.<BR>
+<BR>
+<B>"No Rsp"</B> appears if a module is absent (e.g. tachometer on a bike without one) or if the Run/Stop switch is OFF during the procedure.<BR>
+
+<H4>2. P-codes - ECM (P module)</H4>
+
+Listed in factory priority order, highest priority first.<BR>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="90">Code</TH><TH>Fault Condition</TH></TR>
+<TR><TD>P0605</TD><TD>ECM FLASH Memory Error</TD></TR>
+<TR class="alt"><TD>P0603</TD><TD>ECM EEPROM Memory Error</TD></TR>
+<TR><TD>U1300</TD><TD>ECM Serial Data Low</TD></TR>
+<TR class="alt"><TD>U1301</TD><TD>ECM Serial Data High</TD></TR>
+<TR><TD>U1097</TD><TD>Loss of Speedometer Serial Data to ECM</TD></TR>
+<TR class="alt"><TD>U1064</TD><TD>Loss of TSM/HFSM Serial Data to ECM</TD></TR>
+<TR><TD>P1003</TD><TD>System Relay Contacts Open</TD></TR>
+<TR class="alt"><TD>P1002</TD><TD>System Relay Coil High/Shorted</TD></TR>
+<TR><TD>P1001</TD><TD>System Relay Coil Open/Low</TD></TR>
+<TR class="alt"><TD>P1004</TD><TD>System Relay Contacts Closed</TD></TR>
+<TR><TD>P1009</TD><TD>VTD Disabled Fuel - Incorrect Password</TD></TR>
+<TR class="alt"><TD>P1010</TD><TD>Missing Password</TD></TR>
+<TR><TD>P0641</TD><TD>5V Reference 1 Out of Range</TD></TR>
+<TR class="alt"><TD>P0651</TD><TD>5V Reference 2 Out of Range</TD></TR>
+<TR><TD>P0373</TD><TD>CKP Sensor Intermittent</TD></TR>
+<TR class="alt"><TD>P0374</TD><TD>CKP Sensor Sync Error / No Pulses</TD></TR>
+<TR><TD>P0107</TD><TD>MAP Sensor Open/Low</TD></TR>
+<TR class="alt"><TD>P0108</TD><TD>MAP Sensor High</TD></TR>
+<TR><TD>P1600</TD><TD>EFI Module Processor Internal Error</TD></TR>
+<TR class="alt"><TD>P0122</TD><TD>TPS1 Low/Open</TD></TR>
+<TR><TD>P0123</TD><TD>TPS1 High</TD></TR>
+<TR class="alt"><TD>P1501</TD><TD>Jiffy Stand Sensor Low</TD></TR>
+<TR><TD>P1502</TD><TD>Jiffy Stand Sensor High</TD></TR>
+<TR class="alt"><TD>P0572</TD><TD>Brake Switch Low</TD></TR>
+<TR><TD>P0117</TD><TD>ET Sensor Low</TD></TR>
+<TR class="alt"><TD>P0118</TD><TD>ET Sensor High/Open</TD></TR>
+<TR><TD>P0112</TD><TD>IAT Voltage Low</TD></TR>
+<TR class="alt"><TD>P0113</TD><TD>IAT Voltage Open/High</TD></TR>
+<TR><TD>P1351</TD><TD>Front Ignition Coil Driver Open/Low</TD></TR>
+<TR class="alt"><TD>P1354</TD><TD>Rear Ignition Coil Driver Open/Low</TD></TR>
+<TR><TD>P1352</TD><TD>Front Ignition Coil Driver High/Shorted</TD></TR>
+<TR class="alt"><TD>P1355</TD><TD>Rear Ignition Coil Driver High/Shorted</TD></TR>
+<TR><TD>P1357</TD><TD>Front Cylinder Combustion Intermittent</TD></TR>
+<TR class="alt"><TD>P1358</TD><TD>Rear Cylinder Combustion Intermittent</TD></TR>
+<TR><TD>P0261</TD><TD>Front Injector Open/Low</TD></TR>
+<TR class="alt"><TD>P0263</TD><TD>Rear Injector Open/Low</TD></TR>
+<TR><TD>P0262</TD><TD>Front Injector High/Shorted</TD></TR>
+<TR class="alt"><TD>P0264</TD><TD>Rear Injector High/Shorted</TD></TR>
+<TR><TD>P0562</TD><TD>Battery Voltage Low</TD></TR>
+<TR class="alt"><TD>P0563</TD><TD>Battery / ECM Voltage High</TD></TR>
+<TR><TD>P0501</TD><TD>VSS Sensor Low</TD></TR>
+<TR class="alt"><TD>P0502</TD><TD>VSS Sensor High/Open</TD></TR>
+<TR><TD>P1356</TD><TD>Rear Cylinder No Combustion</TD></TR>
+<TR class="alt"><TD>P1353</TD><TD>Front Cylinder No Combustion</TD></TR>
+<TR><TD>P0444</TD><TD>Purge Solenoid Open/Low</TD></TR>
+<TR class="alt"><TD>P0445</TD><TD>Purge Solenoid High</TD></TR>
+<TR><TD>P1475</TD><TD>Exhaust Actuation Position Error</TD></TR>
+<TR class="alt"><TD>P1477</TD><TD>Exhaust Actuator Open/Low</TD></TR>
+<TR><TD>P1478</TD><TD>Exhaust Actuator Shorted/High</TD></TR>
+<TR class="alt"><TD>P0131</TD><TD>Front Oxygen Sensor Low / Shorted to Ground</TD></TR>
+<TR><TD>P0151</TD><TD>Rear Oxygen Sensor Low / Shorted to Ground</TD></TR>
+<TR class="alt"><TD>P0132</TD><TD>Front Oxygen Sensor High</TD></TR>
+<TR><TD>P0152</TD><TD>Rear Oxygen Sensor High</TD></TR>
+<TR class="alt"><TD>P0134</TD><TD>Front Oxygen Sensor Inactive / Open</TD></TR>
+<TR><TD>P0154</TD><TD>Rear Oxygen Sensor Inactive / Open</TD></TR>
+<TR class="alt"><TD>P1510</TD><TD>EFI Limited Performance Mode</TD></TR>
+<TR><TD>P1511</TD><TD>EFI Power Management Mode</TD></TR>
+<TR class="alt"><TD>P1512</TD><TD>EFI Forced Idle Mode</TD></TR>
+<TR><TD>P1514</TD><TD>Air Flow Fault</TD></TR>
+<TR class="alt"><TD>P0577</TD><TD>Cruise Control Input High</TD></TR>
+</TABLE>
+
+<H4>3. B-codes - TSM (S module)</H4>
+
+This bike has plain TSM (68920-01C), not TSSM/HFSM. Security/accelerometer/antenna codes (B1135-B1136, B1142-B1145) do not apply.<BR>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="90">Code</TH><TH>Fault Condition</TH></TR>
+<TR><TD>U1300</TD><TD>Serial Data Low</TD></TR>
+<TR class="alt"><TD>U1301</TD><TD>Serial Data High</TD></TR>
+<TR><TD>U1016</TD><TD>Loss of ECM Serial Data</TD></TR>
+<TR class="alt"><TD>U1255</TD><TD>Serial Data Error / Missing response from other module</TD></TR>
+<TR><TD>BUS Er</TD><TD>Serial bus shorted low/open/high (literal display, not a U-code)</TD></TR>
+<TR class="alt"><TD>B0563</TD><TD>Battery Voltage High</TD></TR>
+<TR><TD><B>B1121</B></TD><TD><B>Left Turn Output Fault</B> - open / under-current. LED bulbs commonly trip this.</TD></TR>
+<TR class="alt"><TD><B>B1122</B></TD><TD><B>Right Turn Output Fault</B> - open / under-current. LED bulbs commonly trip this.</TD></TR>
+<TR><TD>B1131</TD><TD>Alarm Output Low (if siren wired)</TD></TR>
+<TR class="alt"><TD>B1132</TD><TD>Alarm Output High</TD></TR>
+<TR><TD>B1134</TD><TD>Starter Output High</TD></TR>
+<TR class="alt"><TD>B1141</TD><TD>Ignition Switch Low/Open</TD></TR>
+<TR><TD>B1151</TD><TD>Tachometer Output Open</TD></TR>
+<TR class="alt"><TD>B1152</TD><TD>Tachometer Output Short to Battery</TD></TR>
+<TR><TD>B1153</TD><TD>Tachometer Output Short to Ground</TD></TR>
+<TR class="alt"><TD>B1155</TD><TD>Speedometer Output Open</TD></TR>
+<TR><TD>B1156</TD><TD>Speedometer Output Short to Battery</TD></TR>
+<TR class="alt"><TD>B1157</TD><TD>Speedometer Output Short to Ground</TD></TR>
+</TABLE>
+
+<DIV class="note"><B>Code overlap note:</B> B1151-B1153 codes also exist in HFSM/TSSM modules with different meanings (Bank Angle Sensor faults). On a plain TSM these are tach output faults. Module identity disambiguates.</DIV>
+
+<H4>4. B-codes - Instruments (SP module)</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="90">Code</TH><TH>Fault Condition</TH></TR>
+<TR><TD>B1004</TD><TD>Fuel Level Sending Unit Low</TD></TR>
+<TR class="alt"><TD>B1005</TD><TD>Fuel Level Sending Unit High/Open</TD></TR>
+<TR><TD>B1006</TD><TD>Accessory Line Overvoltage</TD></TR>
+<TR class="alt"><TD>B1007</TD><TD>Ignition Line Overvoltage</TD></TR>
+<TR><TD>B1008</TD><TD>Reset Switch Closed (stuck odo button)</TD></TR>
+</TABLE>
+
+<H4>5. Bike-Specific Notes - 2005 FLHRI</H4>
+
+<UL>
+<LI><B>No ABS</B> - Touring did not get ABS until 2008. Menu is <CODE>PSSPt</CODE>, not <CODE>PSSPtb</CODE>. C-codes do not apply.</LI>
+<LI><B>Plain TSM, no security</B> - module 68920-01C. Password codes (P1009/P1010) only relevant if a security module had been installed.</LI>
+<LI><B>LED turn signals trigger B1121/B1122</B> - the TSM current-sense was designed for ~21W incandescent bulbs. ~2W LEDs read as "open circuit" to the module. Fix permanently with load equalizers/resistors if it becomes recurring. A one-off after years of operation is just noise.</LI>
+<LI><B>Mechanical "cruise control"</B> - throttle friction screw. P0577 (Cruise Input High) should never appear.</LI>
+</UL>
+
+<H4>6. Glossary</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TD width="90"><B>BAS</B></TD><TD>Bank Angle Sensor</TD></TR>
+<TR class="alt"><TD><B>CKP</B></TD><TD>Crank Position Sensor</TD></TR>
+<TR><TD><B>DTC</B></TD><TD>Diagnostic Trouble Code</TD></TR>
+<TR class="alt"><TD><B>ECM</B></TD><TD>Electronic Control Module (EFI)</TD></TR>
+<TR><TD><B>ET</B></TD><TD>Engine Temperature sensor</TD></TR>
+<TR class="alt"><TD><B>HFSM</B></TD><TD>Hands Free Security Module</TD></TR>
+<TR><TD><B>HO2S</B></TD><TD>Heated Oxygen Sensor</TD></TR>
+<TR class="alt"><TD><B>IAT</B></TD><TD>Intake Air Temperature sensor</TD></TR>
+<TR><TD><B>JSS</B></TD><TD>Jiffy Stand Sensor</TD></TR>
+<TR class="alt"><TD><B>MAP</B></TD><TD>Manifold Absolute Pressure Sensor</TD></TR>
+<TR><TD><B>PPU</B></TD><TD>Pulses Per Unit (speedo calibration)</TD></TR>
+<TR class="alt"><TD><B>TGS</B></TD><TD>Twist Grip Sensor</TD></TR>
+<TR><TD><B>TPS</B></TD><TD>Throttle Position Sensor</TD></TR>
+<TR class="alt"><TD><B>TSM / TSSM</B></TD><TD>Turn Signal Module / Turn Signal Security Module</TD></TR>
+<TR><TD><B>VSS</B></TD><TD>Vehicle Speed Sensor</TD></TR>
+<TR class="alt"><TD><B>VTD</B></TD><TD>Vehicle Theft Deterrent</TD></TR>
+</TABLE>
+
+<BR><BR>
+<p align=center><a href="motorcycle.html">Back To The Motorcycle Page</a></p>
+<BR>
+</BODY>
+</HTML>

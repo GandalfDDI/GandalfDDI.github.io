@@ -1,0 +1,260 @@
+<html>
+<head>
+<meta name='viewport' content='initial-scale=1.0, user-scalable=no' /><style type='text/css'>
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100%}
+</style>
+<script type='text/javascript' src='http://dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0'></script>
+<script type='text/javascript'>
+function mcpherGetCredentials() { return 'AmVoAsOUH9QHTL4-Zc7qF7MjU8tm7zR9rDdXsA5QRsgudEwRJmz_a_NkGMmTUn3I';}
+function mcpherDataPopulate() { 
+var mcpherData ={'cJobject':[
+{'title':'1600','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1873.88 Feet\<br\>','lat':'47.182922','lng':'-120.901869'},
+{'title':'1601','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1880.18 Feet\<br\>','lat':'47.185881','lng':'-120.909996'},
+{'title':'1602','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1888.09 Feet\<br\>','lat':'47.189190','lng':'-120.925854'},
+{'title':'1603','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1899.11 Feet\<br\>','lat':'47.191875','lng':'-120.939362'},
+{'title':'1604','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1966.93 Feet\<br\>','lat':'47.193555','lng':'-120.954516'},
+{'title':'1605','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2000.03 Feet\<br\>','lat':'47.194986','lng':'-120.959746'},
+{'title':'1606','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2018.96 Feet\<br\>','lat':'47.194441','lng':'-120.964512'},
+{'title':'1607','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2044.19 Feet\<br\>','lat':'47.191658','lng':'-120.973365'},
+{'title':'1608','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2072.57 Feet\<br\>','lat':'47.188776','lng':'-120.982534'},
+{'title':'1609','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2100.98 Feet\<br\>','lat':'47.186443','lng':'-120.990327'},
+{'title':'1610','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2039.47 Feet\<br\>','lat':'47.184978','lng':'-120.997902'},
+{'title':'1611','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1985.86 Feet\<br\>','lat':'47.183989','lng':'-121.011954'},
+{'title':'1612','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1977.95 Feet\<br\>','lat':'47.182915','lng':'-121.028081'},
+{'title':'1613','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2001.61 Feet\<br\>','lat':'47.182447','lng':'-121.038840'},
+{'title':'1614','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2018.96 Feet\<br\>','lat':'47.182954','lng':'-121.040449'},
+{'title':'1615','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2026.84 Feet\<br\>','lat':'47.183251','lng':'-121.040990'},
+{'title':'1616','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2030.02 Feet\<br\>','lat':'47.183596','lng':'-121.041480'},
+{'title':'1617','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2033.17 Feet\<br\>','lat':'47.183997','lng':'-121.041904'},
+{'title':'1618','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2037.89 Feet\<br\>','lat':'47.190082','lng':'-121.046124'},
+{'title':'1619','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2026.84 Feet\<br\>','lat':'47.194131','lng':'-121.049913'},
+{'title':'1620','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2014.24 Feet\<br\>','lat':'47.195996','lng':'-121.055696'},
+{'title':'1621','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2033.17 Feet\<br\>','lat':'47.199878','lng':'-121.067480'},
+{'title':'1622','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2056.82 Feet\<br\>','lat':'47.205956','lng':'-121.085003'},
+{'title':'1623','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2078.90 Feet\<br\>','lat':'47.212124','lng':'-121.102765'},
+{'title':'1624','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2067.85 Feet\<br\>','lat':'47.214604','lng':'-121.113453'},
+{'title':'1625','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2069.42 Feet\<br\>','lat':'47.217094','lng':'-121.127302'},
+{'title':'1626','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2071.00 Feet\<br\>','lat':'47.218156','lng':'-121.134494'},
+{'title':'1627','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2086.78 Feet\<br\>','lat':'47.219867','lng':'-121.145833'},
+{'title':'1628','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2094.65 Feet\<br\>','lat':'47.221759','lng':'-121.150930'},
+{'title':'1629','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2108.86 Feet\<br\>','lat':'47.226708','lng':'-121.160046'},
+{'title':'1630','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2108.86 Feet\<br\>','lat':'47.230780','lng':'-121.166680'},
+{'title':'1631','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2112.01 Feet\<br\>','lat':'47.238097','lng':'-121.175335'},
+{'title':'1632','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2167.19 Feet\<br\>','lat':'47.244762','lng':'-121.183187'},
+{'title':'1633','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2171.95 Feet\<br\>','lat':'47.252318','lng':'-121.192099'},
+{'title':'1634','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2198.75 Feet\<br\>','lat':'47.256503','lng':'-121.198199'},
+{'title':'1635','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2186.12 Feet\<br\>','lat':'47.257422','lng':'-121.206445'},
+{'title':'1636','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2220.83 Feet\<br\>','lat':'47.259052','lng':'-121.209721'},
+{'title':'1637','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2283.89 Feet\<br\>','lat':'47.262546','lng':'-121.213269'},
+{'title':'1638','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2324.90 Feet\<br\>','lat':'47.264343','lng':'-121.217943'},
+{'title':'1639','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2387.99 Feet\<br\>','lat':'47.266751','lng':'-121.224952'},
+{'title':'1640','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2466.83 Feet\<br\>','lat':'47.269831','lng':'-121.231906'},
+{'title':'1641','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2493.64 Feet\<br\>','lat':'47.270007','lng':'-121.235181'},
+{'title':'1642','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2498.36 Feet\<br\>','lat':'47.269854','lng':'-121.235980'},
+{'title':'1643','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2501.51 Feet\<br\>','lat':'47.269633','lng':'-121.236733'},
+{'title':'1644','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2537.80 Feet\<br\>','lat':'47.268546','lng':'-121.240947'},
+{'title':'1645','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2570.90 Feet\<br\>','lat':'47.268706','lng':'-121.248274'},
+{'title':'1646','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2607.19 Feet\<br\>','lat':'47.267565','lng':'-121.253347'},
+{'title':'1647','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2597.70 Feet\<br\>','lat':'47.267573','lng':'-121.254002'},
+{'title':'1648','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2594.55 Feet\<br\>','lat':'47.267654','lng':'-121.254650'},
+{'title':'1649','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2591.40 Feet\<br\>','lat':'47.267775','lng':'-121.255299'},
+{'title':'1650','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2525.16 Feet\<br\>','lat':'47.269611','lng':'-121.262892'},
+{'title':'1651','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2496.78 Feet\<br\>','lat':'47.271653','lng':'-121.270716'},
+{'title':'1652','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2503.08 Feet\<br\>','lat':'47.273516','lng':'-121.273210'},
+{'title':'1653','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2495.21 Feet\<br\>','lat':'47.277661','lng':'-121.278562'},
+{'title':'1654','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2458.96 Feet\<br\>','lat':'47.280867','lng':'-121.280859'},
+{'title':'1655','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2446.33 Feet\<br\>','lat':'47.285578','lng':'-121.282035'},
+{'title':'1656','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2457.35 Feet\<br\>','lat':'47.290088','lng':'-121.283103'},
+{'title':'1657','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2476.28 Feet\<br\>','lat':'47.295644','lng':'-121.286236'},
+{'title':'1658','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2452.62 Feet\<br\>','lat':'47.299199','lng':'-121.290735'},
+{'title':'1659','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2414.80 Feet\<br\>','lat':'47.301137','lng':'-121.296923'},
+{'title':'1660','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2391.14 Feet\<br\>','lat':'47.302067','lng':'-121.300908'},
+{'title':'1661','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2362.73 Feet\<br\>','lat':'47.305105','lng':'-121.305712'},
+{'title':'1662','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2373.79 Feet\<br\>','lat':'47.310048','lng':'-121.312423'},
+{'title':'1663','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2408.46 Feet\<br\>','lat':'47.314244','lng':'-121.315131'},
+{'title':'1664','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2447.90 Feet\<br\>','lat':'47.317986','lng':'-121.319465'},
+{'title':'1665','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2501.51 Feet\<br\>','lat':'47.323311','lng':'-121.325630'},
+{'title':'1666','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2507.84 Feet\<br\>','lat':'47.326761','lng':'-121.331081'},
+{'title':'1667','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2523.59 Feet\<br\>','lat':'47.329572','lng':'-121.340456'},
+{'title':'1668','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2528.31 Feet\<br\>','lat':'47.332041','lng':'-121.344637'},
+{'title':'1669','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2525.16 Feet\<br\>','lat':'47.335922','lng':'-121.347366'},
+{'title':'1670','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2515.72 Feet\<br\>','lat':'47.339927','lng':'-121.351944'},
+{'title':'1671','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2510.99 Feet\<br\>','lat':'47.340663','lng':'-121.356400'},
+{'title':'1672','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2550.39 Feet\<br\>','lat':'47.341671','lng':'-121.362137'},
+{'title':'1673','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2555.15 Feet\<br\>','lat':'47.343149','lng':'-121.363712'},
+{'title':'1674','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2558.30 Feet\<br\>','lat':'47.344950','lng':'-121.364207'},
+{'title':'1675','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2534.65 Feet\<br\>','lat':'47.349607','lng':'-121.363467'},
+{'title':'1676','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2528.31 Feet\<br\>','lat':'47.355069','lng':'-121.365723'},
+{'title':'1677','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2520.44 Feet\<br\>','lat':'47.358821','lng':'-121.369203'},
+{'title':'1678','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2499.93 Feet\<br\>','lat':'47.362362','lng':'-121.372704'},
+{'title':'1679','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2498.36 Feet\<br\>','lat':'47.365437','lng':'-121.372371'},
+{'title':'1680','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2499.93 Feet\<br\>','lat':'47.369178','lng':'-121.373222'},
+{'title':'1681','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2504.66 Feet\<br\>','lat':'47.372773','lng':'-121.376155'},
+{'title':'1682','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2493.64 Feet\<br\>','lat':'47.380713','lng':'-121.377079'},
+{'title':'1683','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2492.06 Feet\<br\>','lat':'47.386943','lng':'-121.379191'},
+{'title':'1684','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2496.78 Feet\<br\>','lat':'47.390299','lng':'-121.382663'},
+{'title':'1685','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2518.86 Feet\<br\>','lat':'47.393195','lng':'-121.389345'},
+{'title':'1686','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2586.68 Feet\<br\>','lat':'47.396377','lng':'-121.397075'},
+{'title':'1687','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2637.14 Feet\<br\>','lat':'47.399699','lng':'-121.400421'},
+{'title':'1688','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2667.09 Feet\<br\>','lat':'47.401598','lng':'-121.403291'},
+{'title':'1689','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2679.72 Feet\<br\>','lat':'47.402547','lng':'-121.403911'},
+{'title':'1690','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2686.02 Feet\<br\>','lat':'47.403089','lng':'-121.404003'},
+{'title':'1691','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2692.32 Feet\<br\>','lat':'47.403623','lng':'-121.404002'},
+{'title':'1692','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2747.54 Feet\<br\>','lat':'47.407571','lng':'-121.404982'},
+{'title':'1693','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2805.87 Feet\<br\>','lat':'47.410902','lng':'-121.409663'},
+{'title':'1694','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2813.75 Feet\<br\>','lat':'47.411407','lng':'-121.409945'},
+{'title':'1695','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2870.54 Feet\<br\>','lat':'47.415929','lng':'-121.411065'},
+{'title':'1696','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2952.53 Feet\<br\>','lat':'47.421879','lng':'-121.409565'},
+{'title':'1697','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2965.16 Feet\<br\>','lat':'47.424911','lng':'-121.411258'},
+{'title':'1698','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2946.23 Feet\<br\>','lat':'47.427539','lng':'-121.416532'},
+{'title':'1699','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2878.41 Feet\<br\>','lat':'47.429476','lng':'-121.422664'},
+{'title':'1700','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2867.39 Feet\<br\>','lat':'47.429499','lng':'-121.423444'},
+{'title':'1701','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2807.45 Feet\<br\>','lat':'47.428338','lng':'-121.428470'},
+{'title':'1702','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2668.67 Feet\<br\>','lat':'47.422794','lng':'-121.438820'},
+{'title':'1703','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2596.13 Feet\<br\>','lat':'47.419324','lng':'-121.444455'},
+{'title':'1704','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2548.82 Feet\<br\>','lat':'47.415824','lng':'-121.445853'},
+{'title':'1705','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2476.28 Feet\<br\>','lat':'47.409915','lng':'-121.447199'},
+{'title':'1706','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2436.88 Feet\<br\>','lat':'47.406115','lng':'-121.446301'},
+{'title':'1707','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2402.17 Feet\<br\>','lat':'47.403562','lng':'-121.447330'},
+{'title':'1708','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2358.01 Feet\<br\>','lat':'47.401978','lng':'-121.449564'},
+{'title':'1709','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2353.28 Feet\<br\>','lat':'47.401848','lng':'-121.450368'},
+{'title':'1710','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2343.83 Feet\<br\>','lat':'47.401694','lng':'-121.451134'},
+{'title':'1711','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2277.59 Feet\<br\>','lat':'47.400413','lng':'-121.457978'},
+{'title':'1712','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 2126.21 Feet\<br\>','lat':'47.397865','lng':'-121.466902'},
+{'title':'1713','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1985.86 Feet\<br\>','lat':'47.395593','lng':'-121.474407'},
+{'title':'1714','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1906.99 Feet\<br\>','lat':'47.396072','lng':'-121.479885'},
+{'title':'1715','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1840.78 Feet\<br\>','lat':'47.397146','lng':'-121.488692'},
+{'title':'1716','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1787.14 Feet\<br\>','lat':'47.396713','lng':'-121.499308'},
+{'title':'1717','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1724.08 Feet\<br\>','lat':'47.396697','lng':'-121.512895'},
+{'title':'1718','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1676.77 Feet\<br\>','lat':'47.395543','lng':'-121.518832'},
+{'title':'1719','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1646.82 Feet\<br\>','lat':'47.395480','lng':'-121.527882'},
+{'title':'1720','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1590.03 Feet\<br\>','lat':'47.397057','lng':'-121.539269'},
+{'title':'1721','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1561.65 Feet\<br\>','lat':'47.398099','lng':'-121.548621'},
+{'title':'1722','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1545.87 Feet\<br\>','lat':'47.399216','lng':'-121.551869'},
+{'title':'1723','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1517.49 Feet\<br\>','lat':'47.403536','lng':'-121.560080'},
+{'title':'1724','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1479.66 Feet\<br\>','lat':'47.404882','lng':'-121.568418'},
+{'title':'1725','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1460.73 Feet\<br\>','lat':'47.405846','lng':'-121.571386'},
+{'title':'1726','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1456.00 Feet\<br\>','lat':'47.406343','lng':'-121.572044'},
+{'title':'1727','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1449.67 Feet\<br\>','lat':'47.408374','lng':'-121.574436'},
+{'title':'1728','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1441.80 Feet\<br\>','lat':'47.411331','lng':'-121.579898'},
+{'title':'1729','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1432.35 Feet\<br\>','lat':'47.414695','lng':'-121.584767'},
+{'title':'1730','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1422.87 Feet\<br\>','lat':'47.418816','lng':'-121.588216'},
+{'title':'1731','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1408.69 Feet\<br\>','lat':'47.422601','lng':'-121.593674'},
+{'title':'1732','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1400.79 Feet\<br\>','lat':'47.425157','lng':'-121.597969'},
+{'title':'1733','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1410.27 Feet\<br\>','lat':'47.425996','lng':'-121.604475'},
+{'title':'1734','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1405.51 Feet\<br\>','lat':'47.429114','lng':'-121.614221'},
+{'title':'1735','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1366.11 Feet\<br\>','lat':'47.428908','lng':'-121.619998'},
+{'title':'1736','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1336.15 Feet\<br\>','lat':'47.429552','lng':'-121.629811'},
+{'title':'1737','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1337.73 Feet\<br\>','lat':'47.431386','lng':'-121.636666'},
+{'title':'1738','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1325.10 Feet\<br\>','lat':'47.435935','lng':'-121.644571'},
+{'title':'1739','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1301.44 Feet\<br\>','lat':'47.441592','lng':'-121.656452'},
+{'title':'1740','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1262.01 Feet\<br\>','lat':'47.443360','lng':'-121.662753'},
+{'title':'1741','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1205.25 Feet\<br\>','lat':'47.443275','lng':'-121.671590'},
+{'title':'1742','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1140.58 Feet\<br\>','lat':'47.444165','lng':'-121.679293'},
+{'title':'1743','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1093.27 Feet\<br\>','lat':'47.443662','lng':'-121.685983'},
+{'title':'1744','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1068.04 Feet\<br\>','lat':'47.444483','lng':'-121.690842'},
+{'title':'1745','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 1022.31 Feet\<br\>','lat':'47.447431','lng':'-121.696880'},
+{'title':'1746','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 967.13 Feet\<br\>','lat':'47.450584','lng':'-121.699951'},
+{'title':'1747','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 863.06 Feet\<br\>','lat':'47.456085','lng':'-121.702092'},
+{'title':'1748','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 777.89 Feet\<br\>','lat':'47.459935','lng':'-121.703249'},
+{'title':'1749','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 711.65 Feet\<br\>','lat':'47.462865','lng':'-121.706711'},
+{'title':'1750','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 661.19 Feet\<br\>','lat':'47.464813','lng':'-121.713156'},
+{'title':'1751','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 596.56 Feet\<br\>','lat':'47.469440','lng':'-121.728136'},
+{'title':'1752','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 541.34 Feet\<br\>','lat':'47.473477','lng':'-121.741645'},
+{'title':'1753','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 483.01 Feet\<br\>','lat':'47.473678','lng':'-121.750104'},
+{'title':'1754','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 451.48 Feet\<br\>','lat':'47.473636','lng':'-121.764440'},
+{'title':'1755','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 451.48 Feet\<br\>','lat':'47.473659','lng':'-121.777450'},
+{'title':'1756','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 445.14 Feet\<br\>','lat':'47.475188','lng':'-121.782595'},
+{'title':'1757','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 423.06 Feet\<br\>','lat':'47.479731','lng':'-121.787575'},
+{'title':'1758','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 423.06 Feet\<br\>','lat':'47.485732','lng':'-121.793439'},
+{'title':'1759','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 418.34 Feet\<br\>','lat':'47.488212','lng':'-121.795300'},
+{'title':'1760','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 419.91 Feet\<br\>','lat':'47.488831','lng':'-121.795534'},
+{'title':'1761','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 421.49 Feet\<br\>','lat':'47.489456','lng':'-121.794450'},
+{'title':'1762','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 419.91 Feet\<br\>','lat':'47.490701','lng':'-121.792217'},
+{'title':'1763','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 421.49 Feet\<br\>','lat':'47.491818','lng':'-121.790504'},
+{'title':'1764','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 424.64 Feet\<br\>','lat':'47.493808','lng':'-121.788432'},
+{'title':'1765','content':'\<b\>06/14/2019\</b\>\<br\>Altitude: 423.06 Feet\<br\>','lat':'47.495223','lng':'-121.787033'},
+{'title':'','content':'','lat':'','lng':''}]
+};
+return mcpherData; };
+
+//------
+function initialize() {
+    var mcpherData = mcpherDataPopulate();
+    if (mcpherData.cJobject.length > 0) {
+     var myOptions = {
+   center: new Microsoft.Maps.Location(parseFloat(mcpherData.cJobject[0].lat), 
+    parseFloat(mcpherData.cJobject[0].lng)), 
+        mapTypeId: Microsoft.Maps.MapTypeId.auto,
+        zoom : 15,
+   credentials : mcpherGetCredentials()
+     };
+    // get parameters if any
+     var qparams = mcpherGetqparams();
+     if (qparams['zoom']) myOptions['zoom'] = parseInt(qparams['zoom']);
+  // create the map
+      var mapContainer = document.getElementById('map_canvas');
+      map = new Microsoft.Maps.Map(mapContainer,
+   {credentials: myOptions['credentials'],
+    center: myOptions['center'],
+    zoom: myOptions['zoom'],
+    mapTypeId: myOptions['mapTypeId']}
+   );
+     map.entities.clear(); 
+// add the excel data
+     for ( var i = 0 ; i < mcpherData.cJobject.length;i++) 
+                    mcpherAddMarker ( map, mcpherData.cJobject[i] );
+     }
+};
+function mq() { return String.fromCharCode(34); }
+function mcpherAddMarker(gMap, cj ) {
+var pushpin= new Microsoft.Maps.Pushpin(map.getCenter(), null); 
+  infoBoxStyle = mq() + 
+   'background-color:White; border: medium solid DarkOrange; font-family: Sans-serif; width:auto; font-size: 70%;' + mq();
+  hoverBoxStyle = mq() + 
+   'background-color:Cornsilk;  border-width:0; width:auto; font-size: 70%; font-family: Sans-serif;' + mq();
+  var gp = new Microsoft.Maps.Location(parseFloat(cj.lat), parseFloat(cj.lng));
+  var marker = new Microsoft.Maps.Pushpin(gp,{icon: 'Temp_Black_Circle.gif', width:'20px', height:'20px'}); 
+  gMap.entities.push(marker);
+  var hoverBox = new Microsoft.Maps.Infobox(gp,  { 
+  htmlContent: '<div style='+ hoverBoxStyle + '>' + cj.title + '</div>',visible:false} ); 
+  gMap.entities.push(hoverBox);
+  Microsoft.Maps.Events.addHandler(marker, 'mouseover', function() {
+    hoverBox.setOptions({visible:true}); });
+  Microsoft.Maps.Events.addHandler(marker, 'mouseout', function() {
+    hoverBox.setOptions({visible:false}); 
+                   infoBox.setOptions({visible:false}); });
+ if (cj.content){
+   var infoBox = new Microsoft.Maps.Infobox(gp, { 
+  htmlContent: '<div style='+ infoBoxStyle + '>' + cj.content + '</div>',visible:false} ); 
+   gMap.entities.push(infoBox);
+        Microsoft.Maps.Events.addHandler(marker, 'click', function() {
+    infoBox.setOptions({visible:true}); });
+        Microsoft.Maps.Events.addHandler(marker, 'mouseout', function() {
+    hoverBox.setOptions({visible:false}); 
+                   infoBox.setOptions({visible:false}); });
+      }
+ else
+    Microsoft.Maps.Events.addHandler(marker, 'mouseout', function() {
+    hoverBox.setOptions({visible:false});  });
+  return marker;
+};
+function mcpherGetqparams(){
+      var qparams = new Array();
+   var htmlquery = window.location.search.substring(1);
+   var htmlparams = htmlquery.split('&');
+   for ( var i=0; i < htmlparams.length;i++) {
+     var k = htmlparams[i].indexOf('=');
+     if (k > 0) qparams[ htmlparams[i].substring(0,k) ] = decodeURI(htmlparams [i].substring(k+1));
+ }    
+ return qparams;
+   };  
+</script>
+</head>
+<body onload='initialize()'>
+  'GPX to Bing  mapping - http://ramblings.mcpher.com/Home/excelquirks/getmaps/bingmarker'
+  <div id='map_canvas' style='width:100%; height:100%'></div>
+</body>
+</html>
