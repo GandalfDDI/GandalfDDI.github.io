@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>Motorcycle Music For The Ride</TITLE>
+<meta name="msvalidate.01" content="5EDDD546C69B870E0A70F093CCAF7A59" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</HEAD>
+<BODY bgcolor="#ffffff">
+<H1>Motorcycle Music For The Ride</H1>
+I have two 'groups' of music I listen to while riding. No, no commentary on my taste in music is needed. Yes, it is very eclectic.
+<BR>
+My <a href="https://1drv.ms/u/s!AiTrdNonUdjhgRO7ZJx_LgAwZlNZ?e=m2BtPO" target="_blank">podcasts</A>:
+<ul style="list-style-type:circle">
+	<li>The <a href="https://www.podomatic.com/podcasts/djcoolcarla" target="_blank">Chill Out Sessions</A> Podcast Mixed by DJ Cool Carla - DJ, Photographer, Chef, Singer, Songwriter and her other show <a href="https://www.friskyradio.com/show/subzero/" target="_blank">SubZero</A></li>
+	<li>The <a href="http://wearebeachhouse.com/" target="_blank">Beach House Music</A> Podcast</li>
+</ul>
+And my <a href="motorcycle_music_txt.html" target="_blank">individual songs</A> that I load on my phone.
+<BR><BR>
+Below is the software I use. I sample the music down to 128 kbps using <a href="https://ffmpeg.org/" target="_blank">ffmpeg</A>. I then fix the volume using <a href="http://mp3gain.sourceforge.net/" target="_blank">mp3gain</A>:
+<BR>
+ffmpeg command line --&gt; This samples down to 128 k Bits per second and removes and long 'silences' from the music. Downsampling to 128 kbps allows me to store more music on the phone and because of the ride that is probably as good a sound as I am going to get. Cutting out the silences help me to hear that the music is still playing and hasn't stopped:
+<p style="font-family:'Courier New';font-size:14px">ffmpeg -i &lt;input file&gt; -ab 128k -id3v2_version 3 -af silenceremove=0:0:0:-1:1:-40dB &lt;outputfile&gt;.mp3</p>
+mp3gain command line --&gt; MP3Gain keeps the music all at the same 'volume' so that I am not constantly readjusting the volume and bumps up the volume just a little so I can hear it better. Not that I don't have to readjust the volume, just not as frequently:
+<p style="font-family:'Courier New';font-size:14px">C:\PROGRA~2\MP3Gain\mp3gain.exe -c -p -r -d 6.5 &lt;outputfile&gt;.mp3</p>
+<BR>
+I have an Android phone with <a href="https://www.videolan.org/vlc/" target="_blank">VLC loaded</A> as it met several requirements:
+<ul style="list-style-type:circle">
+	<li>It works with my SENA 30k headset</li>
+	<li>Free, but if you like it a <a href="https://www.videolan.org/contribute.html#money" target="_blank">donation</A> is appreciated</li>
+	<li>Plays just about <a href="https://www.videolan.org/vlc/features.html" target="_blank">any kind of media</A> (I care about MP3's)</li>
+	<li>When I put it on 'Shuffle' I don't get the same song coming up again. I have had issues with other audio players that played the same song or a subset of songs repeatedly while on 'shuffle'</li>
+	<li>It handles my 2,600+ playlist without crashing (I do refresh the database every time I reload the songs)</li>
+	<li>It just WORKS</li>
+</ul>
+<BR>
+<p align=center><a href="motorcycle.html">Motorcycle Home</a></p>
+<BR>
+Any questions or comments send me e-mail<BR>
+Username = "GandalfDDI" <BR>
+E-Mail = "Outlook.Com" <BR>
+Obviously to send me e-mail just put the preceding two together --> Username@E-Mail (this is to minimize the amount of SPAM I get thank you)<BR>
+</BODY>
+</HTML>
