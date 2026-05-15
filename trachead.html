@@ -1,0 +1,536 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+
+xmlns:w="urn:schemas-microsoft-com:office:word"
+
+xmlns="http://www.w3.org/TR/REC-html40">
+
+
+
+<head>
+
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+
+<meta name=ProgId content=Word.Document>
+
+<meta name=Generator content="Microsoft Word 9">
+
+<meta name=Originator content="Microsoft Word 9">
+
+<link rel=File-List href="./trachead_files/filelist.xml">
+
+<title>Tracing the header of a spammers e-mail</title>
+
+<style>
+
+<!--
+
+ /* Font Definitions */
+
+@font-face
+
+	{font-family:"MS Mincho";
+
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+
+	mso-font-alt:"\FF2D\FF33 \660E\671D";
+
+	mso-font-charset:128;
+
+	mso-generic-font-family:roman;
+
+	mso-font-format:other;
+
+	mso-font-pitch:fixed;
+
+	mso-font-signature:1 134676480 16 0 131072 0;}
+
+@font-face
+
+	{font-family:"\@MS Mincho";
+
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+
+	mso-font-charset:128;
+
+	mso-generic-font-family:roman;
+
+	mso-font-format:other;
+
+	mso-font-pitch:fixed;
+
+	mso-font-signature:1 134676480 16 0 131072 0;}
+
+ /* Style Definitions */
+
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+
+	{mso-style-parent:"";
+
+	margin:0in;
+
+	margin-bottom:.0001pt;
+
+	mso-pagination:widow-orphan;
+
+	font-size:12.0pt;
+
+	font-family:"Courier New";
+
+	mso-fareast-font-family:"Times New Roman";
+
+	mso-bidi-font-family:"Times New Roman";}
+
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+
+	{margin:0in;
+
+	margin-bottom:.0001pt;
+
+	mso-pagination:widow-orphan;
+
+	font-size:10.0pt;
+
+	font-family:"Courier New";
+
+	mso-fareast-font-family:"Times New Roman";}
+
+@page Section1
+
+	{size:8.5in 11.0in;
+
+	margin:1.0in 65.95pt 1.0in 65.95pt;
+
+	mso-header-margin:.5in;
+
+	mso-footer-margin:.5in;
+
+	mso-paper-source:0;}
+
+div.Section1
+
+	{page:Section1;}
+
+-->
+
+</style>
+
+</head>
+
+
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+
+
+<div class=Section1>
+
+
+
+<p class=MsoPlainText><span style='mso-fareast-font-family:"MS Mincho"'>Your
+
+analysis of the header starts from top to bottom.<span style="mso-spacerun:
+
+yes">? </span>The first Received: line you get is the &quot;trusted&quot; line
+
+from your provider.<span style="mso-spacerun: yes">? </span>You can almost
+
+*always* trust this line.<span style="mso-spacerun: yes">? </span>The further
+
+you get down the Received: lines the less you can trust the information.<br>
+
+<br>
+
+&gt;Received:
+
+from cpimssmtpc05.msn.com - 207.46.193.224 by email.msn.com with <br>
+
+&gt;Microsoft
+
+SMTPSVC;<br>
+
+&gt;<span style="mso-spacerun: yes">? </span>Sat, 19 May 2001
+
+12:22:21 -0700<br>
+
+<br>
+
+Received at your provider from email.msn.com.<span
+
+style="mso-spacerun: yes">? </span>Essentially you can &quot;trust&quot; these
+
+machines because they are from your provider.<br>
+
+<br>
+
+&gt;Received: from
+
+mta1.tm.net.my ([202.188.0.145]) by cpimssmtpc05.msn.com <br>
+
+&gt;with
+
+Microsoft SMTPSVC(5.0.2195.3225);<br>
+
+&gt;<span style="mso-spacerun: yes">?
+
+</span>Sat, 19 May 2001 12:22:18 -0700<br>
+
+<br>
+
+Received at
+
+cpimssmtpc05.msn.com from 202.188.0.145.<span style="mso-spacerun: yes">?
+
+</span>You cannot trust the &quot;mta1.tm.net.my&quot; because it is outside
+
+the parenthesis that has the IP addresses.<span style="mso-spacerun: yes">?
+
+</span>Now we go to Sam Spade ( http://samspade.org/t/ ), put in the IP address
+
+202.188.0.145 into the top slot, click on ipblock and traceroute and click on &quot;Do
+
+Stuff&quot;.<span style="mso-spacerun: yes">? </span>This tells us where the
+
+real address is:<br>
+
+Official name: mta1.tm.net.my<br>
+
+Addresses:
+
+202.188.0.145<br>
+
+<br>
+
+If the &quot;contact&quot; information is in the
+
+United States or the spam is in English then the fact that this address is
+
+outside the United States typically means that the spammer is abusing an open
+
+SMTP (mail) server.<span style="mso-spacerun: yes">? </span>Specifically this
+
+one is in Malaysia (the .my part of the address).<span style="mso-spacerun:
+
+yes">? </span>This spammer knows some tricks apparently.<span
+
+style="mso-spacerun: yes">? </span>So I complain to postmaster@tm.net.my and
+
+tell them that they should close their open SMTP server.<span
+
+style="mso-spacerun: yes">? </span>That is a start to killing off your
+
+spammer.<br>
+
+<br>
+
+&gt;Received: from trooper.tm.net.my ([202.188.0.188]) by
+
+mta1.tm.net.my<br>
+
+&gt;<span style="mso-spacerun: yes">?????????
+
+</span>(InterMail v03.02.05 118 121 101) with ESMTP<br>
+
+&gt;<span
+
+style="mso-spacerun: yes">????????? </span>id
+
+&lt;20010510183454.HBRJ16950@trooper.tm.net.my&gt;;<br>
+
+&gt;<span
+
+style="mso-spacerun: yes">????????? </span>Fri, 11 May 2001 02:34:54
+
++0800<br>
+
+<br>
+
+Next we see that the message *actually* came from
+
+trooper.tm.net.my to the server mta1.tm.net.my.<span style="mso-spacerun:
+
+yes">? </span>These mail messages are handed along in a fire bucket brigade
+
+fashion, the link from machine to machine should never break.<span
+
+style="mso-spacerun: yes">? </span>So I would tell postmaster@tm.net.my that
+
+the open SMTP server that they have is specifically trooper.tm.net.my, and that
+
+it should be secured.<span style="mso-spacerun: yes">? </span>Like so:<br>
+
+<br>
+
+postmaster@tm.net.my
+
+- Your SMTP mail server trooper.tm.net.my ([202.188.0.188]) was used as a mule
+
+to pass (and waste your system resources) this e-mail on to me.<span
+
+style="mso-spacerun: yes">? </span>You can stop your SMTP port from allowing
+
+rerouting of e-mail back outside of your domain if you wish to.<span
+
+style="mso-spacerun: yes">? </span>FYI only.<span style="mso-spacerun: yes">?
+
+</span>Info on how to block your server, see:<br>
+
+http://maps.vix.com/tsi/<br>
+
+http://mail-abuse.org/rbl/usage.html<br>
+
+http://samspade.org/t/<br>
+
+http://www.abuse.net/relay.html
+
+- Test for server vulnerability<br>
+
+<br>
+
+&gt;Received: from
+
+arauco.bomberos.cl (ip161.chicago31.il.pub-ip.psi.net <br>
+
+&gt;[38.33.74.161])<br>
+
+&gt;
+
+by trooper.tm.net.my (8.8.8+Sun/8.8.8) with SMTP id CAA05488;<br>
+
+&gt; Fri, 11
+
+May 2001 02:15:42 +0800 (SGT)<br>
+
+<br>
+
+O.K... *Now* we have the spammer in
+
+our clutches.<span style="mso-spacerun: yes">? </span>Note that we have in the
+
+received: line:<br>
+
+arauco.bomberos.cl (ip161.chicago31.il.pub-ip.psi.net
+
+[38.33.74.161])<br>
+
+<br>
+
+The spammer &quot;named&quot; their machine
+
+&quot;arauco.bomberos.cl&quot;, but notice that this portion is outside the
+
+parenthesis.<span style="mso-spacerun: yes">? </span>Inside the parenthesis we
+
+find ip161.chicago31.il.pub-ip.psi.net [38.33.74.161].<span
+
+style="mso-spacerun: yes">? </span>This is where the spammer actually resides.<span
+
+style="mso-spacerun: yes">? </span>So complain to psi.net.<span
+
+style="mso-spacerun: yes">? </span>We can also assume that the spammer lives
+
+somewhere in the Chicago area.<br>
+
+<br>
+
+&gt;From: flo345@oceanfree.net<br>
+
+&gt;Message-ID:
+
+&lt;000001211c81$00002bbe$00004505@arauco.bomberos.cl&gt;<br>
+
+&gt;To:
+
+&lt;Owner@trooper.tm.net.my&gt;<br>
+
+&gt;Subject: Spam: Rates DROPPED! Free
+
+Mortgage Loan Analysis. No obligation!<br>
+
+&gt;Date: Fri, 11 May 2001 13:01:31
+
+-0500<br>
+
+&gt;MIME-Version: 1.0<br>
+
+&gt;Content-Type: text/html;<br>
+
+&gt;
+
+charset=&quot;iso-8859-1&quot;<br>
+
+&gt;Content-Transfer-Encoding:
+
+quoted-printable<br>
+
+&gt;X-Priority: 3<br>
+
+&gt;X-MSMail-Priority:
+
+Normal<br>
+
+&gt;Reply-To: flo345@oceanfree.net<br>
+
+&gt;Return-Path:
+
+flo345@oceanfree.net<br>
+
+&gt;X-OriginalArrivalTime: 19 May 2001 19:22:19.0278
+
+(UTC) <br>
+
+&gt;FILETIME=[057892E0:01C0E099]<br>
+
+<br>
+
+All the above can be
+
+easily faked.<span style="mso-spacerun: yes">? </span>Now onto the HTML.<span
+
+style="mso-spacerun: yes">? </span>Lets see if we can get the spammers e-mail
+
+or web site shut down.<br>
+
+<br>
+
+&gt;&lt;META content=3D&quot;Microsoft
+
+FrontPage 4.0&quot; name=3DGENERATOR&gt;<br>
+
+&gt;&lt;META
+
+content=3D&quot;Cheryl N Knowles&quot; name=3DAuthor&gt;<br>
+
+<br>
+
+Look.<span
+
+style="mso-spacerun: yes">? </span>They were kind enough to leave us their
+
+name.<span style="mso-spacerun: yes">? </span>So maybe you want to look up
+
+Cheryl N Knowles in the Chicago area and give them a call :-) ...<br>
+
+<br>
+
+&gt;&lt;!--
+
+CHANGE EMAIL ADDRESS IN ACTION OF FORM --&gt;&lt;FORM name=3D&quot;form&quot;
+
+method=3D=<br>
+
+&gt;&quot;post&quot;
+
+action=3D&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#103;&amp;#101;&amp;#111=<br>
+
+&gt;;&amp;#112;&amp;#111;&amp;#115;&amp;#116;&amp;#105;&amp;#64;&amp;#117;&amp;#111;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#11=<br>
+
+&gt;1;&amp;#109;&amp;#63;&amp;#115;&amp;#117;&amp;#98;&amp;#106;&amp;#101;&amp;#99;&amp;#116;&amp;#61;&amp;#77;&amp;#111;&amp;#114=<br>
+
+&gt;;&amp;#116;&amp;#45;&amp;#76;&amp;#111;&amp;#97;&amp;#110;&quot;
+
+enctype=3D&quot;text/plain&quot;<br>
+
+<br>
+
+O.K... They have attempted to
+
+&quot;encrypt&quot; their e-mail return address here, but Sam Spade is your
+
+buddy.<span style="mso-spacerun: yes">? </span>Paste this into the
+
+&quot;Obfuscated URL&quot; portion and it will magically turn it into plain
+
+text for you to see.<span style="mso-spacerun: yes">? </span>I paste the
+
+following portion (take the &quot;=&quot; signs off the end of the lines, they
+
+are put in by the software that mailed this to me) in:<br>
+
+&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#103;&amp;#101;&amp;#111;&amp;#112;&amp;#111;&amp;#115;&amp;#116;&amp;#105;&amp;#64;&amp;#117;&amp;#111;&amp;#108;&amp;#101;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&amp;#63;&amp;#115;&amp;#117;&amp;#98;&amp;#106;&amp;#101;&amp;#99;&amp;#116;&amp;#61;&amp;#77;&amp;#111;&amp;#114;&amp;#116;&amp;#45;&amp;#76;&amp;#111;&amp;#97;&amp;#110;<br>
+
+<br>
+
+Sam
+
+Spade comes back with mailto:geoposti@uole.com?subject=Mort-Loan ... Now we
+
+have a somewhere to complain to.<span style="mso-spacerun: yes">? </span>First
+
+go to www.uole.com and see if the web site &quot;looks&quot; like the
+
+spammer.<span style="mso-spacerun: yes">? </span>It looks like www.uole.com is
+
+a provider of some sort, so send a complaint to abuse@uole.com (the
+
+&quot;standard&quot; complaint address) and see what comes back.<span
+
+style="mso-spacerun: yes">? </span>if you get back a message confirming receipt
+
+of your complaint, or no message back at all them the complaint probably went
+
+thru OK.<span style="mso-spacerun: yes">? </span>There is also an address
+
+uolmail@uole.com (bottom of the page).<span style="mso-spacerun: yes">?
+
+</span>You might want to send the complaint to them also.<br>
+
+<br>
+
+Obviously
+
+this spammer is experienced (but not too bright if they leave their name in the
+
+HTML code of the message) and is using throw away accounts for their
+
+spam.<br>
+
+<br>
+
+&gt;&quot;&gt;&lt;b&gt;Removal Instructions&lt;br&gt;<br>
+
+&gt;&lt;/b&gt;Click
+
+on the below link to be exclude from further communication.&lt;/fon=<br>
+
+&gt;t&gt;&lt;br&gt;<br>
+
+&gt;&lt;b&gt;&lt;a
+
+href=3D&quot;mailto:a_jose@uole.com?subject=3DDelete-Mort&quot;&gt;Click
+
+Here&lt;/a&gt;=<br>
+
+<br>
+
+NEVER never never reply to a &quot;Remove Me&quot;
+
+link.<span style="mso-spacerun: yes">? </span>That only confirms that your
+
+e-mail address is &quot;live&quot; and it will then get passed along to other
+
+spammers.<br>
+
+<br>
+
+You can, however, complain to uole.com about this address
+
+also to get it canceled.<br>
+
+<br>
+
+<br>
+
+<![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+
+
+</div>
+
+
+
+</body>
+
+
+
+</html>
+

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DEF CON 34 - Death by a Thousand Paper Cuts</title>
+	<style>
+		:root {
+			--bg:        #0a0a0a;
+			--bg2:       #111111;
+			--border:    #2a2a2a;
+			--green:     #39ff14;
+			--green-dim: #1a7a09;
+			--amber:     #ffb300;
+			--amber-dim: #7a5500;
+			--text:      #c8c8c8;
+			--text-dim:  #666666;
+			--red:       #ff3a3a;
+			--white:     #f0f0f0;
+			--font-mono: 'Courier New', Courier, monospace;
+		}
+
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			background-color: var(--bg);
+			color: var(--text);
+			font-family: var(--font-mono);
+			font-size: 14px;
+			line-height: 1.7;
+			padding: 2rem;
+			max-width: 900px;
+			margin: 0 auto;
+		}
+
+		/* ── SCANLINE OVERLAY ── */
+		body::before {
+			content: '';
+			position: fixed;
+			top: 0; left: 0;
+			width: 100%; height: 100%;
+			background: repeating-linear-gradient(
+				0deg,
+				transparent,
+				transparent 2px,
+				rgba(0,0,0,0.08) 2px,
+				rgba(0,0,0,0.08) 4px
+			);
+			pointer-events: none;
+			z-index: 9999;
+		}
+
+		/* ── HEADER ── */
+		.site-header {
+			border-bottom: 1px solid var(--green-dim);
+			padding-bottom: 1.5rem;
+			margin-bottom: 2rem;
+		}
+
+		.dc-badge {
+			display: inline-block;
+			background: var(--green);
+			color: #000;
+			font-weight: bold;
+			font-size: 11px;
+			letter-spacing: 0.15em;
+			padding: 2px 8px;
+			margin-bottom: 1rem;
+		}
+
+		h1 {
+			color: var(--white);
+			font-size: 1.5rem;
+			font-weight: bold;
+			letter-spacing: 0.02em;
+			line-height: 1.3;
+			margin-bottom: 0.4rem;
+		}
+
+		.subtitle {
+			color: var(--amber);
+			font-size: 0.85rem;
+			letter-spacing: 0.05em;
+		}
+
+		/* ── VERDICT BOX ── */
+		.verdict {
+			border: 1px solid var(--green);
+			background: rgba(57, 255, 20, 0.04);
+			padding: 1.2rem 1.5rem;
+			margin: 2rem 0;
+		}
+
+		.verdict-header {
+			color: var(--green);
+			font-size: 0.75rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			margin-bottom: 0.8rem;
+		}
+
+		.verdict-row {
+			display: flex;
+			gap: 2rem;
+			flex-wrap: wrap;
+		}
+
+		.verdict-item {
+			flex: 1;
+			min-width: 160px;
+		}
+
+		.verdict-label {
+			color: var(--text-dim);
+			font-size: 0.72rem;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+		}
+
+		.verdict-value {
+			color: var(--white);
+			font-size: 0.95rem;
+			margin-top: 0.2rem;
+		}
+
+		.verdict-value.win {
+			color: var(--green);
+			font-weight: bold;
+		}
+
+		/* ── SECTION ── */
+		.section {
+			margin: 2.5rem 0;
+		}
+
+		.section-title {
+			color: var(--amber);
+			font-size: 0.72rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			border-bottom: 1px solid var(--amber-dim);
+			padding-bottom: 0.4rem;
+			margin-bottom: 1.2rem;
+		}
+
+		p {
+			margin-bottom: 0.9rem;
+			color: var(--text);
+		}
+
+		/* ── DOCUMENT LINKS ── */
+		.doc-list {
+			list-style: none;
+		}
+
+		.doc-list li {
+			border: 1px solid var(--border);
+			background: var(--bg2);
+			margin-bottom: 0.6rem;
+			transition: border-color 0.15s;
+		}
+
+		.doc-list li:hover {
+			border-color: var(--green-dim);
+		}
+
+		.doc-list a {
+			display: flex;
+			align-items: baseline;
+			gap: 1rem;
+			padding: 0.9rem 1.2rem;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		.doc-icon {
+			color: var(--amber);
+			font-size: 0.8rem;
+			flex-shrink: 0;
+			width: 3ch;
+		}
+
+		.doc-name {
+			color: var(--white);
+			font-size: 0.9rem;
+			flex: 1;
+		}
+
+		.doc-desc {
+			color: var(--text-dim);
+			font-size: 0.78rem;
+			text-align: right;
+		}
+
+		.doc-list li:hover .doc-name {
+			color: var(--green);
+		}
+
+		/* ── KEY FINDINGS ── */
+		.finding-list {
+			list-style: none;
+		}
+
+		.finding-list li {
+			padding: 0.4rem 0 0.4rem 1.5rem;
+			position: relative;
+			color: var(--text);
+			border-bottom: 1px dotted var(--border);
+		}
+
+		.finding-list li:last-child {
+			border-bottom: none;
+		}
+
+		.finding-list li::before {
+			content: '›';
+			position: absolute;
+			left: 0;
+			color: var(--green);
+		}
+
+		/* ── TEMPLATE LIST ── */
+		.template-list {
+			list-style: none;
+			counter-reset: step;
+		}
+
+		.template-list li {
+			counter-increment: step;
+			padding: 0.5rem 0 0.5rem 3rem;
+			position: relative;
+			border-bottom: 1px dotted var(--border);
+			color: var(--text);
+		}
+
+		.template-list li:last-child {
+			border-bottom: none;
+		}
+
+		.template-list li::before {
+			content: counter(step, decimal-leading-zero);
+			position: absolute;
+			left: 0;
+			color: var(--green-dim);
+			font-size: 0.78rem;
+			top: 0.65rem;
+		}
+
+		/* ── PULL QUOTE ── */
+		.pull-quote {
+			border-left: 3px solid var(--amber);
+			padding: 0.8rem 1.2rem;
+			margin: 1.5rem 0;
+			background: rgba(255, 179, 0, 0.04);
+			color: var(--amber);
+			font-size: 0.88rem;
+			font-style: italic;
+		}
+
+		.pull-quote cite {
+			display: block;
+			margin-top: 0.5rem;
+			font-style: normal;
+			font-size: 0.75rem;
+			color: var(--text-dim);
+		}
+
+		/* ── WARNING NOTE ── */
+		.note {
+			border: 1px solid var(--amber-dim);
+			background: rgba(255, 179, 0, 0.03);
+			padding: 0.8rem 1.2rem;
+			margin: 1.5rem 0;
+			font-size: 0.82rem;
+			color: var(--text-dim);
+		}
+
+		.note strong {
+			color: var(--amber);
+		}
+
+		/* ── FOOTER ── */
+		footer {
+			border-top: 1px solid var(--border);
+			margin-top: 3rem;
+			padding-top: 1.2rem;
+			font-size: 0.75rem;
+			color: var(--text-dim);
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			gap: 0.5rem;
+		}
+
+		footer a {
+			color: var(--text-dim);
+			text-decoration: none;
+		}
+
+		footer a:hover {
+			color: var(--green);
+		}
+
+		/* ── RESPONSIVE ── */
+		@media (max-width: 600px) {
+			body { padding: 1rem; }
+			.verdict-row { flex-direction: column; gap: 1rem; }
+			.doc-desc { display: none; }
+			h1 { font-size: 1.2rem; }
+		}
+	</style>
+</head>
+<body>
+
+<header class="site-header">
+	<div class="dc-badge">DEF CON 34 &mdash; CFP SUBMISSION</div>
+	<h1>Death by a Thousand Paper Cuts</h1>
+	<div class="subtitle">How to Make Corporate Data Negligence Expensive One Small Claims Case at a Time</div>
+</header>
+
+<div class="verdict">
+	<div class="verdict-header">&#9654; Case Disposition &mdash; King County District Court</div>
+	<div class="verdict-row">
+		<div class="verdict-item">
+			<div class="verdict-label">Case No.</div>
+			<div class="verdict-value">25CIV60102KCX</div>
+		</div>
+		<div class="verdict-item">
+			<div class="verdict-label">Trial Date</div>
+			<div class="verdict-value">March 16, 2026</div>
+		</div>
+		<div class="verdict-item">
+			<div class="verdict-label">Result</div>
+			<div class="verdict-value win">JUDGMENT FOR PLAINTIFF</div>
+		</div>
+		<div class="verdict-item">
+			<div class="verdict-label">Judge</div>
+			<div class="verdict-value">Michael J. Finkle</div>
+		</div>
+		<div class="verdict-item">
+			<div class="verdict-label">Defendant</div>
+			<div class="verdict-value">Pension Benefit Information, LLC</div>
+		</div>
+		<div class="verdict-item">
+			<div class="verdict-label">Award</div>
+			<div class="verdict-value win">$350.00</div>
+		</div>
+	</div>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; Talk Overview</div>
+	<p>
+		In 2023, Pension Benefit Information, LLC &mdash; a Minneapolis data broker &mdash; lost the
+		presenter's name, Social Security Number, and date of birth in the MOVEit/Cl0p ransomware
+		breach. Notification arrived 42 days after PBI's own discovery, violating Washington State's
+		30-day statutory requirement. The presenter spent time on expert remediation, invoiced PBI
+		$1,050, and was refused. He filed small claims in King County District Court.
+	</p>
+	<p>
+		PBI responded with corporate counsel and a jurisdictional dismissal motion. On March 16, 2026,
+		Judge Michael J. Finkle denied that motion and issued judgment for the plaintiff, explicitly
+		finding that a cybersecurity professional's time assessing a breach is compensable at
+		professional rates. Routine tasks any victim could perform are not. PBI paid.
+	</p>
+
+	<div class="pull-quote">
+		"Don't piss off a geek &hellip; They don't have a life and can EASILY make you the focus of
+		THEIR life."
+		<cite>&mdash; Ken Hollis</cite>
+	</div>
+
+	<p>
+		This talk distills the experience into a complete, replicable playbook for any breach victim
+		with documentation, a $50 filing fee, and a few hours of preparation. Class actions pay lawyers.
+		Small claims pays you.
+	</p>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; Key Findings (Judge Finkle, Addendum to Judgment)</div>
+	<ul class="finding-list">
+		<li>Washington State has jurisdiction over PBI despite no physical presence in state &mdash; 18,856 WA residents were affected; PBI filed breach notifications with the WA AG; individual residents have no practical recourse outside WA courts.</li>
+		<li>Plaintiff is entitled to opt out of pending class action and pursue individual remedy. Class action does not bar this claim.</li>
+		<li>MOVEit had a single security vulnerability. Defense-in-depth (double layers of security) is the appropriate standard. PBI was negligent.</li>
+		<li>One hour of expert cybersecurity evaluation time is compensable at professional rates ($300). Routine tasks any affected individual could perform are not.</li>
+		<li>Judgment: $300 principal + $50 filing fee = $350 total. Paid within 30 days.</li>
+	</ul>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; Supporting Documents</div>
+	<p>All documents are either public court record or the presenter's own work.</p>
+	<ul class="doc-list">
+		<li>
+			<a href="DEFCON34_25CIV60102KCX_-_Judgment_After_Trial.pdf" target="_blank">
+				<span class="doc-icon">[PDF]</span>
+				<span class="doc-name">Judgment After Trial &mdash; 25CIV60102KCX</span>
+				<span class="doc-desc">Public record &mdash; King County DC</span>
+			</a>
+		</li>
+		<li>
+			<a href="DEFCON34_25CIV60102KCX_Argument.pdf" target="_blank">
+				<span class="doc-icon">[PDF]</span>
+				<span class="doc-name">Plaintiff's Trial Argument Outline</span>
+				<span class="doc-desc">20-minute argument structure</span>
+			</a>
+		</li>
+		<li>
+			<a href="DEFCON34_25CIV60102KCX_Evidence.pdf" target="_blank">
+				<span class="doc-icon">[PDF]</span>
+				<span class="doc-name">Evidence Package &mdash; 25 pages</span>
+				<span class="doc-desc">Appendices A&ndash;H</span>
+			</a>
+		</li>
+		<li>
+			<a href="DEFCON34_25CIV60102KCX_Small_Claims_Defendants_Packet.pdf" target="_blank">
+				<span class="doc-icon">[PDF]</span>
+				<span class="doc-name">Washington State King County Small Claims Defendant Packet &mdash; 5 pages</span>
+				<span class="doc-desc">Appendices A&ndash;H</span>
+			</a>
+		</li>
+		<li>
+			<a href="DEFCON34_25CIV60102KCX_Small_Claims_Plaintiffs_Packet.pdf" target="_blank">
+				<span class="doc-icon">[PDF]</span>
+				<span class="doc-name">Washington State King County Small Claims Plaintiff Packet &mdash; 10 pages</span>
+				<span class="doc-desc">Appendices A&ndash;H</span>
+			</a>
+		</li>
+		<li>
+			<a href="DEFCON34_cfp_outline_hollis.txt" target="_blank">
+				<span class="doc-icon">[TXT]</span>
+				<span class="doc-name">DEF CON 34 CFP Submission &mdash; Full Outline</span>
+				<span class="doc-desc">Talk sections, template, references</span>
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; The Template &mdash; Fourteen Steps</div>
+	<ol class="template-list">
+		<li>Get the breach notification. Scan it immediately. Save everything.</li>
+		<li>Archive the sender's web presence on the Wayback Machine the same day. Blogs disappear during litigation. Screenshots too &mdash; belt and suspenders.</li>
+		<li>Find the correct legal entity: state SoS registry + AG breach notification registry. The name on the letter is not necessarily the entity you sue.</li>
+		<li>Log remediation time with timestamps and specific activities from day one. Include hardcopy review AND online research time. Separate expert-skill tasks from routine tasks &mdash; the judge WILL draw this line.</li>
+		<li>Document your rate basis with specifics. Market data helps. You are asking for a conservative, defensible floor &mdash; not your ceiling.</li>
+		<li>Invoice before filing. Set a payment deadline. Keep the refusal letter. "They wouldn't pay" is the whole story in two seconds.</li>
+		<li>Find your state's small claims limit and appealability threshold. Consider whether you want the case to be appealable. Act accordingly. NOTE: Not all states are as well-documented as Washington &mdash; King County's process is unusually clear. Read everything on your court's website. If it isn't clear, call the clerk and ask.</li>
+		<li>File. Name the correct entity. Serve the registered agent, not the PR address. <strong>CRITICAL: You cannot serve the defendant yourself.</strong> Find someone over 18 who is not a party. Service must be completed at least 10 days before pretrial. File the Declaration of Service afterward. Miss this and your case is dismissed. No exceptions.</li>
+		<li>After filing, ask the clerk explicitly how to attach your account to the case in the court portal. You are the plaintiff. This is not automatic. Nobody volunteers this.</li>
+		<li>Expect mandatory mediation before trial. It is free. It is confidential and does not become part of the court record. It does not affect your right to trial if it fails. Do not settle for less than your documented claim just to avoid the hearing &mdash; walk out and go to trial.</li>
+		<li>If they file a jurisdiction motion, oppose it with the data: how many residents of your state were affected, and where can those individuals practically sue? The answer to the second question is: here.</li>
+		<li>Exchange evidence with the other party 14 days before trial. Not optional &mdash; failure risks continuance or exclusion. Do it in writing, keep proof of delivery. Bring two printed copies of everything to the courtroom. The clerk makes nothing.</li>
+		<li>Show up prepared. Five elements. Documented evidence. No drama.</li>
+		<li>Take the check. Then file a Satisfaction of Judgment with the clerk to close the record. Your court packet includes this form. File it.</li>
+	</ol>
+</div>
+
+<div class="note">
+	<strong>NOTE:</strong> This is a legal strategy framework built from documented experience, not legal advice.
+	I am not a lawyer. Procedures, limits, and statutes vary by jurisdiction.
+	Verify your state's small claims rules before filing. IANAL.
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; Speaker</div>
+	<p>
+		Ken Hollis spent 40 years in technology across aerospace (Kennedy Space Center), enterprise
+		networking, SCADA/ICS, and 18 years at Microsoft with 11 in security engineering, including
+		the Cyber Defense Operations Center and critical infrastructure security for data centers and
+		industrial control systems. He is retired and lives near Redmond, Washington. He is not a
+		lawyer. He won anyway.
+	</p>
+</div>
+
+<footer>
+	<span>25CIV60102KCX &mdash; Public Record &mdash; King County District Court, State of Washington</span>
+	<span><a href="/">gandalfddi.z19.web.core.windows.net</a></span>
+</footer>
+
+</body>
+</html>

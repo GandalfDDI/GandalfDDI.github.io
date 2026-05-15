@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="content-type"
+ content="text/html; charset=ISO-8859-1">
+  <title>rosefrag.py</title>
+</head>
+<body>
+<h2>rosefrag.py (not yet verified)</h2><br>
+<br>
+<br>
+<b>News:<br>
+<br>
+</b>
+<b>29-04-2004:</b>Update - fixed a problem with random numbers. fixed a 
+problem with the id
+<br>
+<b>29-04-2004:</b>Initial Relase of rosefrag.py
+<br>
+<h3>Introduction:</h3><br>
+rosefrag.py is a Script that shows how the "Rose Frag" 
+called IP Fragmentation attack works. 
+(Described in <a href="Rose_Frag_Attack_Explained.txt">Rose_Frag_Attack_Explained.txt</a>).<br>
+The program sends a large amount of Fragmented IP Packets (Containing 
+TCP, but this is not relevant). They are sent in pairs of 2. The first one 
+at frag Offset 1 (Byte 8), the second one at frag offset 16330 (Byte 
+65324). The IP Stack on the Target host has to allocate memory for the 
+packet reassembly ~64k. If enough such fragment pairs are sent to the 
+target host, so that he can not allocate more memory, the host should refuse all packets that need to be reassembled. 
+Resulting in a Denial of Service. 
+ 
+<br> <br>
+<h3>Requirements:<br>
+<br>
+</h3><a href="http://www.python.org">python</a> (2.2 should do)<br>
+<a href="http://www.cartel-securite.fr/pbiondi/scapy.html">Scapy</a>
+<br>
+<br>
+<h3>Usage:</h3><br>
+<br>
+rosefrag.py [-q] [-v] [-c 
+&lt;count&gt;] &lt;dstip&gt; &lt;srcip&gt;<br>
+<br>
+<table cellpadding="2" cellspacing="2" border="1"
+ style="text-align: left; width: 100%;">
+  <tbody>
+    <tr>
+      <td style="vertical-align: top;">-q<br>
+      </td>
+      <td style="vertical-align: top;">Quiet mode.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-v<br>
+      </td>
+      <td style="vertical-align: top;">Verbose mode.<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">-c<br>
+      </td>
+      <td style="vertical-align: top;">Sends &lt;count&gt; Packets. 0 
+means send an infinite Number of Packets<br>
+      </td>
+    <tr>
+      <td style="vertical-align: top;">&lt;dstip&gt;<br>
+      </td>
+      <td style="vertical-align: top;">Destination IP (No support for
+hostnames)<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">&lt;srcip&gt;<br>
+      </td>
+      <td style="vertical-align: top;">Source IP (No support for
+hostnames), 0.0.0.0 means random IP for each Packet<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;"><br>
+      </td>
+      <td style="vertical-align: top;"><br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">example:</td>
+      <td style="vertical-align: top;"><span
+ style="font-style: italic;">rosefrag.py -q -c 1000 10.0.0.1
+ 0.0.0.0</span></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<h3>Download:</h3><br>
+<a href="rosefrag.py">rosefrag.py</a> (first release)<br>
+<a href="rosefrag.tgz">rosefrag.tgz</a> Bundled with scapy<br>
+<br>
+<h3>Known Problems:<br></h3>
+None yet.
+<br><br>
+<h3>Note of the Author:<br></h3>
+<br>
+The only purpose of this Program is to show the Problem with the 
+reassembly of Fragmented Packets. You are not allowed to use it to achieve damage on Systems which you do not own. <br><br>
+<br><br>
+<h3>Related:</h3><br>
+None yet.
+<hr>
+<IMG SRC="/cgi-bin/Count.cgi?df=rosefrag_py.html">
+<div style="text-align: right;">r3d5un &lt;r3d5un - at - tznetz.com&gt;<br>
+</div>
+<big><span style="font-weight: bold;"><br>
+</span></big></div>
+</div>
+</body>
+</html>

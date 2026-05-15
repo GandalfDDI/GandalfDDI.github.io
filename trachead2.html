@@ -1,0 +1,201 @@
+<html>
+
+<head>
+<meta name=Title content="Trace E-Mail with a faked Received Line">
+<title>Trace E-Mail with a faked Received Line</title>
+</head>
+
+<body bgcolor=white lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p>The Received lines are a chain.&nbsp; You start at the top and that is the
+most *RECENT* place the e-mail came from.&nbsp;
+The *BOTTOM* is where the e-mail started from ---&gt; With one caveat.<span
+style="mso-spacerun: yes">&nbsp; The spammer can add Received: lines
+onto the bottom making it look like it really originated from somewhere else,
+but as you get experience you will figure out what &quot;looks wrong&quot; and
+ignore those lines.</p>
+
+<p>&gt; Received: from smtp.your.isp ([192.168.16.1]) by smtp.your.isp with</p>
+
+<p>&gt; Microsoft SMTPSVC(5.0.2195.5329);</p>
+
+<p>&gt; Wed, 6 Aug 2003 22:25:06 +0100</p>
+
+<p>Received by your ISP (Internet Service Provider).</p>
+
+<p>&gt; Received: from adsl-141-154-84-234.ba-dsg.net ([141.154.84.234]) by</p>
+
+<p>&gt; smtp.your.isp with Microsoft SMTPSVC(5.0.2195.5329);</p>
+
+<p>&gt; Wed, 6 Aug 2003 22:25:00 +0100</p>
+
+<p>Received from 141.154.84.234 by your ISP.&nbsp; Double check that 141.154.84.234 actually is
+adsl-141-154-84-234.ba-dsg.net at Sam Spade:</p>
+
+<p><a href="http://samspade.org/t/lookat?a=141.154.84.234">http://samspade.org/t/lookat?a=141.154.84.234</a></p>
+
+<p>SamSpade says:</p>
+
+<p>141.154.84.234 has valid reverse DNS of adsl-141-154-84-234.ba-dsg.net </p>
+
+<p>So that is correct.&nbsp; Please note
+that 141.154.84.234 is a DSL connection.&nbsp;
+I would almost bet that the e-mail originated from 141.154.84.234 and
+that the next line was put into the e-mail to confuse the issue.</p>
+
+<p>&gt; Received: from sq.38hhzc6.org ([65.49.45.211])</p>
+
+<p>&gt; by adsl-141-154-84-234.ba-dsg.net with ESMTP id 31E493C63CF</p>
+
+<p>&gt; for &lt;garfield_@netcabo.pt&gt;; Wed, 06 Aug 2003 18:17:34 -0400</p>
+
+<p>Again we check that 65.49.45.211 is sq.38hhzc6.org:</p>
+
+<p><a href="http://samspade.org/t/lookat?a=65.49.45.211">http://samspade.org/t/lookat?a=65.49.45.211</a></p>
+
+<p>Same Spade says:</p>
+
+<p>65.49.45.211 has valid reverse DNS of
+CPE0010db25c8b1-CM0f2029968262.cpe.net.cable.rogers.com </p>
+
+<p>Something is not right here.</p>
+
+<p>We look up sq.38hhzc6.org in Sam Spade:</p>
+
+<p><a href="http://samspade.org/t/lookat?a=sq.38hhzc6.org">http://samspade.org/t/lookat?a=sq.38hhzc6.org</a></p>
+
+<p>Nothing is found.</p>
+
+<p>We look up sq.38hhzc6.org in Google:</p>
+
+<p><a href="http://www.google.com/search?q=sq.38hhzc6.org">http://www.google.com/search?q=sq.38hhzc6.org</a></p>
+
+<p>Google hasn't heard of it.&nbsp; Also
+note that the times for the Received line above is:</p>
+
+<p>Wed, 06 Aug 2003 18:17:34 -0400</p>
+
+<p>The Received line above it is:</p>
+
+<p>Wed, 6 Aug 2003 22:25:00 +0100</p>
+
+<p>So we correct for the same time zones we get:</p>
+
+<p>Received #1: Wed, 6 Aug 2003 21:25:06 +0000</p>
+
+<p>Received #2: Wed, 6 Aug 2003 21:25:00 +0000</p>
+
+<p>Received #3: Wed, 06 Aug 2003 22:17:34 -0000</p>
+
+<p>So either the third Received line was faked (A very good possibility) or the
+machines times were all screwed up (less and less a possibility).<span
+style="mso-spacerun: yes">&nbsp; I would discard the last line as faked.</p>
+
+<p>Therefore we would send a complaint to whoever owns:</p>
+
+<p>adsl-141-154-84-234.ba-dsg.net.</p>
+
+<p>We go to Google and search for abuse and ba-dsg.net:</p>
+
+<p><a href="http://www.google.com/search?q=abuse+ba-dsg.net">http://www.google.com/search?q=abuse+ba-dsg.net</a></p>
+
+<p>Don't find much so we go to Sam Spade or Abuse Net and take a look for
+ba-dsg.net:</p>
+
+<p><a href="http://www.abuse.net/lookup.phtml">http://www.abuse.net/lookup.phtml</a></p>
+
+<p>Tells us:</p>
+
+<p><a href="mailto:abuse@verizon.net">abuse@verizon.net</a> </p>
+
+<p><a href="mailto:postmaster@ba-dsg.net">postmaster@ba-dsg.net</a> </p>
+
+<p>Sam Spade tells us:</p>
+
+<p><a href="http://samspade.org/t/lookat?a=adsl-141-154-84-234.ba-dsg.net">http://samspade.org/t/lookat?a=adsl-141-154-84-234.ba-dsg.net</a></p>
+
+<p>It traces through Verizon so I would send the complaint to
+abuse@verizon.net.&nbsp; If it tells me
+that the person to complain to is not a &quot;major&quot; Internet Provider I
+take a look at their web page.&nbsp; If
+it looks like they address spam issues then I send them the complaint otherwise
+I let the major Internet Provider handle it.</p>
+
+<p>Everything below this line is easily faked, so you can ignore this part for
+the most part.</p>
+
+<p>&gt; Message-ID: &lt;u-64i-8se8$q476-5b49-7y@tjb1voib2&gt;</p>
+
+<p>&gt; From: &quot;Molly Baxter&quot; &lt;lvwm86pem@msn.com&gt;</p>
+
+<p>&gt; To: YourEMail@your.provider.com</p>
+
+<p>&gt; Subject: Jenni Lopez exposed nipple pics</p>
+
+<p>&gt; Date: Wed, 06 Aug 03 18:17:34 GMT</p>
+
+<p>&gt; X-Mailer: Microsoft Outlook Express 5.50.4522.1200</p>
+
+<p>&gt; MIME-Version: 1.0</p>
+
+<p>&gt; Content-Type: multipart/alternative;</p>
+
+<p>&gt; boundary=&quot;A45.B_.CD.5.EC46&quot;</p>
+
+<p>&gt; X-Priority: 3</p>
+
+<p>&gt; X-MSMail-Priority: Normal</p>
+
+<p>&gt; Return-Path: lvwm86pem@msn.com</p>
+
+<p>&gt; X-OriginalArrivalTime: 06 Aug 2003 21:25:04.0639 (UTC)</p>
+
+<p>&gt; FILETIME=[33C138F0:01C35C61]</p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p>One more note, some of the spammers &quot;name&quot; their computer something that
+looks real, like &quot;supersoftware.com&quot; or &quot;abcmail.com&quot;. </p>
+
+<p>&gt;
+Received: from fcmail.com ([24.95.52.135]) by mc2-f14.law16.hotmail.com with </p>
+
+<p>&gt;
+Microsoft SMTPSVC(5.0.2195.5600);</p>
+
+<p></p>
+
+<p>What
+is fake is the portion &quot;fcmail.com&quot;.&nbsp; That is what the spammer &quot;named&quot; their computer. Complain
+to <a href="mailto:abuse@rr.com">abuse@rr.com</a>.</p>
+
+<p><a
+href="http://samspade.org/t/lookat?a=24.95.52.135">http://samspade.org/t/lookat?a=24.95.52.135</a>
+gives us</p>
+
+<p>24.95.52.135
+has valid reverse DNS of dhcp9552135.columbus.rr.com</p>
+
+<p>Next
+we reverse check with Sam Spade:</p>
+
+<p><a
+href="http://samspade.org/t/lookat?a=fcmail.com">http://samspade.org/t/lookat?a=fcmail.com</a></p>
+
+<p>The
+DNS search shows nothing, and traceroute said it doesn't exist.&nbsp; So the initial Sam Spade lookup is
+correct.</p>
+
+<p></p>
+
+</div>
+
+</body>
+
+</html>

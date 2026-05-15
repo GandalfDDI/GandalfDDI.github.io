@@ -1,0 +1,1070 @@
+1234567891123456789212345678931234567894123456789512345678961234567897
+
+Greetings and Salutations:
+ 
+This FAQ is about crossposts, troll and flames, and what to do about 
+them.
+ 
+Table of contents to this FAQ:
+ 
+   o   Introduction
+          o Introducing the alt.syntax.tactical group
+   o   Defining troll, flames and crossposts
+   o   What to do
+          o E-Mailing
+          o Killfiles
+   o   A description of the alt.syntax.tactical crew (and lesser 
+trolls) 
+   o   The alt.syntax.tactical FAQ - Know your opponents
+ 
+ 
+Introduction
+============================================
+Please feel free to repost this, e-mail it, put this FAQ on CD's or 
+any other media you can think of.
+ 
+The latest & greatest version of this FAQ will be found at one of the 
+following:
+http://gandalf.home.digital.net/trollfaq.html
+(or http://home.digital.net/~gandalf/trollfaq.html)
+ftp://rtfm.mit.edu/pub/usenet/alt.syntax.tactical/
+Or *nicely* HTML'ed at:
+http://www.cs.ruu.nl/wais/html/na-dir/net-abuse-faq/troll-faq.html
+  or
+http://www.faqs.org/faqs/net-abuse-faq/troll-faq/
+or
+ftp://rtfm.mit.edu/pub/usenet/alt.syntax.tactical/ 
+ftp://rtfm.mit.edu/pub/usenet/alt.spam/ 
+ 
+Please email follow-ups / additions / changes comments / questions to 
+gandalf@digital.net . . . BUT PLEASE NOTE because I receive (on the 
+average) over 200 e-mails EVERY day (of which 195 or so are spam) you 
+MUST put the words "Alt.Syntax.Tactical" in the subject of the e-mail 
+or there is a VERY good chance the e-mail will be deleted without 
+being read.  I get 10 or 15 "No Subject" spams a day.
+ 
+http://it.geocities.com/roccopapaleo/faq/italiano/alt.syntax.tactical.
+trad.txt - Italian Translation
+ 
+Translate from/to English French, German, Spanish, Portuguese, Italian 
+(etc.)
+http://babel.altavista.com/translate.dyn
+  or
+English to French:
+http://translate.google.com/translate?hl=fr&sl=en&u=http://digital.net
+/~gandalf/trollfaq.html
+English to German:
+http://translate.google.com/translate?hl=de&sl=en&u=http://digital.net
+/~gandalf/trollfaq.html
+English to Italian:
+http://translate.google.com/translate?hl=it&sl=en&u=http://digital.net
+/~gandalf/trollfaq.html
+English to Spanish:
+http://translate.google.com/translate?hl=es&sl=en&u=http://digital.net
+/~gandalf/trollfaq.html
+ 
+ 
+Introducing the alt.syntax.tactical group
+============================================
+The alt.syntax.tactical crew (of which I am definitely not a member) 
+decides every now and then to start a colossal crosspost / flame war.  
+One of their attacks started trolling by crossposting between 
+alt.smokers, can.talk.smoking, alt.support.non-smokers, asthma and SCI 
+groups.  The trollers would take an original post from alt.smokers, 
+pass it thru a anonymous remailer (with the original e-mail name 
+intact) and repost it to all of the above groups.  This (as you can 
+guess) started a massive flame war with the original (innocent) poster 
+getting in trouble for the crosspost that they never made.  It 
+migrated to rec.pets.cats and beyond, but the lines are ever changing.  
+It is rumored that the alt.syntax.tactical crew communicates through a 
+listserver, planning their next attack thru the back channels.  
+Wouldn't want the plans posted out in the open, now would we :-).
+ 
+Jonathan tells us that while alt.tasteless (FAQ 
+http://www.aracnet.com/~jaydog/index2.html - WARNING - there is a 
+reason why it is called alt.tasteless) claims to have been responsible 
+for the rec.pets.cats war, it was really the first unofficial ast 
+invasion. Anyhow, just remember, it was all in good fun and we never 
+meant to do more than rile up a few people who took things a bit too 
+seriously.
+ 
+Michael tells us that the a.s.t. crew definitely DID NOT have their 
+origins in the alt.shenanigans newsgroup.  There have been several 
+jokes played upon newsgroups which were planned in alt.shenanigans and 
+its associated mailing list, but none of them have been anything like 
+a.s.t.  They've all been harmless, in fun, and have caused no real 
+damage.
+ 
+The old alt.syntax.tactical crew as described by Lee Jackson 
+Beauregard ( http://www.smart.net/~rchason/ ) :
+http://digital.net/~gandalf/tactical.txt
+ 
+The first messages:
+http://groups.google.com/groups?as_ugroup=alt.syntax.tactical&lr=&as_d
+rrb=b&as_mind=12&as_minm=5&as_miny=1981&as_maxd=1&as_maxm=1&as_maxy=19
+94&num=100&as_scoring=d&hl=en
+ 
+The origins:
+http://groups.google.com/groups?selm=2cvf4b$aif@phakt.usc.edu&output=g
+plain
+ 
+The first FAQ:
+http://groups.google.com/groups?dq=&hl=en&lr=&safe=off&selm=jpdavidCHD
+9r5.Kxs@netcom.com
+ 
+The next:
+http://groups.google.com/groups?selm=jpdavidCHnp84.47q@netcom.com&outp
+ut=gplain
+ 
+The MEOW brigade is essentially the same animal as the 
+alt.syntax.tactical brigade, just a different section of that same 
+family tree that doesn't branch.  Not as bright either.  For a story 
+on MEOWs, look at http://digital.net/~gandalf/meow.txt ... This is 
+also a perfect example of a MEOW post ... a reply with all the 
+previous text and no additional content.  The "meow-meow's" say "meow" 
+because, at the moment they came across alt.fan.karl-malden.nose there 
+was a thread about, of all things, Henrietta Pussycat from Mr. Rogers' 
+Neighborhood.  She, as you may recall, speaks like this:
+"Meow meow go to bed meow? Meow very tired meow."
+ 
+As a side note, I do have to admit that a few of the meowers *are* 
+involved in fighting spam (Unsolicited Commercial E-Mail) and do make 
+worthwile / good contributions to the news.admin.net-abuse group but I 
+suspect that they think the rules are for everyone else, and do not 
+apply to meowers.
+
+The coming and goings of the Meowers:
+http://www.geocities.com/meowwatcher/index.html
+Who's who description:
+http://www.geocities.com/meowwatcher/who.html
+ 
+The Meower's version, by The 2-Belo ( the2belo@alt.net ) is located at 
+:
+http://member.newsguy.com/~shpxurnq/nora.html
+  Or look at http://extra.newsguy.com/~shpxurnq/ or
+http://extra.newsguy.com/~shpxurnq/archive/raoul15.html
+ 
+These children are a version of Internet vandals.  They mostly cause 
+trouble.  There are many ways that they attack.  All of the methods 
+are very simple (remember the abilities of the people we are dealing 
+with here).  They use open NNTP servers, anonymous remailers, list 
+servers, mail to news gateways,  or a program that has as part of the 
+Path : ...!gergs_bane.org!anon.  Many times they pick "real looking" 
+e-mail addresses so that someone who has gotten them mad before will 
+get in trouble.  Clue : Don't mailbomb the e-mail or postmaster of the 
+site listed in the e-mail, they are probably innocent and all that 
+will accomplish is getting you in trouble.
+ 
+While these children may see this as a harmless prank, the end result 
+is that they censor the regular readers of the target group by 
+overwhelming the group with off topic messages.
+ 
+Then there are some who are accused of being trollers yet do not 
+agree.  They argue that they are only having a discussion.  They call 
+it "sarcasm" "irony" or witty banter.  There are many versions of this 
+kind of person, they argue and cause an uproar and don't understand 
+the uproar they cause.  Others may not have understood their intention 
+and both sides may have gotten a little too caught up in the 
+discussion.  It is possible to try and help these people understand 
+the uproar they cause using e-mail.  Sometimes the cause is hopeless.
+ 
+As always an honorable mention must be given to Archimedes Plutonium, 
+see http://www.archimedesplutonium.com/ (I will let Archimedes speak 
+for himself) or 
+http://groups.google.com/groups?ic=1&selm=74t9li$rvl$1@dartvax.dartmou
+th.edu
+ 
+Bottom line is that every news group at one time or another has a 
+"troll".  Someone who everybody learns to love to hate.  The Troll 
+changes from news group to news group, from e-mail address to e-mail 
+address. Ever changing and nearly impossible to keep up with.  Below 
+you will find out how to deal with these trolls.
+ 
+You can find a list of the latest trollers (or the troller trying to 
+get their victim in trouble) by taking a look at the newsgroups 
+alt.usenet.kooks, alt.syntax.tactical, alt.fan.karl-malden.nose, 
+alt.flame, or alt.bigfoot.
+ 
+See how well *your* Kook passes The Kook Test:
+http://groups.google.com/groups?&selm=tAlTRWAOMst4Ew0F@lejniesw.demon.
+co.uk
+http://www.catnip.org/kat/
+ 
+ 
+Defining troll, flames and crossposts
+============================================
+ 
+From the Jargon file ( 
+http://www.catb.org/~esr/jargon/html/T/troll.html ):
+ 
+troll v.,n.
+1. [From the Usenet group alt.folklore.urban] To utter a posting on 
+Usenet designed to attract predictable responses or flames; or, the 
+post itself.  Derives from the phrase "trolling for newbies" which in 
+turn comes from mainstream "trolling", a style of fishing in which one 
+trails bait through a likely spot hoping for a bite. The well-
+constructed troll is a post that induces lots of newbies and flamers 
+to make themselves look even more clueless than they already do, while 
+subtly conveying to the more savvy and experienced that it is in fact 
+a deliberate troll. If you don't fall for the joke, you get to be in 
+on it. See also YHBT. 2. An individual who chronically trolls in sense 
+1; regularly posts specious arguments, flames or personal attacks to a 
+newsgroup, discussion list, or in email for no other purpose than to 
+annoy someone or disrupt a discussion. Trolls are recognizable by the 
+fact that they have no real interest in learning about the topic at 
+hand - they simply want to utter flame bait. Like the ugly creatures 
+they are named after, they exhibit no redeeming characteristics, and 
+as such, they are recognized as a lower form of life on the net, as 
+in, "Oh, ignore him, he's just a troll." Compare kook. 3. [Berkeley] 
+Computer lab monitor. A popular campus job for CS students. Duties 
+include helping newbies and ensuring that lab policies are followed. 
+Probably so-called because it involves lurking in dark cavelike 
+corners.
+ 
+Some people claim that the troll (sense 1) is properly a narrower 
+category than flame bait, that a troll is categorized by containing 
+some assertion that is wrong but not overtly controversial. See also 
+Troll-O-Meter.
+ 
+The use of `troll' in either sense is a live metaphor that readily 
+produces elaborations and combining forms. For example, one not 
+infrequently sees the warning "Do not feed the troll" as part of a 
+followup to troll postings.
+ 
+http://dir.yahoo.com/Computers_and_Internet/Internet/Chats_and_Forums/
+Usenet/Humor/Trolling/
+ 
+http://www.teamtechnology.co.uk/troll.htm
+With the following Troll definitions:
+* Playtime (1 off trolling)
+* Tactical (long term trolling by a single character)
+* Strategic (long term trolling using multiple characters and 
+different waves)
+* Domination (trolls who run mailing lists themselves)
+ 
+From : The ONE AND ONLY alt.flame FAQ- by Christopher Henrik Lund :
+a) Flaming: I.e. rude comments, insults, personal attacks, etc.
+b) Trolling: I.e. fishing for flames. Usually takes the form of inane 
+postings like smarmy love chatter, useless pieces of boring 
+information, McClatchie's FAQ, etc.
+c) Cascades: Endless meaningless threads the posters repeat the same 
+phrase over and over, sometimes with a little variation.  They are 
+amusing to the ones participating in them, boring to everyone else.
+ 
+Crossposting is posting a message to more than one group.
+ 
+Avoiding flaming :
+http://www.faqs.org/faqs/online-providers/aol-sucks-faq/part3/ - 
+alt.AOL.sucks Troll FAQ
+http://orangefox.svs.com/rem/other/lame-posts-faq - REC.MUSIC.REM lame 
+post FAQ
+http://www.geocities.com/TelevisionCity/Set/2342/waste.html - a.t.x-
+files troll info
+http://www.intersurf.com/~aevinc/aev2trol.htm - How to avoid being 
+trolled
+ 
+Flames and trolls :
+http://www.netxpress.com/users/geri/TrollLinks.htm - Troll Links
+http://groups.google.com/groups?selm=36b8544c.35158813@ruble.net - 
+Alt.Troll FAQ
+http://groups.google.com/groups?selm=7lchu7$2gs@dfw-
+ixnews19.ix.netcom.com - Bill Palmers comments on trolling
+http://groups.google.com/groups?q=&selm=3A2802BC.3EDD%40aloha.net - 
+Understanding A.R.E. Trolls
+http://groups.google.com/groups?q=&selm=34nos093nvvsloti03mfls@trollfa
+q.org  - Troll FAQ part 1
+http://groups.google.com/groups?q=&selm=sdio325mn__weoibm8043kncmvx@tr
+ollfaq.org  - Troll FAQ part 2
+http://groups.google.com/groups?q=&selm=3nvol3903n1pnamxndju744@trollf
+aq.org  - Troll FAQ part 3
+http://groups.google.com/groups?q=&selm=enal3n8rn510qmznceisnt876@trol
+lfaq.org  - Troll FAQ part 4
+http://groups.google.com/groups?q=&selm=38bm86sp10zx456ghj_qwerty@trol
+lfaq.org  - Troll FAQ part 5
+http://www.firelily.com/support/depression/trolls.html
+http://www.firelily.com/support/recovery/flame.retardant.html
+http://www.fortunecity.com/victorian/byzantium/55/troll.htm - Troll 
+Descriptions
+http://www.intersurf.com/~aevinc/aev2trol.htm - All about trolls 
+(short)
+http://www.intwg.com/trolls.htm
+http://www.netspace.org/~dmacks/internet-songbook/trolling-in-the-
+newsgroups.html - The Song :-) ...
+http://groups.google.com/groups?selm=065f8722.73c4d2fb@usw-ex0102-
+016.remarq.com - "Don't Feed The Trolls" article
+http://home.att.net/~newsbee/asl/trolls.html - Troll point system and 
+how to ignore trolls
+http://www.hyphenologist.co.uk/killfile
+http://www.hyphenologist.co.uk/killfile/antitrollfaqhtm.htm - Anti-
+Troll FAQ
+http://faqs.jmas.co.jp/FAQs/1999/Feb/990211.01 - 
+Alt.Fan.Karl.Malden.Nose FMQ
+http://spiralx.dyndns.org/howto.html - Slash Dot Troll
+http://www.trollville.org/ - Where Trolls can go be themselves, no 
+censorship allowed
+http://groups.google.com/groups?as_umsgid=m2n1daetkb.fsf@ryoko.tky.hut
+.fi - Finnish Troll FAQ
+ 
+The current Alt.Goth troll FAQ:
+http://www.legendsmagazine.net/pan/panstuff/agsffaq.htm
+ 
+Or bring up :
+http://www.hotbot.com/ or http://www.google.com/
+and search for trolls flames
+ 
+Or for a definition of Trolls :
+http://www.wikipedia.com/wiki/Internet_troll
+http://it.geocities.com/roccopapaleo/italiano.html - Italian 
+translations
+ 
+Fravia suggests you have a look at troll lore :
+http://www.searchlores.org/trolls.htm
+Stalking lore:
+http://www.searchlores.org/stalking.htm
+And more general anonymity lore:
+http://www.searchlores.org/noanon.htm
+ 
+What some of these children enjoy doing:
+http://www.ncf.carleton.ca/ip/freenet/subs/complaints/spam/faqs/tacfaq
+.txt
+ 
+One of the clubs:
+http://groups.yahoo.com/group/utbhumanresourcesrecruiting/
+And the start of the messages:
+http://groups.yahoo.com/group/utbhumanresourcesrecruiting/messages/1
+ 
+ 
+What to do
+============================================
+You are reading one of your favorite newsgroups and all of the sudden 
+you see the following message:
+ 
+Subject:      Can I bring my cat to Hell with me?
+Newsgroups: alt.flame, alt.spleen, k12.chat.teacher, alt.bigfoot, 
+alt.tasteless, alt.gathering.rainbow, alt.evil, alt.bigfoot, 
+alt.sex.cthulhu, k12.chat.senior, alt.satanism, rec.pets.cats
+Date: 26 Jun 1994 23:41:48 -0700
+From: antebi@phakt.usc.edu (Ron Shmet)
+Organization: University of Southern California, Los Angeles, CA
+ 
+I am aware that I can't take my "stuff" with me when I die...
+<Rest of post deleted because of stupidity>
+ 
+O.K... so you know what a flame, a crosspost and a troll are.  Now 
+what do you do about it?
+ 
+A) Sit on your hands and bite your tongue.  Reread the post.  It may 
+be a new person to the Internet who has innocently hit your raw nerve.
+B) Look at the newsgroups line and see how many groups the post is 
+posted to, specifically look for one the newsgroups 
+alt.syntax.tactical, alt.flame or alt.tasteless.
+C) Continue to sit on your hands.
+D) Look at the header to make sure that someone hasn't forged the e-
+mail return address to get someone else in trouble.  For help with the 
+header see :
+http://digital.net/~gandalf/spamfaq.html
+ftp://rtfm.mit.edu/pub/usenet/alt.spam/
+   Or look at how to track someone:
+http://www.searchlores.org/
+E) Stop sitting on your hands, but *Don't* reply to the post.
+F) Read the alt.bigfoot FAQ :
+http://www.faqs.org/faqs/bigfoot/part1/
+http://www.faqs.org/faqs/bigfoot/part2/
+G) Sit and think.
+H) Read about the Gullibility Virus.  This is a very funny editorial 
+to be passed along to your friends who send you all those hoaxes :
+http://www.virtualsalt.com/warning.htm
+And see what the hoax e-mail subject lines are:
+https://mail.hr.doe.gov/hoax.htm
+And why Disney is *not* giving away 13,000 free trips, why Bill Gates 
+is not collecting e-mail addresses (and many other hoaxes):
+http://www.snopes.com/inboxer/nothing/billgate.asp
+And Hoaxes on the Internet:
+http://hoaxbusters.ciac.org/
+I) Whatever you do, DO NOT reply to the post.
+J) Sit and think.  Go clean that green stuff off the sides of your 
+fish tank like you have been meaning to do.  Try to remember that the 
+Internet is not real life.  It is not worth getting upset over.  The 
+news group you are so involved in would forget that you exist if you 
+stop posting for 6 months (most likely even quicker).  Real life goes 
+on with or without the Internet.
+K) "Arguing with anonymous strangers on the Internet is a sucker's 
+game because they almost always turn out to be -- or to be 
+indistinguishable from -- self-righteous sixteen-year-olds possessing 
+infinite amounts of free time."  -Neal Stephenson,  _Cryptonomicon_
+L) Look at the original group creation file (not necessarily up to 
+date):
+ftp://ftp.uu.net/usenet/control/
+ftp://ftp.isc.org/pub/usenet/control/
+ 
+Hopefully if you have done all these steps your blood pressure has 
+gone down a few points.
+ 
+The above applies to *all* posts that are trolls.  The post may only 
+be to one newsgroup, but none the less it is a troll to try & cause 
+problems in the newsgroup.  DO NOT POST!  It will only get more people 
+upset at you than at the original flamer.
+ 
+If you feel like you *have* to post a message TRIM THE NEWSGROUPS!  
+Delete EVERY other newsgroups from the header except the group you are 
+posting to.  If you cannot delete the excess newsgroups, please do 
+everybody a favor and don't post.
+ 
+E-Mailing
+============================================
+First off (as you might have guessed) DO NOT post a message to your 
+newsgroup to *anybody* who is trolling for a reply.  It will only 
+clutter up your newsgroup and get everybody else upset at *you* for 
+replying.
+ 
+Raffaele does mention, however, there are groups where some regs 
+encourage to do exactly the opposite of the golden rule, and even 
+accuse of cowardice those who don't scream and yell when a suspected 
+troll enters the group.
+ 
+Bottom line, as always, read the FAQ for that particular group.
+ 
+Remember, Google is your friend.  Go to 
+http://groups.google.com/advanced_group_search and type in the e-mail 
+of the poster in the field "with the exact phrase", click on "Google 
+Search".  This will tell you the tendencies of the poster and may give 
+a clue as to their proclivities.  If they post to alt.flame, then you 
+know how they operate.
+ 
+If the message has been posted thru a anonymous remailer then you 
+should just contact the remailer.  Unfortunately this only causes more 
+problems for the ability to post anonymous messages (an important 
+freedom of speech resource that should not be destroyed).  The E-mail 
+address has probably been forged.  To find out about remailers, see:
+http://www.eskimo.com/~turing/remailer/FAQ/
+For a list of them see :
+http://www.eskimo.com/~turing/remailer/stats/db/rlist.html
+http://www.eskimo.com/~turing/remailer/stats/db/mlist.html
+ 
+ 
+Fravia refers us to the new "enemy" and enemy-related sections:
+http://www.searchlores.org/noanon.htm
+http://www.searchlores.org/statoo.htm
+http://www.searchlores.org/luring.htm
+and
+http://www.searchlores.org/trolls.htm
+ 
+If you feel like you have to do *something*, then you should contact 
+the person who posted the message.  PLEASE send a *nice* message and 
+ask them why they did this.  Remember, the e-mail is *very* easy to 
+forge and the troll may have been posted only to get someone else in 
+trouble.  Another item to consider is that the person may be a net 
+newbie.  They may not *know* that they are starting a flame war or 
+making posts that look like trolls.  They *may* be sincere about their 
+posts and just need some guidance.  Help them, please.
+ 
+If you get a nasty reply (or no reply and the posts continue), then 
+your next option is to send a message to the persons postmaster.  See 
+the above spamfaq URL for how to figure out what postmaster to send 
+your message to.
+ 
+Andrew reminds us:
+ 
+1. Keep it simple, keep it short. Postmasters are amazingly busy 
+people.
+2. Be polite. It's not the postmaster you're cheesed off at.
+3. Make sure you include the full headers so the postmaster has the 
+all-important Message-ID tag to track the troll. Export the message to 
+a text file and paste it back in if you need to.
+4. Thank the postmaster for his/her efforts at the end. Gratitude 
+before the fact will help spur the postmaster to effort on your 
+behalf.
+5. Be patient. It may take the postmaster a few days or a few gripes 
+to act. Don't repost the same gripe multiple times. New gripes, 
+however, are permissible.
+6. If the troll becomes harassing and/or actionable and you can 
+identify the site from the headers, call the postmaster. LD charges 
+may be worth it.  Follow the preceding rules for the phone call. Be 
+polite, be brief, and thank the person for their efforts. One call is 
+usually all it takes.
+ 
+Example gripe :
+ 
+Dear Postmaster:
+ 
+Please find attached the headers and body text of a harassing message 
+posted to <Your Newsgroup>. As the message originated at your site, 
+I'd like to request your assistance in explaining to the offending 
+user the rules of online etiquette. Thank you for your time.
+ 
+Killfiles
+============================================
+Most newsreaders support a killfile.  A killfile tells your newsreader 
+to "ignore" certain posts or posters.  The beauty is that you never 
+have to see a message from "X" again, or about subject "X" again.
+ 
+Adding posts to killfiles :
+http://www.cis.ohio-state.edu/hypertext/faq/usenet/killfile-
+faq/faq.html
+ftp://rtfm.mit.edu/pub/usenet/news.software.readers/rn_KILL_file_FAQ
+ 
+If you are a News Administrator (or you know one), you can filter out 
+A.S.T posts (thereby also stopping the propagation of these same 
+posts).  Look at :
+List of anti-spam software:
+http://www.exit109.com/~jeremy/news/antispam.html
+Some of the software:
+http://www.exit109.com/~jeremy/news/cleanfeed.html
+http://www.spamhippo.com/
+ 
+If you follow all of the above steps, you will be happier, but most 
+importantly Usenet will be happier for having less bandwidth abused.
+ 
+Welcome to the Troll FAQ.
+ 
+ 
+A description of the alt.syntax.tactical crew (and lesser trolls)
+=================================================================
+ 
+You will find a description of the AST crew below, but first I must 
+mention the lesser groups that inhabit the Internet.  From the group 
+alt.games.creatures we find a group of trolls that (as many trolls do) 
+try to make it seem that they are the purveyors of the truth ... 
+everybody else is wronging them.
+See http://www.geocities.com/SiliconValley/6042/index.html (Well, it 
+*was* there :-) ... I figured it would disappear so I kept a copy 
+below ...)
+Where we find THE AVENGER SQUADRON
+----------------------------------
+The terrorists on AGC have opened a Pandora's box of terrorism. We 
+intend to neutralize that box and close it once and for all, without 
+breaking any laws.
+ 
+"Fear is a powerful and dangerous thing." -A quote.
+ 
+We will stop them, without breaking the law.
+ 
+We are the defenders of justice and peace and we will fight to protect 
+innocent people from the savage violence and hatred on AGC that exists 
+because it was formerly overrun with terrorists. We have successfully 
+ridden it of several hate-mongering persons and groups, and continue 
+to do whatever we can to uphold freedom and peace.
+ 
+Those guilty of violations have accused us of trickery, lies, and 
+forgery. This is not the case.  We have never lied. We only make 
+legitimate complaints that truly violate Terms of Service Agreements. 
+Those who wrongly accuse us of these things are no doubt guilty of 
+violations themselves and wish to rid themselves of us so that they 
+can continue their inappropriate activities and get away with them.
+ 
+They will not succeed in trying to destroy us. We are here to stay.
+----------------------------------
+ 
+Isn't that just the CUTEST thing :-) ...
+ 
+The rest of this AST FAQ is here for historical purposes only.  Below 
+we find the sad description of the AST crew and a copy of their 
+invasion FAQ.  Everything below this down to my .sig has not been 
+updated (and will not be updated) since the troll FAQ was created in 
+early 1996. Jonathan tells me that the *original* AST FAQ was written 
+in 1994.  See:
+http://groups.google.com/groups?q=&selm=1994Jun28.030029.24541@lugb.la
+trobe.edu.au  - All About Alt.Syntax.Tactical (or, Know Your Jerk)
+ 
+Victor wrote a description about the alt.syntactical wrecking crew.  
+Below is his post.  The section "The alt.syntax.tactical FAQ - Know 
+your opponents" contains the tactics used by the AST crew to disrupt 
+any USENET group.
+ 
+Date: Tue, 8 Nov 1994 11:52:38 MST
+ 
+Welcome to the All About alt.syntax.tactical FAQ
+ (or, Know Your Jerk)
+Irregular Posting
+ 
+*Sigh*. A fresh batch of shitheads have arrived. I do applaud everyone 
+for ignoring them. However newbies are advised to read the following.
+ 
+-- What is this FAQ about? --
+ 
+This FAQ is for new users who enter the wonderful world of Internet 
+only to be disappointed by stumbling upon gigabytes of stupidity and 
+old timers who know that idiots tend to hang around in groups. The 
+subject here are a bunch of infantile losers known as -
+ 
+Alt.syntax.tactical
+ 
+A.s.t can claim the dubious honor of being the only group that even 
+alt.flame can look down upon.
+ 
+-- Why do they do this? --
+ 
+Beats me. Seems like an awful lot of boring, repetitive rote work with 
+the only reward being regarded as an electronic cockroach plague by 
+the rest of the net community.
+ 
+-- How do I recognize an alt.syntax.tactical post in general? --
+ 
+- Cross posting to a large number of groups. Attention seeking 
+exercise.
+ 
+- The "flogging a dead horse" syndrome. Taking topics that have been 
+done to death and rehashing them. In this case, trying to start 
+another alt.tasteless/rec.pets.cats flame-war (ho-hum). This is likely 
+due to the article detailing the original flame-war appearing in WiReD 
+magazine, so probably seeking attention again.
+ 
+- General lack of interest, humor and a lame attempt to be offensive, 
+like crossposting to rec.pets.cats, the two K12 groups and 
+alt.gathering.rainbow.
+ 
+Other general characteristics -
+ 
+- a.s.t posters are in the habit of following up there own articles if 
+the original was (wisely) ignored.
+ 
+- reposting complete articles or flame/counter flames with one line 
+comments, thus maximizing bulk.
+ 
+- endless flame/counter-flames between the various a.s.t invasion wave 
+members when the real newsgroup members(wisely) ignore them.
+ 
+As a rule of thumb, if it is boring, pointless and inane, you can bank 
+on it being from a.s.t.
+ 
+-- What can I do about stupid a.s.t posts? --
+ 
+The golden rule is ignore. If someone farts in a room, the smell will 
+eventually go away. Likewise, if a.s.t is largely ignored, they too 
+will go away.
+ 
+Resist all urges to reply. You'll be bashing your head against a brick 
+wall and only giving them satisfaction. Learn to use your kill-file, 
+ask someone you know how if you don't know. The more hi-tech among you 
+may want to track them down and extract whatever electronic revenge 
+you can.
+ 
+-- Where do a.s.t reside, usually? --
+ 
+There originally was an a.s.t group, and it still gets used 
+occasionally.  Mostly, they hang out in alt.bigfoot, which was 
+probably originally a Sasquatch interest group which they invaded and 
+decided to keep, and in alt.flame.
+ 
+-- Who are the members of a.s.t? --
+ 
+(Note : These people haven't posted in a long time, so this is an old 
+list)
+ 
+OK, here is the listing. If any body has any other addresses, e-mail, 
+and we'll add them.
+ 
+Name and/or handle      Address
+_____________________________________________
+Robert Trent            trent@vertigo.helix
+Supreme commander       harmoni@vertigo.helix
+Shafik Harmoni          trent@mprgate.mpr.ca
+ 
+Antebi                  antebi@scf.usc.edu
+Rev. Antebi             antebi@ucla.edu
+Ron Shmet               antebi@phakt.usc.edu
+                        antebi@chaph.usc.edu
+                        shmet@ucla.edu
+ 
+Wilf                    wilf@doe.carlton.ca
+Bulldog                 bulldog@achilles.net
+                        wilf@sce.carlton.ca
+ 
+Dewme                   sdew@charlie.usd.edu
+Charlie Dew             sdew.nyx.du.edu
+                        sdew@tulip.usd.edu
+ 
+Wild Bill               traveller@teleport.com
+Bill Travis             bill@suntan.vid.ilstu.edu
+ 
+Doug Weber              grossy@netcom.com
+ 
+Lisa Park Yzer-GOD      brotman@netcom.com
+ 
+ 
+John Kordic             jpdavid@netcom.com
+ 
+Plus an ever changing variety of others. As has come to pass, it isn't 
+even necessary to know the above idiots, though they are the most 
+predominant and have popped up in a.t several times this year.
+ 
+A.s.t has matured with time to be just another generic term for 
+bandwidth wasting shit-heads.
+ 
+ 
+The alt.syntax.tactical FAQ - Know your opponents
+=================================================
+ 
+Here's some relevant source material, obtained from one of the 
+members, the "real" FAQ of AST, a somewhat less serious one, and one 
+distributed -about- AST.
+ 
+                      The Invasion FAQ of A.S.T.
+ 
+ 
+Although not exactly a FAQ, this file is more of an explanation of why 
+alt.syntax.tactical and the tactical-list were created. It also lays 
+down the foundation for the structure, strategy, and protocol of 
+USENET invasions.
+ 
+ 
+                            * Invasion *
+ 
+Each of us brings our own reasons, backgrounds and motivations into 
+this scheme. What is important is that each individual brings into 
+this their own brand of inspired mischief. In some ways it is 
+completely innocent. In some ways it is completely destructive.
+ 
+Anyone can walk into alt.sex and post that pornography should be 
+banned. Anyone can walk into rec.sport.baseball and say "baseball 
+sucks". It takes unbelievable skill and discipline to cause a 
+PROLONGED flame war. That is what we do. But it can only be done with 
+talent, and numbers to match that talent. We only bring into the fold 
+people who have the knack to use smarts to incite chaos, not stupidity 
+to incite being ignored when people see a post and know what you're up 
+to.
+ 
+To keep things running smoothly, Antebi is our 'moderator'. jpdavid 
+was responsible for creating the mailing-list and setting up the 
+initial newsgroup. Everyone is equal in suggesting and voting on 
+invasion sites and other basic day-to-day workings of the group. 
+Everyone here gains or loses merit only in the invasion arena.
+ 
+ 
+                       * Waves of Invasion *
+ 
+ 
+Flames and wars between groups are as old as Usenet. What we try to do 
+is in many ways fundamentally different from what is or has been done 
+in this area.
+ 
+After picking a site, we call for an invasion on that site. There are 
+a number of phases to an invasion. Each person can volunteer for which 
+wave they want to be in, but more times than not, it is a first come-
+first served policy. It is always important that no one jump the gun 
+and go in before we have time to prepare and bounce ideas off each 
+other. It's also important that people don't switch waves without 
+letting everyone know. Flexibility is the key, as is communication.
+ 
+Typically, we use between two and five Waves of attack. Waves will 
+generally break down into this kind of structure:
+ 
+  a: Reconnaissance (RECON): These people will go in early and usually 
+set up camp as "friends of the newsgroup". They will become trusted 
+and participate by joining previous discussions or starting non-
+controversial ones themselves. They will also act as "double-agents" 
+to counter-flame the other waves as the invasion progresses. They key 
+is building a bit of credibility.
+ 
+  b: Wave One: Wave one will usually be what starts the flame war.  
+Those involved in this wave can go on and each have a different flame, 
+or go on and flame in unison.  They can bring in a subject of their 
+own or flame a previous discussion. What matters is that this initial 
+wave will be the one that the invaded newsgroup will have their 
+attention on. This wave calls for extreme subtlety. The quality of the 
+flame MUST be at its highest point here.
+ 
+ c: Wave Two: Wave Two will consist of tactics to attack the people 
+who were sent in as recon and attempt to start totally new flame 
+threads. The key here is that even if we attack a group of people 
+restrained enough to resist our flame-bait, wave two will stir things 
+up and get others to join in.
+ 
+ d: Wave Three: Wave three will generally change depending on the 
+campaign, but will generally be added to push the confusion and chaos 
+over the top. Flame the recon, flame the first wave, flame the second 
+wave. These guys are our balls out, rude SOB's. Mop up and clean out.
+ 
+Sometimes (usually with bigger groups) Wave three will simply be along 
+the lines of a wave two. We will call for a wave four (or five) to be 
+the balls out routine. We will sometimes add a wave or two because 
+depending on the size and intelligence of a newsgroup.
+ 
+ Miscellaneous Tactics:
+ 
+     There are three other things that we typically use, depending on 
+the sophistication of the invasion.
+ 
+LOOSE CANNONS are people who come in and act so strange and obtuse 
+that it makes the rest of the flames look genuine.
+ 
+THE ANON SERVICE can be used to send posts anonymously. This is a good 
+way to post and pretend to be scared of retribution. Only problem is 
+that this is usually the first sign that a post is a flame, so it 
+should only be used with a TREMENDOUS amount of DISCRETION.
+ 
+CROSS POSTING is also a popular method of choice by other flame 
+groups, so it is important to Cross Post with discretion. If we can 
+cross post to bring in other newsgroups to unwittingly assist us, 
+perfect. If we cross post to suspicious newsgroups, our intentions 
+will be obvious.
+ 
+                        * Victory *
+ 
+Ideally, signs of victory are the following:
+ 
+o Our names appear in killfiles
+o Majority or ALL threads in invaded newsgroup were started by us
+o Regulars/legit people abandon invaded newsgroup
+o Receive much hate mail - as does our SysAdmin
+o To be reprimanded by the glorious SysAdmin
+ 
+                        * Notes *
+ 
+Most important is the need to be SUBTLE when it is required. One 
+misplaced post can ruin it for the rest of us. Those of you who have 
+participated in widespread flame wars know the feeling of having a 
+newsgroup going for a long time, then someone posts an obvious flame 
+or something so far out of context, that everyone says to just ignore 
+the flames, which eventually includes all of us. Blowing a flame war 
+will occasionally happen, but if it could have been avoided with a 
+little thinking, then it's not as excusable.
+ 
+We've got to share duties. Everyone should get practice playing 
+different roles and different waves.
+ 
+It has been assumed that if you don't want to participate, fine. No 
+one will hold it against you. What is expected is that if you don't 
+want to participate you don't have to, but that also means that you 
+wont go warning that newsgroup when an invasion happens. You will 
+close your eyes and turn a blind eye. NO NEWSGROUP IS OFF LIMITS!!!!!!
+ 
+Another thing many people seem to be talking about are SIGS AND NAMES. 
+Try to take on appropriate names. If you are on alt.rap, D.J. Trouble 
+is not going to stir things up...if you show up on soc.culture.physics 
+with that name, you're caught before your first word of text. If a Sig 
+is going to blow your cover, lose it.
+ 
+Official Kudos:
+ 
+- under construction -
+ 
+                -------------------------------------------
+ 
+                        ALT.SYNTAX.TACTICAL: The FAQ
+                                v. 0.98
+ 
+                -------------------------------------------
+ 
+Table of Contents:
+ 
+  A>  Introduction to alt.syntax.tactical
+ 
+  B>  Questions Frequently Asked
+ 
+00> What is tactical syntax?
+01> What do those long words mean?
+02> What do you get when you put those words into an alt newsgroup?
+03> Why is tactical syntax important to us?
+04> What kinds of topics will be discussed on a.s.t?
+05> Have certain ethnic groups or women as a gender been biased by 
+syntactical tactics?
+06> What languages make the best and worst use of syntax?
+07> What are some of the hidden secrets of syntax?
+08> How and why has syntax changed over the years?
+09> Can studing[sic] other types of languages (sign, Braille, etc.) 
+help us understand our own tactical syntax?
+10> In case of emergency, who should we contact?
+11> What other newsgroups might I find interesting?
+12> Who is out to get us?
+13> Who is an a.s.t approved author?
+14> What is the Tertiary Syntactical Cycle?
+15> Is there any Television syntax?
+16> Who is the current caretaker of the newsgroup?
+ 
+C>  Summary
+ 
+-------------------------------------------
+ 
+A> Introduction to alt.syntax.tactical
+ 
+Welcome to the FAQ for alt.syntax.tactical. It was founded for the 
+purpose of offering an oasis to those seeking intensive and concrete 
+forum to discuss issues surrounding the mystique of "tactical syntax" 
+or "strategic sentencing". We also like to play with 'magick' and the 
+intrinsic tactical-syntax needed to sucker the post-D&D crowd.
+ 
+-------------------------------------------
+ 
+B> Frequently asked questions
+ 
+0> What is tactical syntax?
+ 
+It is structure, and structure is meaning.  That is the point of this 
+newsgroup.  Part of the tactics is to steal language back from the 
+academics who would have us believe that the real meaning of language 
+can only be found in areas which can be understood only by them, not 
+by "the rest of us".
+ 
+1> What do those long words mean?
+ 
+tactical = An expedient for achieving an end. The science of using 
+strategy to gain military objectives. Skillful maneuvering to achieve 
+a goal.
+ 
+syntax = The way in which words are put together to form sentences, 
+clauses and phrases.
+ 
+2> What do you get when you put those words into an alt newsgroup?
+ 
+Alt.syntax.tactical is dedicated to serving those who are both 
+attracted to and repulsed by the myriad of options regarding the 
+structure, logistics, ethics and morality of 
+sentences/clauses/phrases.  This group will NOT debate grammar in it's 
+intrinsic form, nor debate the correct and incorrect forms of 
+spelling. Words, isolated. mean nothing to us. Words, tactfully 
+arranged, mean everything. alt.syntax.tactical will attempt to present 
+itself as a forum for those searching for better ways to communicate 
+through utilizing the ultimate good deeds of others through both 
+debate and causal/friendly suggestion. Alt.syntax.tactical should 
+function as a freeform information branch to get a better grasp of how 
+and why syntax makes an impact on not just our own lives, but the 
+lives of our nuclear families and human civilization as well.
+ 
+3> Why is tactical syntax important to us?
+ 
+The great debate of our century has been how the great personalities 
+of our time have worked their communicative "magic". One might ask if 
+the British would have survived without the brilliant syntax of 
+Winston Churchill.  Or one might ask is the Nazi's would have even 
+been given a blinking chance to create the Third Reich without the 
+brilliant, albeit malevolent, syntax of Adolf Hitler.  What makes good 
+syntax? We find that the more tactical the syntax is the better that 
+syntax is.
+ 
+To understand the importance of syntax in the Modern, flame Postmodern 
+and Macromoderno age, it is essential to acknowledge the contribution 
+of semantics and language mechanics. We must understand the contrived 
+and manipulative effects of social/political/interpersonal propaganda. 
+Can syntax help you get a discount when purchasing items in a retail 
+store? Can syntax make or break an international peace treaty?  What 
+is the subjective bias of syntax relative to the teeming population of 
+mass humanity and objective reality.
+ 
+4> What kinds of topics will be discussed on a.s.t?
+ 
+* The Psychology of Syntax.
+* Verbal and Non-Verbal gestures and their effect on Syntax.
+* Syntax under the manipulative effect of hypnosis.
+* Dyslexia/Schizophrenia and Syntax
+* Syntax under the effects of drugs and alcohol
+* The Syntax of Slang
+* Situational Syntax
+* The History and Development of North American Syntax
+* Sex, Syntax and the 90's
+* Violence and the Syntax dialectic
+* Syntax and propaganda in Cold War Russia
+ 
+5> Have certain ethnic groups or women as a gender been biased by 
+syntactical tactics?
+ 
+Yes.  Within the Specific and General domains of syntax, language and 
+diction have been used by various factions of meta-institutions to 
+support the downsizing and exploitation of women and members of ethnic 
+groups.
+ 
+6> What languages make the best and worst use of syntax?
+ 
+Typically, languages with larger vocabularies (Romance) lend 
+themselves to more tactical approaches to diction than languages with 
+smaller vocabularies (i.e. Serubian).
+ 
+7> What are some of the hidden secrets of syntax?
+ 
+Join the Newsgroup and find out. We will tell you. Hint: It has 
+nothing to do with dolphin squeaks.
+ 
+8> How and why has syntax changed over the years?
+ 
+As fluid as a river in the desert, syntax has flowed with change. 
+Change is a natural evolution from the sea to the trees, the question 
+is not so much how and why, but when and how.
+ 
+9> Can studing other types of languages (sign, Braille, etc.) help us 
+understand our own tactical syntax?
+ 
+Of course it can. But for the most part, we only care about English. 
+Although, we would like to learn to swear in other languages. Look out 
+for the alt.syntax.tactical 'Insulting Foreigners' FAQ coming to a.s.t 
+soon!
+ 
+10> In case of emergency, who should we contact?
+ 
+Please post your problem first, but in case of emergency, you can e-
+mail to VICE-PRESIDENT@WHITEHOUSE.GOV
+ 
+11> What other newsgroups might I find interesting?
+ 
+Other a.s.t recommended newsgroups include:
+alt.nuke.the.usa
+alt.forgery
+comp.sys.amiga.advocacy
+alt.fan.warlord
+alt.spelling
+alt.sex.bestiality
+ 
+12> Who is out to get us?
+ 
+The professionals who want to reduce language to:
+(1) semantics (that is, little tiny bits which can only be studied 
+with an electron microscope), or
+(2) "deep" structures which can only be studied by psycho-bio-physio-
+neurochemists
+ 
+13> Who is an a.s.t approved author?
+ 
+Thomas Hardy - In the examination of the uses of Syntactical Fiction 
+as a means to brainwash an unyielding public, one of the nineteenth 
+century authors who best personifies this effort is Thomas Hardy, 
+specifically in his novel, "The Mayor of Casterbridge" in which he 
+presents moral dilemmas at an astounding rate and everything runs in 
+intense cycles of threes.  There is not a single aspect of the book 
+that does not contain this Tertiary Syntactical Cycle<TSC>.
+ 
+14> What is the Tertiary Syntactical Cycle?
+ 
+TSC is probably the most powerful and oft used tactic in the attack on 
+unsuspecting minds.  Take comedians: All comics tell a joke a maximum 
+of three times.  The will get a bigger and better laugh the second and 
+third telling.  No competent comic will say a joke a fourth time.  
+This is a violation of TSC and is not to be tolerated. TSC is also the 
+reason that Hollywood produces Trilogies.  The Lord of the Rings is 
+perfect in its trimetry.  There is a purpose behind TSC and we must 
+all see and use this tactic as a matter of common rule and not as an 
+optional choice.  We have no Optional Choices!
+ 
+15> Is there any television syntax?
+ 
+That to which you refer actually has its basis in the code written 
+circa 1938 by Dr. Y. Cournoyer of McGill University. In the preface to 
+the Canadian Royal Syntactical Performance Methodology Code, Dr. 
+Cournoyer states,
+ 
+"Subversion through the syntactical methodology of oratological mind 
+control must be closely supervised and regulated. Patterns of words 
+transmitted non-personally can have a tremendous impact on a man's 
+[sic] panic centers"
+ 
+The good doctor had studied this effect of radio broadcasts among 
+small populations in northern New Brunswick, and, luckily for us, had 
+anticipated the mass visual medium of television.  The code, first 
+adopted by the CRTC and followed by the American FCC, prohibits the 
+broadcast of certain syllabic and phonemic patterns, and sets a syntax 
+standard adopted all over God's Green Earth.
+ 
+16> Who is the current caretaker?
+ 
+We let Teagi keep the group alive, and promote distribution.  If your 
+site doesn't carry it, let them know you want it!
+ 
+C> Again, welcome to alt.syntax.tactical. We hope you join us in our 
+discussions and learn. please use the knowledge acquired for good, not 
+evil.
+ 
+------------------------------------------------------------------
+Do not meddle in the affairs of wizards for they are subtle and
+quick to anger.
+Ken Hollis - Gandalf The White - gandalf@digital.net - O- TINLC
+WWW Page - http://gandalf.home.digital.net/
+Trace E-Mail forgery - http://gandalf.home.digital.net/spamfaq.html
+Trolls crossposts  - http://gandalf.home.digital.net/trollfaq.html
