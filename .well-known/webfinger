@@ -1,0 +1,25 @@
+{
+    "subject":"acct:GandalfDDI@ioc.exchange",
+    "aliases":
+    [
+        "https://ioc.exchange/@GandalfDDI",
+        "https://ioc.exchange/users/GandalfDDI"
+    ],
+    "links":
+    [
+        {
+            "rel":"http://webfinger.net/rel/profile-page",
+            "type":"text/html",
+            "href":"https://ioc.exchange/@GandalfDDI"
+        },
+        {
+            "rel":"self",
+            "type":"application/activity+json",
+            "href":"https://ioc.exchange/users/GandalfDDI"
+        },
+        {
+            "rel":"http://ostatus.org/schema/1.0/subscribe",
+            "template":"https://ioc.exchange/authorize_interaction?uri={uri}"
+        }
+    ]
+}
