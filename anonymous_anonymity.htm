@@ -15,6 +15,7 @@ Comments</p>
 <p>On The Internet - July 4, 2005<br>
 A Declaration of Anonymity<br>
 Revised August 29, 2005<br>
+Revised May 17, 2026 - Citation links audited and updated; threat model and modernization notes appended (see Appendix: 2026 Update).<br>
 <br>
 Anonymous Anonymity - Request For Comments<br>
 <br>
@@ -24,7 +25,7 @@ skill.&quot; - John Shirley<br>
 <br>
 <br>
 This document is available / updated at the following:<br>
-<a href="https://gandalfddi.z19.web.core.windows.net/anonymous_anonymity.htm">https://gandalfddi.z19.web.core.windows.net/anonymous_anonymity.htm</a><br>
+<a href="https://gandalfddi.github.io//anonymous_anonymity.htm">https://gandalfddi.github.io/anonymous_anonymity.htm</a><br>
 <br>
 Richard W. Hamming has said 'Indeed, one of my major complaints about the
 computer field is that whereas Newton could say, &quot;If I have seen a little
@@ -184,7 +185,7 @@ encoded via HTTPEncode from a random Google page fetch, without the HTML, per
 the description in the next paragraph.<br>
 <br>
 An example of protocol encoding is HTTPEncode encoding.&nbsp; See <a
-href="https://gandalfddi.z19.web.core.windows.net/anonymous_httpencode.htm">https://gandalfddi.z19.web.core.windows.net/anonymous_httpencode.htm</a>
+href="https://gandalfddi.github.io/anonymous_httpencode.htm">https://gandalfddi.github.io/anonymous_httpencode.htm</a>
 for a complete description.<br>
 <br>
 When using FTPEncode for port 20, the data port, UUEncoding will suffice.&nbsp;
@@ -486,8 +487,11 @@ address of the proxier is the address that shows up on the logs and stalking /
 spamming / etc. would be blamed on whoever owns the IP Proxier address.<br>
 <br>
 4) Not being able to make HTTP requests that divulge the end stations IP
-address. (Example <a href="http://www.whatismyip.com/">http://www.whatismyip.com/</a>
-)<br>
+address. (Example <a href="https://www.whatismyip.com/">https://www.whatismyip.com/</a>
+) - Note (2026): the IP-leak surface has expanded enormously since 2005.
+WebRTC, DNS, mDNS, STUN/TURN, browser fingerprinting (canvas / audio / font /
+WebGL), and TLS handshake fingerprinting (JA3 / JA4) now leak far more
+identifying information than the source IP alone.<br>
 <br>
 5) Spammers - Assuming that the this system is programmed in open source, you
 will (at some time) have some smart spammer figure out a way to redirect HTTP
@@ -530,68 +534,330 @@ learn who is going where by directing all connections to yourself.<br>
 surf they take some time between clicks, the software should emulate this
 rather than immediately fetching the next page.<br>
 <br>
+Appendix: 2026 Update Notes<br>
+<br>
+This section, added May 2026 alongside the citation audit above, summarizes
+developments since the 2005 RFC that affect the design. The underlying goals
+of the Anonymous Anonymity proposal remain coherent; the implementation
+surface has moved substantially.<br>
+<br>
+A) Threat Landscape Changes (2005 -&gt; 2026)<br>
+<br>
+The 2005 threat model treated source-IP exposure and circuit-level
+correlation as the primary risks. Both remain relevant. The practical
+adversary surface has grown beyond them:<br>
+<br>
+1) Browser fingerprinting - canvas, audio, WebGL, font enumeration, and
+hardware concurrency provide near-unique identification independent of
+IP. Tor Browser (<a href="https://www.torproject.org/">https://www.torproject.org/</a>)
+is the only widely deployed defense; bare proxies do not address this.<br>
+<br>
+2) TLS handshake fingerprinting (JA3 / JA4) and HTTP/2 fingerprinting allow
+passive identification of the client stack even over encrypted
+connections. A 2005 HTTPEncode payload from an unusual TLS stack would be
+identified by ClientHello shape before any payload analysis.<br>
+<br>
+3) WebRTC and mDNS leaks bypass the proxy layer entirely. Any modern
+browser running the original RFC&apos;s anonymity wrapper without WebRTC
+disabled would leak its local interface addresses via STUN.<br>
+<br>
+4) ML-based website fingerprinting (Wang / Goldberg 2013 onward; CUMUL;
+Deep Fingerprinting) defeats naive protocol mimicry by classifying
+encrypted flows on packet-size and timing distributions, reaching above
+90% accuracy on closed-world Tor traces in published evaluations. The
+2005 Issue #9 (Stanislav S.&apos;s timing concern) was correct and is now
+the dominant attack surface.<br>
+<br>
+5) Mobile-device threats - cellular metadata, app-level analytics, OS
+telemetry, and baseband leakage are vectors absent from the 2005
+desktop-centric model.<br>
+<br>
+6) Global Passive Adversary capability - 2013 disclosures confirmed
+nation-state collection at IXP scale, moving the &quot;global adversary&quot;
+assumption from theoretical to operational.<br>
+<br>
+B) Protocol Mimicry: HTTPEncode -&gt; Pluggable Transports<br>
+<br>
+The 2005 HTTPEncode concept anticipated by roughly seven years what later
+became Tor&apos;s Pluggable Transports framework. The intervening research
+established that direct protocol mimicry (&quot;look like real HTTP&quot;)
+is brittle; randomization-based and tunneling-based approaches dominate
+deployed systems:<br>
+<br>
+- obfs4 (<a href="https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/obfs4">https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/obfs4</a>):
+randomizes byte distribution, removes static protocol signatures.<br>
+- meek (domain fronting; degraded since major CDNs withdrew support
+2018-2020): tunnels via TLS to permitted CDN domains.<br>
+- Snowflake (<a href="https://snowflake.torproject.org/">https://snowflake.torproject.org/</a>):
+WebRTC-based proxy network using volunteer browser extensions; high churn
+resists enumeration.<br>
+- Conjure / Refraction Networking: decoy routing at the ISP level. Closer
+in spirit to the 2005 proposal&apos;s &quot;appear as legitimate traffic&quot;
+goal.<br>
+<br>
+Lesson: payload encoding alone (HTTPEncode) is insufficient. The full
+stack - packet sizing, timing, TLS handshake, connection patterns - must
+be either mimicked end-to-end (expensive, brittle) or randomized (simpler,
+more robust). obfs4 chose randomization; Snowflake chose tunneling inside
+a widely-deployed protocol stack the adversary cannot block without
+collateral damage.<br>
+<br>
+C) Mix Network Renaissance: Loopix and Nym<br>
+<br>
+The 2005 proposal&apos;s cover-traffic and timing-perturbation instincts
+(Issue #9) are now first-class design elements in modern mix networks:<br>
+<br>
+- Loopix (Piotrowska et al., USENIX Security 2017,
+<a href="https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/piotrowska">https://www.usenix.org/conference/usenixsecurity17/technical-sessions/presentation/piotrowska</a>):
+Poisson-distributed cover traffic, per-message independent delays,
+stratified topology. Achieves message-level unlinkability under a global
+passive adversary - something Tor explicitly does not target.<br>
+- Nym (<a href="https://nymtech.net/">https://nymtech.net/</a>): production
+deployment of Loopix-derived mixnet. Sphinx packet format
+(<a href="https://www.freehaven.net/anonbib/cache/sphinx-eprint.pdf">https://www.freehaven.net/anonbib/cache/sphinx-eprint.pdf</a>)
+for fixed-size constant-overhead routing.<br>
+- Katzenpost (<a href="https://katzenpost.network/">https://katzenpost.network/</a>):
+reference mixnet implementation in the same lineage.<br>
+<br>
+For applications where the 2005 RFC&apos;s goals matter most -
+circumventing state-level traffic analysis, where higher latency is an
+acceptable trade for stronger unlinkability - a Loopix-style mixnet is the
+closer modern analog to the proposal than Tor.<br>
+<br>
+D) Tor Evolution<br>
+<br>
+Several 2005 Tor-specific concerns are addressed in current Tor:<br>
+<br>
+- Issue #1 (well-known directory exposure): bridges and Pluggable
+Transports allow connection without contacting public directory
+authorities. BridgeDB (<a href="https://bridges.torproject.org/">https://bridges.torproject.org/</a>)
+distributes bridge addresses out-of-band.<br>
+- Issue #2 (ephemeral-port routers): bridges typically run on port 443.<br>
+- Issue #3 (directory authority compromise): vanguards protect against
+guard-discovery attacks on onion services. Onion Services v3 use Ed25519
+public-key onion addresses, retiring the weakly-keyed v2 .onion
+namespace.<br>
+<br>
+The 2024 Tor / Tails merger (see
+<a href="https://blog.torproject.org/">https://blog.torproject.org/</a>)
+consolidates the practical anonymity stack the 2005 RFC envisioned
+distributing as a Knoppix sneakernet disk.<br>
+<br>
+E) Cryptographic Primitives<br>
+<br>
+The 2005 ECC choice (citation xiv) has matured into a stable recommendation
+set:<br>
+<br>
+- Key exchange: X25519 (RFC 7748,
+<a href="https://www.rfc-editor.org/rfc/rfc7748">https://www.rfc-editor.org/rfc/rfc7748</a>);
+hybrid X25519 + ML-KEM (formerly Kyber, NIST FIPS 203,
+<a href="https://csrc.nist.gov/pubs/fips/203/final">https://csrc.nist.gov/pubs/fips/203/final</a>)
+for post-quantum resistance. TLS 1.3 hybrid key share is deploying
+2024-2026.<br>
+- Signatures: Ed25519 (RFC 8032,
+<a href="https://www.rfc-editor.org/rfc/rfc8032">https://www.rfc-editor.org/rfc/rfc8032</a>);
+hybrid Ed25519 + ML-DSA (formerly Dilithium, NIST FIPS 204) for
+post-quantum.<br>
+- AEAD: ChaCha20-Poly1305 (RFC 8439) or AES-GCM.<br>
+- Hashing: BLAKE3 (<a href="https://github.com/BLAKE3-team/BLAKE3-specs">https://github.com/BLAKE3-team/BLAKE3-specs</a>)
+or SHA-3 (FIPS 202) preferred over SHA-2 for new designs. The 2005 RFC&apos;s
+SHA-2 chunk-hash construction (file -&gt; SHA-2 hash dictionary) remains
+sound; BLAKE3 offers Merkle-tree-native verification with significantly
+higher throughput.<br>
+- Onion routing packet format: Sphinx is the modern equivalent to the
+2005 hop-by-hop encryption scheme.<br>
+<br>
+Note on post-quantum: harvest-now-decrypt-later is a real threat for
+recorded anonymous traffic. Any modern build should treat PQ migration as
+in-scope from day one, not as a future upgrade.<br>
+<br>
+F) Browser-Level Defenses Replace Endpoint Sanitization<br>
+<br>
+The 2005 design proposed end-point conversion of JavaScript / ActiveX into
+animated GIFs. That is not viable on the 2026 web; the modern approach is
+a hardened browser:<br>
+<br>
+- Tor Browser disables most JavaScript at the &quot;Safer&quot; security
+level and all of it at &quot;Safest&quot;; runs in a uniform user agent
+and viewport to defeat fingerprinting; restricts WebRTC, Web Audio, WebGL,
+and similar APIs.<br>
+- Mullvad Browser (<a href="https://mullvad.net/en/browser">https://mullvad.net/en/browser</a>)
+is a Tor-Browser-derived hardened profile for use without the Tor
+network.<br>
+- Letterboxing rounds window dimensions to defeat resolution
+fingerprinting.<br>
+<br>
+Endpoint payload rewriting (the 2005 proposal) cannot keep pace with the
+modern browser feature surface; hardening the browser instead is the only
+tractable approach.<br>
+<br>
+G) Distribution and Bootstrap<br>
+<br>
+The 2005 Knoppix-sneakernet distribution model (Stanislav S.&apos;s
+suggestion) remains valid in modern form:<br>
+<br>
+- Tails (<a href="https://tails.net/">https://tails.net/</a>): live USB
+with Tor integration, amnesic by default. Direct descendant of the 2005
+proposal.<br>
+- Whonix (<a href="https://www.whonix.org/">https://www.whonix.org/</a>):
+two-VM architecture isolating network from workstation.<br>
+- GetTor (gettor@torproject.org email autoresponder; Telegram bot
+@GetTor_Bot): out-of-band Tor Browser distribution for censored
+networks.<br>
+<br>
+H) Synthesis: What This Proposal Would Look Like If Built Today<br>
+<br>
+A 2026 build of the Anonymous Anonymity concept would:<br>
+<br>
+1) Use Sphinx-style fixed-size packet format with X25519 (+ ML-KEM hybrid)
+for key agreement and Ed25519 for signatures, with per-hop layered
+encryption.<br>
+<br>
+2) Employ Loopix-style Poisson cover traffic and independent per-hop
+delays to defeat ML-based timing correlation. The 2005 RFC&apos;s
+chain-link-value pre-negotiation is structurally similar but lacks the
+formal anonymity-set analysis Loopix provides.<br>
+<br>
+3) Replace HTTPEncode protocol mimicry with either obfs4-style
+randomization or Snowflake-style tunneling inside ubiquitous WebRTC /
+QUIC traffic.<br>
+<br>
+4) Preserve the BitTorrent-style chunk-hash file fetching, upgraded from
+SHA-2 to BLAKE3 Merkle trees for native incremental verification.<br>
+<br>
+5) Distribute via signed Tails-style live USB images with reproducible
+builds and out-of-band signature verification (GetTor pattern).<br>
+<br>
+6) Drop the JavaScript-to-GIF sanitization in favor of a Tor-Browser- or
+Mullvad-Browser-derived hardened client. The shadow-Internet cache
+hybrid that differentiated the 2005 proposal from Tor could be preserved
+as a local caching proxy in front of the hardened browser.<br>
+<br>
+7) Adopt vanguard-style guard rotation policies and directory-authority
+consensus rather than the 2005 design&apos;s flat peer discovery, to
+defend against Sybil and route-capture (citation viii).<br>
+<br>
+8) Treat post-quantum migration as in-scope from day one; recorded
+ciphertexts have a long shelf life.<br>
+<br>
+The 2005 proposal&apos;s distinguishing feature - a hybrid network that
+fetches both live Web content and serves a cached &quot;shadow Internet&quot;
+- remains unfilled by any current production system. Tor exits to the
+live Web but does not cache; Hyphanet caches but does not fetch; IPFS
+publishes but does not anonymize. A modern implementation of the 2005
+design&apos;s intersection could fill a real gap.<br>
+<br>
+End of Appendix.<br>
+<br>
 i) Newman, Ron and Copeland, Frank &quot;The Church of Scientology vs. Grady
 Ward&quot; (Specifically &quot;Scientology targets ISPs and anonymous
-remailers&quot;).&nbsp; URL: <a
+remailers&quot;).&nbsp; Original URL: <a
 href="http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html">http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html</a>
-Wednesday, July 24, 1996 (Accessed July 4, 2005)<br>
+(xs4all ISP retired 2024). 2026 archive: <a
+href="https://web.archive.org/web/2005*/http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html">https://web.archive.org/web/2005*/http://www.xs4all.nl/~kspaink/cos/rnewman/grady/home.html</a>
+Wednesday, July 24, 1996 (Accessed July 4, 2005; archive snapshot used as
+of May 2026)<br>
 <br>
 ii) IANA Registry of URI Schemes &quot;Uniform Resource Identifier (URI)
-SCHEMES&quot;.&nbsp; URL: <a href="http://www.iana.org/assignments/uri-schemes">http://www.iana.org/assignments/uri-schemes</a>
-03 June 2005 (Accessed July 4, 2005)<br>
+SCHEMES&quot;.&nbsp; URL: <a href="https://www.iana.org/assignments/uri-schemes">https://www.iana.org/assignments/uri-schemes</a>
+(Current 2026 location; same path, now HTTPS) 03 June 2005 (Accessed July 4,
+2005; reverified May 2026)<br>
 <br>
 iii) The Freenet Project &quot;The Freenet Project - index - beginner&quot;.&nbsp;
-URL: <a href="http://freenetproject.org/">http://freenetproject.org,</a> 04
-July 2005<br>
+Original URL: <a href="http://freenetproject.org/">http://freenetproject.org</a>.
+Note (2026): the original Freenet was renamed Hyphanet in March 2023 after
+the &quot;Locutus&quot; successor project assumed the Freenet name. The
+historical Freenet referenced here is now at <a
+href="https://www.hyphanet.org/">https://www.hyphanet.org/</a> ; the
+freenetproject.org domain now redirects there. The unrelated 2019-onward
+Rust-based project at <a href="https://freenet.org/">https://freenet.org/</a>
+shares a name only. 04 July 2005 (Reverified May 2026)<br>
 <br>
-iv) Simova, Martina Pollett, Chris and Stamp, Mark &quot;STEALTHY
-CIPHERTEXT&quot;.&nbsp; URL: <a
-href="http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf">http://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf</a>,
-,March,2005 (Accessed July 23, 2005)<br>
+iv) Simova, Martina; Pollett, Chris; and Stamp, Mark &quot;STEALTHY CIPHERTEXT&quot;.&nbsp; Original URL:
+<a href="https://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf">https://www.cs.sjsu.edu/faculty/stamp/papers/stealthy.pdf</a>
 <br>
 v) Nick Feamster, Roger Dingledine &quot;Location Diversity in Anonymity
 Networks&quot;.&nbsp; URL: <a
-href="http://www.freehaven.net/doc/routing-zones/routing-zones.ps">http://www.freehaven.net/doc/routing-zones/routing-zones.ps</a>
-,&nbsp; 2004 (Accessed July 23, 2005)<br>
+href="https://www.freehaven.net/doc/routing-zones/routing-zones.ps">https://www.freehaven.net/doc/routing-zones/routing-zones.ps</a>
+(freehaven.net still operational as of May 2026; PDF mirror at <a
+href="https://www.freehaven.net/anonbib/">https://www.freehaven.net/anonbib/</a>),
+2004 (Accessed July 23, 2005; reverified May 2026)<br>
 <br>
-vi) Mystic &quot;Mimicry&quot;. &nbsp;URLs: <a
+vi) Mystic &quot;Mimicry&quot;. &nbsp;Original URLs: <a
 href="http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic">http://www.defcon.org/html/defcon-11/defcon-11-speakers.html#Mystic</a>
-<a href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt</a>
+<a href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/Mimicry.ppt</a>.
+2026 fallbacks: DEF CON 11 official media archive at <a
+href="https://media.defcon.org/DEF%20CON%2011/">https://media.defcon.org/DEF%20CON%2011/</a>
+; archive.org snapshot: <a
+href="https://web.archive.org/web/2005*/http://www.inventati.info/pub/defcon11/Mimic-Mimicry/">https://web.archive.org/web/2005*/http://www.inventati.info/pub/defcon11/Mimic-Mimicry/</a>
 &nbsp; (Accessed July 23, 2005).<br>
 <br>
-vii) Mystic &quot;Mimicry&quot; software. URL: <a
+vii) Mystic &quot;Mimicry&quot; software. Original URL: <a
 href="http://www.inventati.info/pub/defcon11/Mimic-Mimicry/">http://www.inventati.info/pub/defcon11/Mimic-Mimicry/</a>
+. 2026 fallback: <a
+href="https://web.archive.org/web/2005*/http://www.inventati.info/pub/defcon11/Mimic-Mimicry/">https://web.archive.org/web/2005*/http://www.inventati.info/pub/defcon11/Mimic-Mimicry/</a>
 &nbsp;(Accessed July 23, 2005)<br>
 <br>
-viii) John R. Douceur &quot;The Sybil Attack&quot;.&nbsp; URL: <a
-href="http://www.cs.rice.edu/Conferences/IPTPS02/101.pdf">http://www.cs.rice.edu/Conferences/IPTPS02/101.pdf</a>
-(Accessed July 30, 2005)<br>
+viii) John R. Douceur &quot;The Sybil Attack&quot;.&nbsp; Current canonical
+URL: <a
+href="https://www.microsoft.com/en-us/research/publication/the-sybil-attack/">https://www.microsoft.com/en-us/research/publication/the-sybil-attack/</a>
+(Microsoft Research; replaces original cs.rice.edu IPTPS02 link).
+Proceedings of 1st International Workshop on Peer-to-Peer Systems (IPTPS),
+January 2002. (Accessed July 30, 2005; reverified May 2026)<br>
 <br>
 ix) Jianning Yang &quot;APTPFS: Anonymous Peer-to-Peer File
-Sharing&quot;.&nbsp; URL: <a
+Sharing&quot;.&nbsp; Original URL: <a
 href="http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc">http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc</a>
+(SJSU faculty page; may have moved). 2026 fallback: <a
+href="https://web.archive.org/web/2005*/http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc">https://web.archive.org/web/2005*/http://www.cs.sjsu.edu/faculty/stamp/students/Tom_CS298_Report.doc</a>
 April, 2005<br>
 <br>
-x) Nick Mathewson, 5th hope conference 2004 &quot;How To Break Anonymity
-Networks&quot;. URL: <a
+x) Nick Mathewson, 5th HOPE conference 2004 &quot;How To Break Anonymity
+Networks&quot;. Original URL: <a
 href="http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml#panel029">http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml#panel029</a>
-July 10, 2004 (Accessed July 31, 2005)<br>
+. 2026 fallback: <a
+href="https://web.archive.org/web/2005*/http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml">https://web.archive.org/web/2005*/http://www.the-fifth-hope.org/hoop/5hope_speakers.khtml</a>
+. Mathewson&apos;s ongoing Tor work is at <a
+href="https://blog.torproject.org/">https://blog.torproject.org/</a> . July 10,
+2004 (Accessed July 31, 2005)<br>
 <br>
-xi) D. Chaum. Untraceable electronic mail, return addresses, and digital
-pseudo-nyms. Communications of the ACM, 4(2), February 1981.<br>
+xi) D. Chaum. &quot;Untraceable electronic mail, return addresses, and digital
+pseudonyms.&quot; Communications of the ACM, 24(2):84-90, February 1981.
+Canonical DOI: <a href="https://doi.org/10.1145/358549.358563">https://doi.org/10.1145/358549.358563</a>
+. Open mirror: <a
+href="https://www.freehaven.net/anonbib/cache/chaum-mix.html">https://www.freehaven.net/anonbib/cache/chaum-mix.html</a>
+(Note: 2005 citation listed CACM vol 4(2); correct is 24(2). Corrected May
+2026.)<br>
 <br>
-xii) Tor: An anonymous Internet communication system. URL: <a
-href="http://tor.eff.org/">http://tor.eff.org/</a> (Accessed August 1, 2005)<br>
+xii) Tor: An anonymous Internet communication system. Original URL: <a
+href="http://tor.eff.org/">http://tor.eff.org/</a> (Tor left EFF fiscal
+sponsorship in 2006 and now operates independently). Current URL: <a
+href="https://www.torproject.org/">https://www.torproject.org/</a> (Accessed
+August 1, 2005; reverified May 2026)<br>
 <br>
 xiii) Certicom.Com &quot;ECC Cryptography Tutorial - 1.0 Introduction&quot;.
-URL: <a href="http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0">http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0</a>
-2005 (Accessed August 20,2005)<br>
+Original URL: <a href="http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0">http://www.certicom.com/index.php?action=ecc,ecc_tut_1_0</a>
+(Certicom acquired by BlackBerry 2009; original tutorial content largely
+unavailable). 2026 archive: <a
+href="https://web.archive.org/web/2005*/http://www.certicom.com/index.php?action=ecc">https://web.archive.org/web/2005*/http://www.certicom.com/index.php?action=ecc</a>
+. Current ECC primers: NIST SP 800-186 (<a
+href="https://csrc.nist.gov/publications/detail/sp/800-186/final">https://csrc.nist.gov/publications/detail/sp/800-186/final</a>);
+RFC 7748 for Curve25519/X25519 (<a
+href="https://www.rfc-editor.org/rfc/rfc7748">https://www.rfc-editor.org/rfc/rfc7748</a>);
+RFC 8032 for Ed25519 (<a
+href="https://www.rfc-editor.org/rfc/rfc8032">https://www.rfc-editor.org/rfc/rfc8032</a>).
+2005 (Accessed August 20, 2005)<br>
 <br>
 xiv) Levent Ertaul, Weimin Lu &quot;ECC Based Threshold Cryptography for Secure
 Data<span style="mso-spacerun: yes">&nbsp; </span>Forwarding and Secure Key
-Exchange in MANET (I)&quot;.<span style="mso-spacerun: yes">&nbsp; </span>URL: <a
+Exchange in MANET (I)&quot;.<span style="mso-spacerun: yes">&nbsp; </span>Original
+URL: <a
 href="http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf">http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf</a>
-2005 (Accessed August 20,2005)<br>
+(CSU Hayward renamed to CSU East Bay; original URL dead). 2026 fallback: <a
+href="https://web.archive.org/web/2005*/http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf">https://web.archive.org/web/2005*/http://www.mcs.csuhayward.edu/~lertaul/34620102.pdf</a>;
+Ertaul&apos;s current CSU East Bay page: <a
+href="https://www.csueastbay.edu/directory/profiles/cs/ertaullevent.html">https://www.csueastbay.edu/directory/profiles/cs/ertaullevent.html</a>
+. 2005 (Accessed August 20, 2005)<br>
 <br>
 I would appreciate any and all comments on the above Anonymous Anonymity
 network.&nbsp; Specifically any solutions to the presented problems or if
@@ -606,7 +872,7 @@ Ken Hollis<br>
 Do not meddle in the affairs of wizards for they are subtle and<br>
 quick to anger.<br>
 Ken Hollis - Gandalf The White - O- TINLC<br>
-WWW Page - <a href="https://gandalfddi.z19.web.core.windows.net/"> https://gandalfddi.z19.web.core.windows.net/</a><br>
+WWW Page - <a href="https://gandalfddi.github.io/"> https://gandalfddi.github.io/</a><br>
 
 <p align=center style='text-align:center'><a href="index.html">Home</a></p>
 
