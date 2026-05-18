@@ -21,15 +21,15 @@ TALK OVERVIEW / ABSTRACT
 "Don't piss off a geek ... They don't have a life and can EASILY make you the focus of THEIR life" - Me
 
 This talk presents a complete, replicable legal strategy for cybersecurity practitioners
-who become data‑breach victims to pursue accountability through small claims court and
-get compensated for their time. Instead of relying on class‑action settlements that pay
+who become data-breach victims to pursue accountability through small claims court and
+get compensated for their time. Instead of relying on class-action settlements that pay
 attorneys tens of millions while delivering $3.47 (coffee money) to victims, this approach
 shows how individuals can turn breach remediation into a billable event and get paid for
 it. The method bypasses the structural failures of class actions and reframes breach
 response as recoverable labor rather than the "free time" companies quietly expect
 victims to absorb.
 
-The framework is built from a real case I won against a private‑equity‑owned data
+The framework is built from a real case I won against a private-equity-owned data
 broker (Boo!!!) following the 2023 MOVEit/Cl0p ransomware breach. King County District
 Court case 25CIV60102KCX went to trial on March 16, 2026, where Judge Michael J. Finkle
 issued a judgment against Pension Benefit Information LLC (PBI). PBI paid. The check is
@@ -37,9 +37,9 @@ cashed. The judgment is public record. But the outcome is not the point, the tem
 is. Everything I did is reproducible by any breach victim with documentation, a filing
 fee ($50), a process server ($75), and a few hours of preparation.
 
-The talk distills this experience into a practical, step‑by‑step playbook:
-- Why class‑action litigation structurally fails victims
-- How to build and file a small‑claims case that survives jurisdictional attacks
+The talk distills this experience into a practical, step-by-step playbook:
+- Why class-action litigation structurally fails victims
+- How to build and file a small-claims case that survives jurisdictional attacks
 - How to use the process as the great equalizer, the only lever that reliably gets the
   attention of negligent data custodians
 
@@ -285,7 +285,7 @@ bill REALLY more then that minimum amount? If you win do you want an appeal?
 
 If you lose can they come back and claim frivolous lawsuit? IANAL, but IMHO it would be
 hard to claim the case was frivolous because (AND YOU DID DOCUMENT, RIGHT?):
-- It would grounded in statutory duties, documented harm, and good‑faith legal arguments
+- It would grounded in statutory duties, documented harm, and good-faith legal arguments
   (KEEP YOUR DOCUMENTATION!)
 - Document your timelines and make sure you have evidence, timelines, statutes, case law,
   and a clear causal chain
@@ -318,10 +318,10 @@ Because a legal counsel is not allowed during the Small Claims trial in Washingt
 State the CEO of the Private Equity firm was on the zoom call to represent his company.
 Think of the people you will meet :-) ...
 
-You will have find your own state's equivalent threshold. Most states have a small‑claims
+You will have find your own state's equivalent threshold. Most states have a small-claims
 appealability threshold, typically between $500 and $2,500, but the exact amount varies
-widely and must be checked state‑by‑state. Examples:
-- California: Either party may appeal any small‑claims judgment (but only the defendant can appeal if the plaintiff filed the case). No dollar threshold.
+widely and must be checked state-by-state. Examples:
+- California: Either party may appeal any small-claims judgment (but only the defendant can appeal if the plaintiff filed the case). No dollar threshold.
 - Texas: Appeals allowed for judgments over $250.
 - New York: Appeals allowed for any amount.
 - Oregon: Appeals allowed only if the claim is over $750.
@@ -338,7 +338,7 @@ SECTION 5 - THE LEGAL FRAMEWORK: FIVE ELEMENTS (6 minutes)
 
 Every U.S. jurisdiction recognizes the same foundational negligence structure
 as Washington State and you must prove all 5. Some states compress them into
-four by merging cause‑in‑fact and proximate cause into a single "causation"
+four by merging cause-in-fact and proximate cause into a single "causation"
 element, but the substance is identical:
 Duty
 Breach of Duty
