@@ -1,0 +1,118 @@
+================================================================
+CFP SUBMISSION - Death by a Thousand Paper Cuts
+Case 25CIV60102KCX | King County District Court | Judgment for plaintiff
+Conference-agnostic draft (BSidesPDX 2026 primary; reusable for BSides Seattle)
+================================================================
+
+--- TITLE -------------------------------------------------------
+
+Death by a Thousand Paper Cuts: Making Corporate Data Negligence
+Expensive, One Small Claims Case at a Time
+
+
+--- DURATION ----------------------------------------------------
+
+20 minutes (BSidesPDX default). The content is a tight, replicable
+playbook and fits the slot without padding. Not requesting 40.
+
+
+--- ABSTRACT (public-facing) ------------------------------------
+
+A Minneapolis data broker lost my name, SSN, and date of birth in
+the MOVEit/Cl0p breach, notified me 42 days late in violation of
+Washington's 30-day law, then refused my $1,050 invoice for the
+remediation time their negligence cost me. I filed in small claims,
+beat their corporate jurisdiction motion, and the judge ruled that a
+security professional's time assessing a breach is compensable at
+professional rates. They paid. This talk is the replicable playbook:
+a $50 filing fee, a few hours of prep, no lawyer. Class actions pay
+lawyers. Small claims pays you.
+
+
+--- DESCRIPTION (reviewer-facing) -------------------------------
+
+In 2023 Pension Benefit Information, LLC lost my PII in the MOVEit/Cl0p
+breach. Notification came 42 days after their own discovery, past
+Washington's 30-day statutory deadline. I documented my remediation
+time, invoiced PBI $1,050, and was refused. I filed small claims in
+King County District Court. PBI showed up with corporate counsel and
+a motion to dismiss for lack of jurisdiction. On March 16, 2026 the
+court denied the motion and entered judgment for me.
+
+The talk walks the room through how and why it worked, then hands them
+the template to do it themselves. Judge Finkle's findings are the spine:
+
+ - Washington had jurisdiction over an out-of-state broker because
+   18,856 WA residents were affected and had no practical recourse
+   elsewhere - PBI filed breach notices with the WA AG.
+ - I could opt out of the pending class action and pursue an individual
+   remedy; the class action did not bar the claim.
+ - A single vulnerability with no defense-in-depth is negligence.
+ - One hour of expert evaluation is compensable at professional rates.
+   Routine tasks any victim could perform are not - the judge draws
+   that line explicitly, and your documentation has to respect it.
+
+From there: the 14-step template - finding the correct legal entity vs
+the name on the letter, archiving the broker's web presence before
+litigation makes it vanish, logging expert vs routine time, serving the
+registered agent (you cannot serve them yourself), surviving the
+jurisdiction motion, mediation, and closing the record with a
+Satisfaction of Judgment.
+
+Who it's for: anyone in the room. Most PNW infosec folks were in this
+exact breach or one like it. The barrier to acting has been "I'd need a
+lawyer." You don't. The barrier is now documentation discipline, which
+is a skill this audience already has.
+
+Attendees leave with: the entity-identification workflow, the time-log
+and rate-basis structure that survived trial, the service-of-process
+gotchas that get cases dismissed, and a complete step list they can run.
+
+
+--- CATEGORY FLAGS (your call - my recommendation) --------------
+
+[ ] Beginner Speaker  -> NO. 40 yrs, KSC + 18 yrs MS security.
+[X] 101 track         -> YES, recommend. Broadly accessible and
+                          empowering regardless of seniority; the
+                          point is "anyone can do this."
+[ ] OTR               -> NO. Public record; recording is fine and
+                          helps the playbook spread.
+[ ] 2nd Stage         -> Optional. Fine with a smaller room.
+
+
+--- NOTES TO REVIEWERS ------------------------------------------
+
+ - I am the plaintiff and the speaker. Every document is either public
+   court record (25CIV60102KCX) or my own work. Supporting docs are
+   linked from the talk page.
+ - The judgment is final and closed. PBI paid, I cashed the check, and
+   a Satisfaction of Judgment is filed. Because the award fell below
+   Washington's $1,000 small-claims appeal threshold, PBI had no right
+   of appeal - the win is settled, not pending.
+ - IANAL. This is a documented legal-strategy framework, not legal
+   advice. Procedures and limits vary by jurisdiction; I say so on
+   stage and in the materials.
+ - AI usage disclosure (per your guideline): the substance, the case,
+   and the template are mine - I lived it and wrote it. I used an AI
+   assistant only to condense and reorganize this submission for your
+   20-minute format and to retune copy from a prior version. No
+   inflation, no fabricated content. I have proofread and I own it.
+
+
+--- SPEAKER -----------------------------------------------------
+
+Ken Hollis - 40 years in technology: Kennedy Space Center (Shuttle
+launch operations), enterprise networking, SCADA/ICS, and 18 years at
+Microsoft including 11 in security engineering (Cyber Defense Operations
+Center, critical-infrastructure and ICS security). Retired, in the PNW.
+Not a lawyer. Won anyway.
+
+
+--- SUPPORTING DOCUMENTS (linked from talk page) ----------------
+
+ PaperCuts_25CIV60102KCX_Judgment_After_Trial.pdf
+ PaperCuts_25CIV60102KCX_Argument.pdf
+ PaperCuts_25CIV60102KCX_Evidence.pdf
+ PaperCuts_25CIV60102KCX_Small_Claims_Defendants_Packet.pdf
+ PaperCuts_25CIV60102KCX_Small_Claims_Plaintiffs_Packet.pdf
+ PaperCuts_CFP_Outline_Hollis.txt
