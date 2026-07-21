@@ -183,7 +183,6 @@ https://gandalfddi.github.io/trollfaq_old.html
 https://gandalfddi.github.io/trollfaq.html
 https://gandalfddi.github.io/anonymous_anonymity.htm
 https://gandalfddi.github.io/anonymous_httpencode.htm
-https://gandalfddi.github.io/counter.htm
 https://gandalfddi.github.io/rose_frag_attack_explained.htm
 https://gandalfddi.github.io/woodbbq.htm
 https://gandalfddi.github.io/woodbpf.htm
