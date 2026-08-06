@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>OMI V1202 - The Main Propulsion Helium Signature Test</title>
+<meta name="description" content="What the Space Shuttle V1202 Helium Signature Test was, how a preop, test and postop actually worked at KSC, and the voice tapes I recorded working it.">
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 10pt; margin: 20px 40px 40px 40px; max-width: 1000px; }
+h1 { font-size: 16pt; }
+h2 { font-size: 13pt; margin-top: 28px; border-bottom: 1px solid #999999; }
+h3 { font-size: 11pt; margin-bottom: 4px; }
+table.chan { border-collapse: collapse; margin: 10px 0 18px 0; }
+table.chan td, table.chan th { border: 1px solid #999999; padding: 3px 8px; font-size: 9pt; vertical-align: top; }
+table.chan th { background-color: #dddddd; text-align: left; }
+table.chan td.num { text-align: right; font-family: "Courier New", monospace; white-space: nowrap; }
+td.call { font-family: "Courier New", monospace; }
+.note { background-color: #eeeeee; border-left: 4px solid #666666; padding: 8px 12px; margin: 14px 0; }
+.figs td { padding: 4px 10px 4px 0; font-size: 9pt; }
+.foot { font-size: 8pt; color: #555555; margin-top: 40px; border-top: 1px solid #999999; padding-top: 8px; }
+</style>
+</head>
+<body>
+
+<h1>OMI V1202 &ndash; The Main Propulsion Helium Signature Test</h1>
+
+<p>Back to the <a href="shuttle.html" target="_blank">Space Shuttle documents page</a>. If you are
+trying to follow the voice tapes below you will also want the
+<a href="shuttle_ois_channels.html" target="_blank">OIS channel list</a> open in another tab &ndash;
+it tells you who is talking.</p>
+
+<h2>The short version</h2>
+
+<p>V1202 is an end to end leak check of the Main Propulsion System, run with the orbiter vertical on
+the pad. You seal the aft fuselage, pressurise every MPS cryogenic and high pressure system with
+helium, and let the ECS aft purge air carry any leakage out through a vent door to the Hazardous Gas
+Detection System. Helium concentration goes up, you do arithmetic, and you get a total system leak
+rate in scim. Six scim was the maximum allowable.
+
+<p>The aft compartment IS the instrument. That is the whole idea. You are not chasing individual
+joints, you are treating the entire aft as one control volume and asking a single question: does
+everything in there, added together, leak less than the number.</p>
+
+<h2>Why it exists &ndash; and it isn't the accident</h2>
+
+<p>Before OV-099 Challenger arrived at KSC, leak checks were done point to point. You went joint by
+joint, fitting by fitting, and you signed each one off.</p>
+
+<p>Then troubleshooting after Challenger's Flight Readiness Firings turned up a serious hydrogen leak
+that the point to point method had never found. Post test analysis concluded the undetected leak
+would have exceeded the ascent flammability limit. The flammability limit for H2 in air is 4%, which
+works out to an ascent limit of roughly 57,000 to 59,000 scim.</p>
+
+<p>Read that again. The old method said the vehicle was good. The vehicle was not good. Confidence in
+point to point did not survive that, and a new total system check was needed that could GUARANTEE the
+number rather than infer it from a stack of individual signatures.</p>
+
+<div class="note">
+<b>To be clear, because someone will get this wrong:</b> this is the 1983 Flight Readiness Firings,
+not 51-L. Different event, different decade, three years before the accident.
+</div>
+
+<h2>IFLAA</h2>
+We continued to learn that the test was not perfect. There is an acronym for the limitation: IFLAA – 
+It Doesn't F***ing Leak At Ambient.
+
+<p>V1202 pressurises with helium at room temperature. Flight loads hydrogen at 20 Kelvin. Metal 
+shrinks, seals move, and a joint that passes clean at ambient can open up when the cryo hits it. The 
+signature test tells you the system is tight at ambient. It does not and cannot tell you the system 
+is tight at tanking.
+
+<p><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/SSME_MPS_Info/NASA_APPEL_ASK_29s_The%20Summer%20Of%20Hydrogen%20leaks.pdf" target="_blank">The summer of 1990</A>
+is what that costs. Everything passed. Then we tanked, and it leaked. OV-102 got LOTS of miles 
+going between the Pad and the VAB, 
+<a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/OV-102%20LH2%20Leak.jpg" target="_blank">
+just none of it vertical</A> ;-)
+
+<p>Which was not an argument against running V1202 &ndash; a test that catches the ambient leaks 
+catches a lot of leaks, and the alternative is catching none of them. It is an argument against 
+reading any single test as a statement about flight. Every test has a boundary condition, and the 
+useful engineers are the ones who can tell you where theirs is without being asked.
+
+<h2>V1201 and V1202</h2>
+
+<p>The same concept got built two ways. <b>V1201</b> was the horizontal version, run in the OPF.
+<b>V1202</b> was the vertical version, run in the VAB or at the pad. Same idea, different problems.</p>
+
+<p>V1201 never worked as well, for reasons that are all fundamental rather than fixable:</p>
+
+<ul>
+<li>No Haz Gas system in the OPF, so it needed a portable mass spectrometer &ndash; and those had a
+run time versus fidelity problem, the readings drifted</li>
+<li>Long pressurisation runs raised the OPF background helium until it started masking the result</li>
+<li>The aft was rarely in flight configuration horizontally, so the control volume was never something
+you could trust without constant monitoring</li>
+</ul>
+
+<p>Put those together and the conservatism plus the introduced error made all but a zero reading
+suspect. Which is a polite way of saying the test could reliably tell you when nothing was wrong and
+not much else.</p>
+
+<p>So V1201 got dropped. NOT because it was a bad test, but because it was a redundant test whose
+results were less accurate than its vertical sibling &ndash; and you were going to run the vertical
+one anyway. The pad version had the real HGDS instead of a drifting portable, and it had the aft closer
+to flight configuration. That is the whole argument and it is a good one.</p>
+
+<h2>Preop, test, postop</h2>
+
+<p>Every OMI of any size splits into three phases, and people outside the business generally assume
+the middle one is the whole job. It isn't. The middle one is the short part.</p>
+
+<h3>Preops &ndash; configure for test</h3>
+
+<p>You put the vehicle and the ground systems into the exact state the procedure requires. For V1202
+that meant jumpering the topping and hi-point bleed hydrogen sub-system to the LH2 manifold, setting up
+one aft PVD vent door with its HGDS sense port, connecting the aft delta pressure gauge, sealing any
+aft opening left over from missing hardware, running PVD purge ducts into the Orbiter/ET disconnect
+areas where mixing is poor, setting up the helium injection panel and test hoses, configuring the
+SSMEs to lockup, and installing blanking plates. The valves / system was configured so that when the
+fill/drain line was pressurized from the MLP (Mobile Launch Platform) no valves had to be opened or
+closed. The valves were operated by ... HELIUM (pneumatic) so bringing up MPS 750 Helium to open or
+close a valve added extraneous helium into the aft which is what you were trying to detect and would
+mask any leaks.</p>
+
+<p>Then <b>QC verifies it</b>. Then <b>MPS engineering walks the aft down</b> and verifies the
+configuration independently. Two sets of eyes that are not the eyes that did the work, because the
+person who installed it is the worst possible person to confirm it is installed correctly. Everybody
+knows this and everybody does it anyway, every time, and that is not bureaucracy &ndash; that is the
+entire reason the thing worked.</p>
+
+<p><b>Preops ran on second shift.</b> They had to. The test needs the aft cleared of everybody and then
+sealed, and on day shift the aft compartment is contested real estate with several groups wanting access
+at the same time. Third shift is when you can actually have the aft to yourself to actually run the test.
+For the audio tape testing and preops ran late and some of the preops were pushed to third shift. The
+start of the test was about 4 hours late, which is why OTC was a little irritated.</p>
+
+<h3>Test</h3>
+
+<p>Before anybody pressurises anything:</p>
+
+<ul>
+<li><b>Constraints list</b> &ndash; what work must be completed before the start of the test (other tests and Problem Reports usually)</li>
+<li><b>Verify all preops complete</b> &ndash; every step signed, every QC buyoff in place</li>
+<li><b>No open PRs against running the test</b> &ndash; if there is a Problem Report that bears on
+this system you do not start, you go resolve it</li>
+<li><b>Call to stations</b> &ndash; every console that has a part in this says out loud that they are
+manned and ready. That is the moment the test actually begins, and it is on the tape</li>
+</ul>
+
+<p>Then you run it. Baseline helium background, pressurise each system, watch the aft concentration
+delta, calculate leakage. In the early version this involved pre-test injection runs at 6, 12 and 25
+scim on three separate test hoses to build a calibration curve, then plotting the system delta against
+that curve to read off a worst case leak rate.</p>
+
+<h3>Postops &ndash; deconfigure</h3>
+
+<p>Everything you did in preops, backwards. Blanking plates out, flexhoses off, jumpers removed, purge
+ducts pulled, panels disconnected, vent door restored. And then <b>QC verifies THAT</b>, because a
+test rig left installed in the aft is a flight hazard and it does not care that the test passed.</p>
+
+<p>Deconfiguration gets treated as an afterthought by people who have never done it. It isn't. More
+hardware has been left where it should not be during a cleanup than during a setup, because setup has
+everyone's attention and cleanup happens when everybody is tired and the interesting part is over.</p>
+
+<h2>Who is on the loop</h2>
+
+<p>Full list on the <a href="shuttle_ois_channels.html" target="_blank">OIS channel page</a>. For
+V1202 specifically:</p>
+
+<table class="chan">
+<tr><th>Ch</th><th>Function</th><th>Callsign</th><th>Why they are here</th></tr>
+<tr><td class="num">132</td><td>Orbiter Test Conductor</td><td class="call">OTC</td><td>Monitors / Runs the procedure. Calls to stations, gives the go, directs the below groups</td></tr>
+<tr><td class="num">168</td><td>MPS</td><td class="call">CMPS / CMPL</td><td>Runs the procedure and the test, declares sucess or not</td></tr>
+<tr><td class="num">146</td><td>SSME / SSMEC</td><td class="call">CSME / CCME</td><td>Engines configured to lockup, hot gas pressure supplemented, ball valve leak checks fold into this test</td></tr>
+<tr><td class="num">177</td><td>HGDS</td><td class="call">CHGD</td><td>Where the actual measurement comes from. No HGDS, no test</td></tr>
+<tr><td class="num">242</td><td>ECS-2 (Purge)</td><td class="call">CPVD</td><td>The aft purge is the transport medium carrying leakage to the sense port</td></tr>
+<tr><td class="num">166</td><td>LH2</td><td class="call">CLHY</td><td>Hydrogen side</td></tr>
+<tr><td class="num">156</td><td>LO2</td><td class="call">CLOX</td><td>Oxygen side</td></tr>
+<tr><td class="num">232</td><td>NASA Test Director</td><td class="call">NTD</td><td>Above the OTC. Owns the pad</td></tr>
+<tr><td class="num">118</td><td>Quality</td><td class="call">&nbsp;</td><td>The buyoffs</td></tr>
+</table>
+
+<h2>S0017 and why V1202 always rode along with it</h2>
+
+<p><b>OMI S0017</b> is the Terminal Countdown Demonstration Test &ndash; the launch dress rehearsal.
+Flight crew at the pad, countdown team on console, the real S0007 sequence worked all the way down to
+a simulated T-0. Simulates everything a launch countdown does except load cryo's and light engines.</p>
+
+<p>Three separate things get exercised in the same run, and it is worth keeping them apart in your head
+because they have nothing to do with each other:</p>
+
+<ul>
+<li><b>The crew.</b> Suit up at the O&amp;C, ride out, ingress through the White Room, strap in, work
+the checklist with the clock running. For a rookie this is the first time in that seat under
+something resembling launch day conditions, and that is the entire point &ndash; you do not want the
+first time to be the real one.</li>
+<li><b>The countdown team.</b> Every console runs the actual sequence. Callouts, polls, holds, GLS
+handoff, the works. The team gets a rehearsal at the timeline before it counts. So do the
+communications paths, which is not a small thing when a couple of hundred people are coordinating on
+a dozen loops.</li>
+<li><b>Emergency egress.</b> Slidewire baskets, the M-113, the pad escape routes. The crew practices
+getting off a vehicle in a hurry and the pad rescue team practices being there when they do. The crew
+probably gets the most joy out of this test of anybody.</li>
+</ul>
+
+<p>The run terminates a few seconds before T-0 and usually picks up some contingency work in the same
+window &ndash; a simulated abort, a hold and recycle, sometimes a mode-specific bailout case.</p>
+
+<h3>The pairing</h3>
+
+<p>V1202 and S0017 were ALWAYS run together. The preops (see above) for S0017 were run on second / third shift,
+the crew loaded in at the beginning of first shift. Not coincidence, not scheduling convenience &ndash; MPS
+work is disruptive. When the aft has to be sealed and cleared and the whole compartment turned into a
+control volume, everybody else is out. That is a large hole punched in the pad schedule and you do not
+punch it twice if you can punch it once. Sometimes the preops and testing for S0017 and V1202 testing ...
+collided and had to be worked out.</p>
+
+<p>So the disruptive things got stacked into a single window. TCDT already clears the vehicle of anybody
+who does not need to be there, because you have a crew aboard and hazardous operations running.
+V1202 needs an empty, sealed aft. Same requirement wearing a different hat. Pair them and you clear
+and plan for disruption of work on the vehicle once instead of twice.</p>
+
+<div class="note">
+<b>If you are listening to these tapes, this is the thing to know:</b> S0017 and S0007 sound nearly
+identical on the loop. Same procedure structure, same callouts, same console voices, same channels.
+The tells that you have a TCDT and not a launch are the absence of tanking traffic, a run that is
+suspiciously clean, and a T-0 that produces precisely nothing. Somebody who finds a mislabelled S0017
+tape and thinks they are listening to a launch countdown will draw a whole set of wrong conclusions
+from it, and will have no reason to suspect they are wrong.
+</div>
+
+<h2>How it got better</h2>
+
+<p>Over roughly twenty five years the test went from about 36 hours to about 6, and got MORE accurate
+while doing it. That is not the usual direction and it is worth saying out loud.</p>
+
+<ul>
+<li>Flexhose jumpering of the LH2 sub-systems dropped &ndash; the topping valve is now opened with
+nitrogen at the actuator, which also deletes the pre-test flexhose leak checks</li>
+<li>Better understanding of aft mixing killed the three pre-test and three post-test injection runs.
+One 6 scim post-test verification run on TH1 does the job</li>
+<li>All systems pressurised back to back with a real time HGD graph, time stamped per system, instead
+of open-stabilise-recalibrate-close between every one</li>
+<li>HUMS incorporation to divert external PD4/PD5 leakage from re-entering the aft and corrupting the
+data</li>
+<li>Total leak rate off a simpler formula based on aft purge flow rate and helium concentration
+change</li>
+<li>No precals, no cal curve generation &ndash; six to eight hours saved right there, and another six
+to eight from the back to back pressurisation</li>
+</ul>
+
+<p>Note what actually drove that. Not a clever idea. Twenty five years of running the same test on the
+same vehicle and paying attention to the results. Test repeatability is what let them delete steps
+safely, because they had the data to prove the steps were not buying anything.</p>
+
+<h2>The voice tapes</h2>
+
+<p>These are recordings of the loop while the procedure was being worked. Not documentaries, not
+narrated, no context provided &ndash; just people doing a job and talking to each other about it.</p>
+
+<ul>
+<li>Space Shuttle <a href="https://youtu.be/Owlussht8NM" target="_blank">V1202 Helium Signature Test &ndash; Preops</a></li>
+<li>Space Shuttle <a href="https://youtu.be/eYbMC3AEZRU" target="_blank">Channel 132 (OTC) S0017 and V1202 Helium Signature Test 1 of 2</a> (and lots of other firing room activities)</li>
+<li>Space Shuttle <a href="https://youtu.be/_P2rYfGuFng" target="_blank">Channel 132 (OTC) S0017 and V1202 Helium Signature Test 2 of 2</a></li>
+<li>Space Shuttle <a href="https://youtu.be/BBk6Pikg1RU" target="_blank">Channel 168 - MPS V1202 Helium Signature Test 1 Of 3</a></li>
+<li>Space Shuttle <a href="https://youtu.be/n9j_SbFSgto" target="_blank">Channel 168 - MPS V1202 Helium Signature Test 2 Of 3</a></li>
+<li>Space Shuttle <a href="https://youtu.be/56UVzzlXGDM" target="_blank">Channel 168 - MPS V1202 Helium Signature Test 3 Of 3</a></li>
+<li>Space Shuttle <a href="https://youtu.be/hfe0-U8BArk" target="_blank">S0017 (Crew Testing) and V1202 Helium Signature Test &ndash; Postops</a></li>
+</ul>
+
+<h2>Documents</h2>
+<b>What I don't have:</b> the V1202 OMI itself. I have the tapes of us working it, the engineering
+papers describing it, and the figures – but not the procedure document. Same for S0017 Volume 1, the preops.
+I have <a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/S0017VL2%20-%20Terminal%20Count%20Demonstration%20%28LPS%29%2020110513.pdf" target="_blank">S0017 VL2</A>
+(which contains the Call To Stations) and <a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/S0017VL3%20-%20Terminal%20Count%20Demonstration%20%28LPS%29%2020110513.pdf" target="_blank">S0017 VL3</A>
+If you have a copy of V1202 or S0017 VL1, or know where one survived, get in touch. A recording of
+people working a procedure is a great deal more useful when you can read along.
+
+<ul>
+<li><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/SSME_MPS_Info/V1202_1030721main_Evolution%20of%20the%20Main%20Propulsion%20Helium%20Signature%20Test%20.pdf" target="_blank">V1201/V1202 Evolution &ndash; Evolution of the Main Propulsion Helium Signature Test</a><br>
+The best single document on this test. Where it came from, why V1201 died, worked sample calculations, and the STS-129 signature graph showing what a clean run looks like. No author and no date on its face &ndash; it cites October 2009 data so it postdates that.</li>
+<li><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/SSME_MPS_Info/V1202_Hazardous_Gas_Leak_Analysis_In_The_Space_Shuttle_19920010066.pdf" target="_blank">Hazardous Gas Leak Analysis In The Space Shuttle</a> &ndash; Ronald G. Barile, 1991 NASA/ASEE Summer Faculty Fellowship, KSC. How the HGDS actually works, MGA-1200 response times, and Schlieren imaging of helium jets. If you want to know WHY the sampling rate matters, this is the one.</li>
+<li><a href="https://llis.nasa.gov/llis_lib/pdf/1030718main_AIAA_HeSigTest.pdf" target="_blank">AIAA &ndash; Development of the Helium Signature Test for Orbiter Main Propulsion System Revalidation Between Flights</a> (Bilardo and Izquierdo, 1987)</li>
+<li><a href="https://llis.nasa.gov/lesson/3177" target="_blank">NASA Lessons Learned &ndash; rocket system integrated leak checks</a></li>
+<li><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/SSME_MPS_Info/Lessons%20Learned%20from%20the%20Design%20Certification%20Operation%20of%20the%20Space%20Shuttle%20Integrated%20Main%20Propulsion%20System%2020110013223.pdf" target="_blank">Lessons Learned from the Design Certification Operation of the Space Shuttle Integrated Main Propulsion System</a> (20110013223) &ndash; for a full description of the MPS</li>
+</ul>
+
+<h2>Figures</h2>
+
+<p>Scanned V1202 figures. Straight off the paper, no cleanup.</p>
+
+<table class="figs">
+<tr>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-001.jpg" target="_blank">V1202-001</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-001A.jpg" target="_blank">V1202-001A</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-002.jpg" target="_blank">V1202-002</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-003.jpg" target="_blank">V1202-003</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-004.jpg" target="_blank">V1202-004</a></td>
+</tr>
+<tr>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-005.jpg" target="_blank">V1202-005</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-006.jpg" target="_blank">V1202-006</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-007A.jpg" target="_blank">V1202-007A</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-007B.jpg" target="_blank">V1202-007B</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-008.jpg" target="_blank">V1202-008</a></td>
+</tr>
+<tr>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-009_0001.jpg" target="_blank">V1202-009 sheet 1</a></td>
+<td><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V1202-009_0002.jpg" target="_blank">V1202-009 sheet 2</a></td>
+<td colspan="3"><a href="https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/Shuttle_And_Misc_Pictures/Shuttle_Clipart/V30-15358%20F_0002.jpg" target="_blank">V30-15358 F sheet 2</a></td>
+</tr>
+</table>
+
+<h2>Related procedures</h2>
+
+<ul>
+<li><b>OMI S0007</b> &ndash; Integrated OMI for load and launch. Five volumes</li>
+<li><b>OMI S0017</b> &ndash; Integrated OMI for the TCDT</li>
+<li><b>OMI V1009.04</b> &ndash; MPS LO2 leak checks with a helium leak detector</li>
+<li><b>OMI V1011.06</b> &ndash; SSME leak checks and Flight Readiness Test</li>
+</ul>
+
+<div class="foot">
+<p>Written by Ken Hollis, who worked these procedures at Kennedy Space Center. Where this page states
+something that comes out of the documents linked above, it comes out of the documents. Where it
+comes out of my head &ndash; the third shift scheduling, the QC and MPS walkdown sequence, what
+happens on which loop &ndash; I have said so, and you should treat it as one man's recollection
+thirty years on rather than as a citation. Corrections welcome.</p>
+<p>If you share a link to any of the documents above, right click and copy the link FROM THIS PAGE.
+Internet Archive will redirect you to whichever server currently holds the file and that address
+changes. Every link you pass on should start with
+'https://archive.org/download/GandalfDDI-SpaceShuttleDocuments/'.</p>
+</div>
+<BR><BR>
+<p align=center><a href="shuttle.html">Shuttle Page</a></p>
+<BR>
+</body>
+</html>
