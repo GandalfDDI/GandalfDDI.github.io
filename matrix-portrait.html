@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matrix Rain Portrait</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working screen – big output canvas left, a narrow console of controls right; stacks on phones. Single dark look by design. */
+:root {
+	--bg: #05080a;
+	--panel: #0b1114;
+	--line: #1a2a26;
+	--fg: #c9d6d1;
+	--muted: #6f847c;
+	--accent: #3dff7a;
+	--accent-dim: #1d7a40;
+	--warn: #ffb347;
+	--f-display: "Share Tech Mono", ui-monospace, Consolas, monospace;
+	--f-body: "IBM Plex Sans", system-ui, "Segoe UI", sans-serif;
+	--f-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+	color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { background: var(--bg); color: var(--fg); }
+body { margin: 0; font-family: var(--f-body); font-size: 14px; line-height: 1.5; }
+[hidden] { display: none !important; }
+.wrap { max-width: 1400px; margin: 0 auto; padding-inline: 16px; padding-block: 20px 40px; display: grid; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 20px; }
+h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(22px, 3vw, 30px); letter-spacing: 0.04em; margin: 0; color: var(--accent); text-wrap: balance; }
+h1 span { color: var(--fg); }
+.sub { color: var(--muted); margin: 0; max-width: 62ch; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 18px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: minmax(0, 1fr); } }
+
+.stage { position: relative; min-width: 0; background: #000; border: 1px solid var(--line); border-radius: 6px; display: grid; place-items: center; padding: 10px; min-height: 280px; }
+.stage.drag { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(61,255,122,0.15) inset; }
+#out { display: block; max-width: 100%; max-height: 78vh; width: auto; height: auto; image-rendering: auto; }
+.status { position: absolute; left: 12px; bottom: 10px; font-family: var(--f-mono); font-size: 11px; color: var(--muted); background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 3px; font-variant-numeric: tabular-nums; }
+
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 14px; display: grid; gap: 14px; min-width: 0; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+button, .file { font-family: var(--f-mono); font-size: 12.5px; border: 1px solid var(--accent-dim); background: transparent; color: var(--accent); padding: 8px 12px; border-radius: 4px; cursor: pointer; flex: 1 1 auto; text-align: center; }
+button:hover, .file:hover { background: rgba(61,255,122,0.08); }
+button.primary { background: var(--accent); color: #021006; border-color: var(--accent); font-weight: 500; }
+button.primary:hover { background: #7dffa6; }
+button:focus-visible, .file:focus-within, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.file input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.file { position: relative; }
+
+fieldset { border: 0; border-top: 1px solid var(--line); margin: 0; padding: 10px 0 0; display: grid; gap: 8px; }
+legend { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding-right: 8px; }
+.ctl { display: grid; grid-template-columns: 96px minmax(0,1fr) 40px; align-items: center; gap: 8px; }
+.ctl label { font-size: 12.5px; }
+.ctl output { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+select { width: 100%; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; padding: 5px 6px; font-family: var(--f-body); font-size: 12.5px; }
+.ctl.sel { grid-template-columns: 96px minmax(0,1fr); }
+.chk { display: flex; gap: 8px; align-items: center; font-size: 12.5px; }
+.chk input { accent-color: var(--accent); }
+.note { font-size: 12px; color: var(--muted); margin: 0; }
+.note.warn { color: var(--warn); }
+.tips { color: var(--muted); font-size: 12.5px; max-width: 75ch; display: grid; gap: 4px; }
+.tips b { color: var(--fg); font-weight: 500; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+	<header>
+		<h1>MATRIX <span>RAIN PORTRAIT</span></h1>
+		<p class="sub">Drop in a photo. It gets rebuilt from two layers of code glyphs – a fine texture that carries the face, and falling rain columns on top. Nothing is uploaded anywhere.</p>
+	</header>
+
+	<div class="main">
+		<div class="stage" id="stage">
+			<canvas id="out" aria-label="Rendered output"></canvas>
+			<div class="status" id="status">loading…</div>
+		</div>
+
+		<div class="panel">
+			<div class="row">
+				<label class="file">Open photo<input type="file" id="file" accept="image/*"></label>
+				<button id="reroll" title="New random rain pattern">Reroll rain</button>
+			</div>
+			<div class="row">
+				<button class="primary" id="savePng" title="Lossless, larger file">Save PNG</button>
+				<button class="primary" id="saveJpg" title="Smaller file, uses the quality setting below">Save JPG</button>
+			</div>
+			<div class="ctl"><label for="jpgQ">JPG quality</label><input type="range" id="jpgQ" min="50" max="100" value="92"><output for="jpgQ"></output></div>
+			<p class="note" id="saveNote">Also: drag a file onto the image, or paste one with Ctrl+V.</p>
+
+			<fieldset>
+				<legend>Photo</legend>
+				<div class="ctl"><label for="black">Black point</label><input type="range" id="black" min="0" max="80" value="12"><output for="black"></output></div>
+				<div class="ctl"><label for="white">White point</label><input type="range" id="white" min="20" max="100" value="92"><output for="white"></output></div>
+				<div class="ctl"><label for="gamma">Gamma</label><input type="range" id="gamma" min="40" max="250" value="100"><output for="gamma"></output></div>
+				<div class="ctl"><label for="detail">Detail</label><input type="range" id="detail" min="0" max="300" value="120"><output for="detail"></output></div>
+				<div class="ctl"><label for="under">Photo glow</label><input type="range" id="under" min="0" max="60" value="10"><output for="under"></output></div>
+				<label class="chk"><input type="checkbox" id="invert"> Invert (dark subject on light background)</label>
+			</fieldset>
+
+			<fieldset>
+				<legend>Code</legend>
+				<div class="ctl sel"><label for="charset">Glyphs</label>
+					<select id="charset">
+						<option value="kata">Katakana + digits (film)</option>
+						<option value="latin">Latin caps + digits</option>
+						<option value="mixed">Mixed</option>
+						<option value="binary">Binary</option>
+					</select></div>
+				<div class="ctl sel"><label for="tint">Phosphor</label>
+					<select id="tint">
+						<option value="green">P1 green</option>
+						<option value="amber">P3 amber</option>
+						<option value="cyan">Ice cyan</option>
+						<option value="white">P4 white</option>
+					</select></div>
+				<div class="ctl"><label for="fine">Fine size</label><input type="range" id="fine" min="4" max="16" value="7"><output for="fine"></output></div>
+				<div class="ctl"><label for="fineAmt">Fine bright</label><input type="range" id="fineAmt" min="0" max="200" value="110"><output for="fineAmt"></output></div>
+				<div class="ctl"><label for="rainSize">Rain size</label><input type="range" id="rainSize" min="10" max="40" value="17"><output for="rainSize"></output></div>
+				<div class="ctl"><label for="density">Rain density</label><input type="range" id="density" min="0" max="300" value="110"><output for="density"></output></div>
+				<div class="ctl"><label for="trail">Trail length</label><input type="range" id="trail" min="3" max="40" value="14"><output for="trail"></output></div>
+				<div class="ctl"><label for="bgRain">Background</label><input type="range" id="bgRain" min="0" max="60" value="14"><output for="bgRain"></output></div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Output</legend>
+				<div class="ctl"><label for="glow">Bloom</label><input type="range" id="glow" min="0" max="150" value="55"><output for="glow"></output></div>
+				<div class="ctl"><label for="vignette">Vignette</label><input type="range" id="vignette" min="0" max="100" value="45"><output for="vignette"></output></div>
+				<div class="ctl sel"><label for="res">Long edge</label>
+					<select id="res">
+						<option value="1024">1024 px (fast)</option>
+						<option value="1600" selected>1600 px</option>
+						<option value="2400">2400 px</option>
+						<option value="3200">3200 px (slow)</option>
+					</select></div>
+			</fieldset>
+		</div>
+	</div>
+
+	<div class="tips">
+		<div><b>Best source:</b> a tight head-and-shoulders shot, strong side light, plain dark background. Flat-lit selfies come out mushy – push Detail and the black point.</div>
+		<div><b>Bright background?</b> Raise the black point until the background drops out, or tick Invert if the subject is the dark part.</div>
+		<div><b>Everything stays in your browser.</b></div>
+	</div>
+</div>
+
+<script>
+(() => {
+	"use strict";
+	const $ = id => document.getElementById(id);
+	const out = $("out"), ctx = out.getContext("2d");
+	const statusEl = $("status");
+
+	const CHARSETS = {
+		kata: "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ012345789Z:.=*+-<>|",
+		latin: "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+		mixed: "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉABCDEFGHKLMNPRSTUVXZ0123456789:=+<>",
+		binary: "01"
+	};
+	const TINTS = {
+		green: { dark: [0, 50, 14], bright: [40, 255, 110], head: [225, 255, 232] },
+		amber: { dark: [55, 25, 0], bright: [255, 176, 20], head: [255, 244, 214] },
+		cyan:  { dark: [0, 40, 52], bright: [70, 235, 255], head: [228, 252, 255] },
+		white: { dark: [36, 40, 44], bright: [205, 215, 225], head: [255, 255, 255] }
+	};
+	const FONT_KATA = '"MS Gothic","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans Mono CJK JP","Noto Sans CJK JP",monospace';
+	const FONT_LATIN = '"Share Tech Mono","IBM Plex Mono",Consolas,monospace';
+
+	const state = { src: null, name: "sample", seed: 1337, pending: false };
+
+	// ---------- utils ----------
+	function rng(seed) {
+		let a = seed >>> 0;
+		return () => {
+			a |= 0; a = (a + 0x6D2B79F5) | 0;
+			let t = Math.imul(a ^ (a >>> 15), 1 | a);
+			t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+			return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+		};
+	}
+	function srcSize(s) { return [s.naturalWidth || s.width, s.naturalHeight || s.height]; }
+
+	// Halving downscale for decent quality on large photos
+	function downscale(src, w, h) {
+		let [cw, ch] = srcSize(src);
+		let cur = src;
+		while (cw / 2 > w && ch / 2 > h) {
+			cw = Math.round(cw / 2); ch = Math.round(ch / 2);
+			const c = document.createElement("canvas"); c.width = cw; c.height = ch;
+			const x = c.getContext("2d"); x.imageSmoothingQuality = "high";
+			x.drawImage(cur, 0, 0, cw, ch); cur = c;
+		}
+		const c = document.createElement("canvas"); c.width = Math.max(1, w); c.height = Math.max(1, h);
+		const x = c.getContext("2d"); x.imageSmoothingQuality = "high";
+		x.drawImage(cur, 0, 0, c.width, c.height);
+		return c;
+	}
+
+	function boxBlur(a, w, h, r) {
+		const tmp = new Float32Array(a.length), o = new Float32Array(a.length);
+		for (let y = 0; y < h; y++) {
+			let s = 0, n = 0;
+			for (let x = -r; x < w; x++) {
+				if (x + r < w) { s += a[y * w + x + r]; n++; }
+				if (x - r - 1 >= 0) { s -= a[y * w + x - r - 1]; n--; }
+				if (x >= 0) tmp[y * w + x] = s / n;
+			}
+		}
+		for (let x = 0; x < w; x++) {
+			let s = 0, n = 0;
+			for (let y = -r; y < h; y++) {
+				if (y + r < h) { s += tmp[(y + r) * w + x]; n++; }
+				if (y - r - 1 >= 0) { s -= tmp[(y - r - 1) * w + x]; n--; }
+				if (y >= 0) o[y * w + x] = s / n;
+			}
+		}
+		return o;
+	}
+
+	function ramp(t, n) {
+		const out = [];
+		for (let i = 0; i < n; i++) {
+			const k = i / (n - 1);
+			const c = t.dark.map((d, j) => Math.round(d + (t.bright[j] - d) * k));
+			out.push(`rgb(${c[0]},${c[1]},${c[2]})`);
+		}
+		return out;
+	}
+
+	function params() {
+		const v = id => +$(id).value;
+		return {
+			black: v("black") / 100, white: v("white") / 100, gamma: v("gamma") / 100,
+			detail: v("detail") / 100, under: v("under") / 100, invert: $("invert").checked,
+			charset: $("charset").value, tint: $("tint").value,
+			fine: v("fine"), fineAmt: v("fineAmt") / 100, rainSize: v("rainSize"),
+			density: v("density") / 100, trail: v("trail"), bgRain: v("bgRain") / 100,
+			glow: v("glow") / 100, vignette: v("vignette") / 100, res: v("res")
+		};
+	}
+
+	function levels(v, p) {
+		if (p.invert) v = 1 - v;
+		v = (v - p.black) / Math.max(0.01, p.white - p.black);
+		v = v < 0 ? 0 : v > 1 ? 1 : v;
+		return Math.pow(v, 1 / p.gamma);
+	}
+
+	// ---------- render ----------
+	function render() {
+		state.pending = false;
+		if (!state.src) return;
+		const t0 = performance.now();
+		const p = params();
+		const rnd = rng(state.seed);
+		const tint = TINTS[p.tint];
+		const pal = ramp(tint, 12);
+		const headCol = `rgb(${tint.head.join(",")})`;
+		const chars = CHARSETS[p.charset];
+		const font = (p.charset === "latin" || p.charset === "binary") ? FONT_LATIN : FONT_KATA;
+		const pick = () => chars[(rnd() * chars.length) | 0];
+
+		const [sw, sh] = srcSize(state.src);
+		const k = p.res / Math.max(sw, sh);
+		const W = Math.round(sw * k), H = Math.round(sh * k);
+		out.width = W; out.height = H;
+		const S = p.res / 1024;
+
+		// Base: black, optional tinted photo underlay
+		ctx.globalCompositeOperation = "source-over";
+		ctx.globalAlpha = 1;
+		ctx.fillStyle = "#000";
+		ctx.fillRect(0, 0, W, H);
+		if (p.under > 0) {
+			const full = downscale(state.src, W, H);
+			const id = full.getContext("2d").getImageData(0, 0, W, H);
+			const d = id.data, b = tint.bright;
+			for (let i = 0; i < d.length; i += 4) {
+				const l = levels((0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255, p) * p.under;
+				d[i] = b[0] * l; d[i + 1] = b[1] * l; d[i + 2] = b[2] * l; d[i + 3] = 255;
+			}
+			ctx.putImageData(id, 0, 0);
+		}
+
+		// Luminance grid at fine-cell resolution
+		const fH = p.fine * S, fW = fH * 0.62;
+		const cols = Math.ceil(W / fW), rows = Math.ceil(H / fH);
+		const g = downscale(state.src, cols, rows).getContext("2d").getImageData(0, 0, cols, rows).data;
+		const raw = new Float32Array(cols * rows);
+		for (let i = 0; i < raw.length; i++) raw[i] = (0.2126 * g[i * 4] + 0.7152 * g[i * 4 + 1] + 0.0722 * g[i * 4 + 2]) / 255;
+		const blur = boxBlur(raw, cols, rows, Math.max(2, Math.round(cols / 50)));
+		const lum = new Float32Array(raw.length);
+		for (let i = 0; i < raw.length; i++) {
+			let v = raw[i] + p.detail * (raw[i] - blur[i]);
+			lum[i] = levels(v < 0 ? 0 : v > 1 ? 1 : v, p);
+		}
+
+		ctx.globalCompositeOperation = "lighter";
+		ctx.textBaseline = "top";
+
+		// Fine layer – carries the image
+		if (p.fineAmt > 0) {
+			ctx.font = `${fH.toFixed(2)}px ${font}`;
+			let lastCol = -1;
+			for (let c = 0; c < cols; c++) {
+				const colMod = 0.7 + 0.3 * rnd();
+				let on = true, runLeft = (rnd() * rows * 0.2) | 0;
+				for (let r = 0; r < rows; r++) {
+					if (runLeft-- <= 0) { on = rnd() < 0.86; runLeft = 2 + ((rnd() * rows * 0.18) | 0); }
+					if (!on) continue;
+					const v = lum[r * cols + c];
+					const a = v * p.fineAmt * colMod * (0.5 + 0.5 * rnd());
+					if (a < 0.03) continue;
+					const ci = Math.min(11, (2 + v * 10) | 0);
+					if (ci !== lastCol) { ctx.fillStyle = pal[ci]; lastCol = ci; }
+					ctx.globalAlpha = a > 1 ? 1 : a;
+					ctx.fillText(pick(), c * fW, r * fH);
+				}
+			}
+		}
+
+		// Rain layer – streaks with bright heads
+		if (p.density > 0) {
+			const rH = p.rainSize * S, rW = rH * 0.62;
+			const rc = Math.ceil(W / rW), rr = Math.ceil(H / rH);
+			const field = new Float32Array(rc * rr), heads = new Uint8Array(rc * rr);
+			for (let c = 0; c < rc; c++) {
+				const n = Math.round(p.density * (rr / p.trail) * (0.3 + rnd() * 0.9));
+				for (let s = 0; s < n; s++) {
+					const L = Math.max(2, p.trail * (0.5 + rnd()));
+					const head = (rnd() * (rr + L)) | 0;
+					for (let i = 0; i < L; i++) {
+						const r = head - i;
+						if (r < 0 || r >= rr) continue;
+						const t = 1 - i / L, idx = r * rc + c;
+						if (t > field[idx]) { field[idx] = t; heads[idx] = i === 0 ? 1 : 0; }
+					}
+				}
+			}
+			ctx.font = `${rH.toFixed(2)}px ${font}`;
+			for (let r = 0; r < rr; r++) {
+				for (let c = 0; c < rc; c++) {
+					const idx = r * rc + c, t = field[idx];
+					if (t <= 0) continue;
+					const fx = Math.min(cols - 1, ((c + 0.5) * rW / fW) | 0);
+					const fy = Math.min(rows - 1, ((r + 0.5) * rH / fH) | 0);
+					const v = lum[fy * cols + fx];
+					const base = p.bgRain + (1 - p.bgRain) * v;
+					let a;
+					if (heads[idx]) {
+						a = Math.min(1, base * 1.4 + 0.08);
+						ctx.fillStyle = headCol;
+					} else {
+						a = Math.pow(t, 1.3) * base;
+						ctx.fillStyle = pal[Math.min(11, (3 + t * 9) | 0)];
+					}
+					if (a < 0.03) continue;
+					ctx.globalAlpha = a;
+					ctx.fillText(pick(), c * rW, r * rH);
+				}
+			}
+		}
+
+		// Bloom: two soft halos from downscaled copies
+		if (p.glow > 0) {
+			const s1 = downscale(out, Math.max(1, W >> 2), Math.max(1, H >> 2));
+			const s2 = downscale(s1, Math.max(1, W >> 4), Math.max(1, H >> 4));
+			ctx.globalCompositeOperation = "lighter";
+			ctx.imageSmoothingQuality = "high";
+			ctx.globalAlpha = Math.min(1, p.glow * 0.55); ctx.drawImage(s1, 0, 0, W, H);
+			ctx.globalAlpha = Math.min(1, p.glow * 0.45); ctx.drawImage(s2, 0, 0, W, H);
+		}
+
+		// Vignette
+		if (p.vignette > 0) {
+			ctx.globalCompositeOperation = "source-over";
+			ctx.globalAlpha = 1;
+			const gr = ctx.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.3, W / 2, H / 2, Math.hypot(W, H) * 0.55);
+			gr.addColorStop(0, "rgba(0,0,0,0)");
+			gr.addColorStop(1, `rgba(0,0,0,${p.vignette})`);
+			ctx.fillStyle = gr; ctx.fillRect(0, 0, W, H);
+		}
+		ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
+
+		statusEl.textContent = `${state.name} · ${W}×${H} · ${Math.round(performance.now() - t0)} ms`;
+	}
+
+	function schedule() {
+		document.querySelectorAll(".ctl output").forEach(o => { const i = $(o.htmlFor.value || o.getAttribute("for")); if (i) o.textContent = i.value; });
+		if (state.pending) return;
+		state.pending = true;
+		statusEl.textContent = "rendering…";
+		setTimeout(() => requestAnimationFrame(render), 30);
+	}
+
+	// ---------- sample: a side-lit bust so the first view shows the effect ----------
+	function makeSample() {
+		const W = 800, H = 1000;
+		const c = document.createElement("canvas"); c.width = W; c.height = H;
+		const x = c.getContext("2d");
+		x.fillStyle = "#050505"; x.fillRect(0, 0, W, H);
+		const id = x.getImageData(0, 0, W, H), d = id.data;
+		const L = [-0.55, -0.45, 0.70]; const ll = Math.hypot(...L); L[0] /= ll; L[1] /= ll; L[2] /= ll;
+		// head ellipsoid, neck, shoulders as ellipsoids – Lambert shade + rim light
+		const shapes = [
+			{ cx: 400, cy: 400, rx: 190, ry: 245, rz: 200 },
+			{ cx: 400, cy: 690, rx: 95, ry: 120, rz: 90 },
+			{ cx: 400, cy: 1080, rx: 400, ry: 290, rz: 220 }
+		];
+		for (let py = 0; py < H; py++) for (let px = 0; px < W; px++) {
+			let best = -1, n = null;
+			for (const s of shapes) {
+				const nx = (px - s.cx) / s.rx, ny = (py - s.cy) / s.ry, q = 1 - nx * nx - ny * ny;
+				if (q <= 0) continue;
+				const nz = Math.sqrt(q), z = nz * s.rz;
+				if (z > best) { best = z; const v = [nx / s.rx, ny / s.ry, nz / s.rz]; const m = Math.hypot(...v); n = [v[0] / m, v[1] / m, v[2] / m]; }
+			}
+			if (!n) continue;
+			const lam = Math.max(0, n[0] * L[0] + n[1] * L[1] + n[2] * L[2]);
+			const rim = Math.pow(1 - n[2], 3) * (n[0] > 0 ? 0.55 : 0.1);
+			let v = 0.04 + 0.9 * Math.pow(lam, 1.2) + rim;
+			// eye sockets and mouth shadow for a face read
+			const e = (ex, ey, rx, ry) => { const a = (px - ex) / rx, b = (py - ey) / ry; return Math.max(0, 1 - (a * a + b * b)); };
+			v *= 1 - 0.75 * Math.max(e(328, 380, 48, 26), e(472, 380, 48, 26));
+			v *= 1 - 0.5 * e(400, 540, 60, 14);
+			v += 0.25 * e(395, 455, 18, 55) * (lam > 0.3 ? 1 : 0);
+			v = Math.min(1, v) * 255;
+			const i = (py * W + px) * 4; d[i] = d[i + 1] = d[i + 2] = v;
+		}
+		x.putImageData(id, 0, 0);
+		return c;
+	}
+
+	// ---------- input ----------
+	function loadFile(f) {
+		if (!f || !f.type.startsWith("image/")) { note("That isn't an image file. Use a JPG, PNG or WebP.", true); return; }
+		const url = URL.createObjectURL(f);
+		const img = new Image();
+		img.onload = () => {
+			URL.revokeObjectURL(url);
+			state.src = img;
+			state.name = (f.name || "pasted").replace(/\.[^.]+$/, "");
+			note("Loaded. Tune the black point first, then Detail.");
+			schedule();
+		};
+		img.onerror = () => note("Couldn't decode that file in this browser. HEIC photos need converting to JPG first.", true);
+		img.src = url;
+	}
+	function note(msg, warn) { const n = $("saveNote"); n.textContent = msg; n.classList.toggle("warn", !!warn); }
+
+	$("file").addEventListener("change", e => loadFile(e.target.files[0]));
+	const stage = $("stage");
+	["dragenter", "dragover"].forEach(ev => stage.addEventListener(ev, e => { e.preventDefault(); stage.classList.add("drag"); }));
+	["dragleave", "drop"].forEach(ev => stage.addEventListener(ev, e => { e.preventDefault(); stage.classList.remove("drag"); }));
+	stage.addEventListener("drop", e => loadFile(e.dataTransfer.files[0]));
+	document.addEventListener("paste", e => {
+		const it = [...(e.clipboardData?.items || [])].find(i => i.type.startsWith("image/"));
+		if (it) loadFile(it.getAsFile());
+	});
+	document.querySelectorAll(".panel input, .panel select").forEach(el => {
+		if (el.id === "file" || el.id === "jpgQ") return;
+		el.addEventListener("input", schedule);
+		el.addEventListener("change", schedule);
+	});
+	$("reroll").addEventListener("click", () => { state.seed = (Math.random() * 2 ** 31) | 0; schedule(); });
+
+	// ---------- save ----------
+	function saveAs(ext) {
+		const mime = ext === "jpg" ? "image/jpeg" : "image/png";
+		const q = ext === "jpg" ? +$("jpgQ").value / 100 : undefined;
+		out.toBlob(blob => {
+			if (!blob) { note(`Couldn't encode the ${ext.toUpperCase()}.`, true); return; }
+			const url = URL.createObjectURL(blob);
+			const a = document.createElement("a");
+			a.href = url;
+			a.download = `${state.name}_matrix.${ext}`;
+			document.body.appendChild(a);
+			a.click();
+			a.remove();
+			setTimeout(() => URL.revokeObjectURL(url), 10000);
+			note(`Saved ${a.download} (${(blob.size / 1048576).toFixed(1)} MB) to your downloads.`);
+		}, mime, q);
+	}
+	$("savePng").addEventListener("click", () => saveAs("png"));
+	$("saveJpg").addEventListener("click", () => saveAs("jpg"));
+	// JPG quality only matters at save time – keep its readout live without re-rendering
+	$("jpgQ").addEventListener("input", e => { e.target.nextElementSibling.textContent = e.target.value; });
+
+	// ---------- boot ----------
+	state.src = makeSample();
+	state.name = "sample_bust";
+	const boot = () => schedule();
+	(document.fonts?.load ? Promise.all([document.fonts.load('16px "Share Tech Mono"'), document.fonts.ready]).catch(() => {}) : Promise.resolve()).then(boot);
+})();
+</script>
+
+</body>
+</html>
