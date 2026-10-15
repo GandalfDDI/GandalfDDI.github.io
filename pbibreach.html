@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CFP Submission &ndash; Death by a Thousand Paper Cuts</title>
+	<title>Death by a Thousand Paper Cuts &ndash; BSidesPDX 2026</title>
 	<style>
 		:root {
 			--bg:        #0a0a0a;
@@ -312,15 +312,59 @@
 			.doc-desc { display: none; }
 			h1 { font-size: 1.2rem; }
 		}
+		/* ── SCHEDULE LINE ── */
+		.sched {
+			color: var(--text);
+			font-size: 0.8rem;
+			margin-top: 0.8rem;
+		}
+
+		.sched strong {
+			color: var(--green);
+		}
+
+		/* ── SUB-ITEMS INSIDE TEMPLATE STEPS ── */
+		.template-list ul {
+			list-style: none;
+			margin-top: 0.3rem;
+		}
+
+		.template-list ul li {
+			counter-increment: none;
+			padding: 0.1rem 0 0.1rem 1.2rem;
+			border-bottom: none;
+		}
+
+		.template-list ul li::before {
+			content: '-';
+			color: var(--text-dim);
+			top: 0.1rem;
+		}
+
+		a.inline {
+			color: var(--green);
+			text-decoration: none;
+		}
+
+		a.inline:hover {
+			text-decoration: underline;
+		}
 	</style>
 </head>
 <body>
 
 <header class="site-header">
-	<div class="cfp-badge">CFP SUBMISSION</div>
+	<div class="cfp-badge">BSIDESPDX 2026 &ndash; ACCEPTED TALK</div>
 	<h1>Death by a Thousand Paper Cuts</h1>
-	<div class="subtitle">How to Make Corporate Data Negligence Expensive One Small Claims Case at a Time</div>
+	<div class="subtitle">Making Corporate Data Negligence Expensive, One Small Claims Case at a Time</div>
+	<div class="sched"><strong>Friday, October 23, 2026 &ndash; 4:30 PM &ndash; Track 1</strong> &ndash; Portland State University, Smith Memorial Student Union</div>
 </header>
+
+<div class="note">
+	<strong>DECONFLICT:</strong> This talk is NOT about the PaperCut NG/MF exploit chain
+	(CVE-2026-81578 + CVE-2026-82078, CISA KEV, August 2026). No printers were harmed.
+	Different kind of paper cut. Patch anyway.
+</div>
 
 <div class="verdict">
 	<div class="verdict-header">&#9654; Case Disposition &ndash; King County District Court</div>
@@ -347,7 +391,7 @@
 		</div>
 		<div class="verdict-item">
 			<div class="verdict-label">Award</div>
-			<div class="verdict-value win">$350.00</div>
+			<div class="verdict-value win">$350.00 &ndash; PAID, FINAL</div>
 		</div>
 	</div>
 </div>
@@ -357,9 +401,9 @@
 	<p>
 		In 2023, Pension Benefit Information, LLC &ndash; a Minneapolis data broker &ndash; lost the
 		presenter's name, Social Security Number, and date of birth in the MOVEit/Cl0p ransomware
-		breach. Notification arrived 42 days after PBI's own discovery, violating Washington State's
-		30-day statutory requirement. The presenter spent time on expert remediation, invoiced PBI
-		$1,050, and was refused. He filed small claims in King County District Court.
+		breach. Notification arrived 42 days after PBI's own discovery (per the judgment) &ndash; past
+		Washington State's 30-day statutory requirement. The presenter spent time on expert remediation,
+		invoiced PBI $1,050, and was refused. He filed small claims in King County District Court.
 	</p>
 	<p>
 		PBI responded with corporate counsel and a jurisdictional dismissal motion. On March 16, 2026,
@@ -384,11 +428,11 @@
 <div class="section">
 	<div class="section-title">&#9654; Key Findings (Judge Finkle, Addendum to Judgment)</div>
 	<ul class="finding-list">
-		<li>Washington State has jurisdiction over PBI despite no physical presence in state &ndash; 18,856 WA residents were affected; PBI filed breach notifications with the WA AG; individual residents have no practical recourse outside WA courts.</li>
-		<li>Plaintiff is entitled to opt out of pending class action and pursue individual remedy. Class action does not bar this claim.</li>
-		<li>MOVEit had a single security vulnerability. Defense-in-depth (double layers of security) is the appropriate standard. PBI was negligent.</li>
-		<li>One hour of expert cybersecurity evaluation time is compensable at professional rates ($300). Routine tasks any affected individual could perform are not.</li>
-		<li>Judgment: $300 principal + $50 filing fee = $350 total. Paid within 30 days.</li>
+		<li><strong>Jurisdiction:</strong> Washington has jurisdiction over PBI despite no physical presence in the state. Roughly 19,000 WA residents were affected (18,856 per PBI's own WA Attorney General filings), and individual residents have no practical recourse outside WA courts.</li>
+		<li><strong>Class action:</strong> You are in the class by default. Opting out to file your own claim is allowed &ndash; the pending class action does not bar this claim. You get one or the other, not both.</li>
+		<li><strong>Negligence:</strong> The court applied defense-in-depth (double layers of security) as the standard. MOVEit had a single security vulnerability. Addendum, verbatim: "the Court finds by a preponderance that MOVEit was negligent." Judgment was entered against PBI.</li>
+		<li><strong>Your time:</strong> One hour of expert cybersecurity evaluation is compensable at a professional rate ($300). Routine tasks any affected person could perform &ndash; credit freezes, password changes, hold music &ndash; are not.</li>
+		<li><strong>Judgment:</strong> $300 principal + $50 filing fee = $350. PBI did not appeal, paid within 30 days, and a Satisfaction of Judgment is filed. Final.</li>
 	</ul>
 </div>
 
@@ -418,17 +462,17 @@
 			</a>
 		</li>
 		<li>
-			<a href="PaperCuts_25CIV60102KCX_Small_Claims_Defendants_Packet.pdf" target="_blank">
+			<a href="PaperCuts_25CIV60102KCX_Small_Claims_Plaintiffs_Packet.pdf" target="_blank">
 				<span class="doc-icon">[PDF]</span>
-				<span class="doc-name">Washington State King County Small Claims Defendant Packet &ndash; 5 pages</span>
-				<span class="doc-desc">Appendices A&ndash;H</span>
+				<span class="doc-name">King County Small Claims Plaintiff Packet &ndash; 10 pages</span>
+				<span class="doc-desc">The forms you get when you file</span>
 			</a>
 		</li>
 		<li>
-			<a href="PaperCuts_25CIV60102KCX_Small_Claims_Plaintiffs_Packet.pdf" target="_blank">
+			<a href="PaperCuts_25CIV60102KCX_Small_Claims_Defendants_Packet.pdf" target="_blank">
 				<span class="doc-icon">[PDF]</span>
-				<span class="doc-name">Washington State King County Small Claims Plaintiff Packet &ndash; 10 pages</span>
-				<span class="doc-desc">Appendices A&ndash;H</span>
+				<span class="doc-name">King County Small Claims Defendant Packet &ndash; 5 pages</span>
+				<span class="doc-desc">What gets served on them</span>
 			</a>
 		</li>
 		<li>
@@ -444,38 +488,69 @@
 <div class="section">
 	<div class="section-title">&#9654; The Template &ndash; Fourteen Steps</div>
 	<ol class="template-list">
-		<li>Get the breach notification. Scan it immediately. Save everything.</li>
-		<li>Archive the sender's web presence on the Wayback Machine the same day. Blogs disappear during litigation. Screenshots too &ndash; belt and suspenders.</li>
-		<li>Find the correct legal entity: state SoS registry + AG breach notification registry. The name on the letter is not necessarily the entity you sue.</li>
-		<li>Log remediation time with timestamps and specific activities from day one. Include hardcopy review AND online research time. Separate expert-skill tasks from routine tasks &ndash; the judge WILL draw this line.</li>
-		<li>Document your rate basis with specifics. Market data helps. You are asking for a conservative, defensible floor &ndash; not your ceiling.</li>
-		<li>Invoice before filing. Set a payment deadline. Keep the refusal letter. "They wouldn't pay" is the whole story in two seconds.</li>
-		<li>Find your state's small claims limit and appealability threshold. Consider whether you want the case to be appealable. Act accordingly. NOTE: Not all states are as well-documented as Washington &ndash; King County's process is unusually clear. Read everything on your court's website. If it isn't clear, call the clerk and ask.</li>
-		<li>File. Name the correct entity. Serve the registered agent, not the PR address. <strong>CRITICAL: You cannot serve the defendant yourself.</strong> Find someone over 18 who is not a party. Service must be completed at least 10 days before pretrial. File the Declaration of Service afterward. Miss this and your case is dismissed. No exceptions.</li>
-		<li>After filing, ask the clerk explicitly how to attach your account to the case in the court portal. You are the plaintiff. This is not automatic. Nobody volunteers this.</li>
-		<li>Expect mandatory mediation before trial. It is free. It is confidential and does not become part of the court record. It does not affect your right to trial if it fails. Do not settle for less than your documented claim just to avoid the hearing &ndash; walk out and go to trial.</li>
-		<li>If they file a jurisdiction motion, oppose it with the data: how many residents of your state were affected, and where can those individuals practically sue? The answer to the second question is: here.</li>
-		<li>Exchange evidence with the other party 14 days before trial. Not optional &ndash; failure risks continuance or exclusion. Do it in writing, keep proof of delivery. Bring two printed copies of everything to the courtroom. The clerk makes nothing.</li>
-		<li>Show up prepared. Five elements. Documented evidence. No drama.</li>
-		<li>Take the check. Then file a Satisfaction of Judgment with the clerk to close the record. Your court packet includes this form. File it.</li>
+		<li><strong>Save everything.</strong> Scan the breach notification the day it arrives. Bookmark relevant web pages. "Just the facts, ma'am" &ndash; you do NOT need 10,000 pages of documentation. Keep only the pages that prove your points, and leave out articles that make claims without solid references.</li>
+		<li><strong>Wayback their web presence.</strong> Archive the sender's web presence on the Wayback Machine the same day. Blogs disappear during litigation. Screenshots too &ndash; belt and suspenders.</li>
+		<li><strong>Find the real legal entity.</strong> Use the state Secretary of State registry plus the AG breach notification registry. The name on the letter is not necessarily the entity you sue &ndash; here, "PBI Research Services" versus "Pension Benefit Information, LLC." The <a class="inline" href="https://www.atg.wa.gov/data-breach-notifications" target="_blank">WA AG breach registry</a> is searchable from any state, but only lists breaches affecting 500+ Washington residents.</li>
+		<li><strong>Log your time from day one.</strong> Timestamps and specific activities. Include hardcopy review AND online research time. Separate expert-skill tasks from routine tasks &ndash; the judge WILL draw this line. You can ask a nominal rate (e.g. $25/hr) for routine work; the judge may or may not allow it.</li>
+		<li><strong>Document your rate basis.</strong> Specifics and market data. You are asking for a conservative, defensible floor &ndash; not your ceiling.</li>
+		<li><strong>Invoice before filing in small claims.</strong> Set a payment deadline. Keep the refusal letter. "They wouldn't pay" is the whole story in two seconds.</li>
+		<li><strong>File your small claim.</strong> Washington example: <a class="inline" href="https://www.atg.wa.gov/small-claims-court-0" target="_blank">WA AG &ndash; Small Claims Court</a>. Not all states are as well documented as Washington &ndash; read everything on your court's website, and if it isn't clear, call the clerk and ask.
+			<ul>
+				<li>Know your state's limits &ndash; the claim cap AND the appeal rules.</li>
+				<li>Washington: claim under $1,000 and YOU can't appeal &ndash; but THEY still can on any claim of $250 or more.</li>
+				<li>File for yourself only. A spouse files as a co-plaintiff and must appear. (My first filing was dismissed because I tried to claim for my wife; I had to refile for myself.)</li>
+				<li>Minor child: file as yourself, individually and/or "as guardian ad litem for J.H., a minor." Use initials, NOT their name.</li>
+			</ul>
+		</li>
+		<li><strong>Serve THEIR registered agent &ndash; never yourself.</strong> Use a professional process server in THEIR city &ndash; they know what they are doing. Not the PR address, not your cousin in that town. In Washington, service must be completed at least 10 days before the pretrial hearing, and the Declaration of Service MUST be filed. Miss this and your case is dismissed. Add the process server fee to your claim &ndash; I forgot to, and it cost me about $80.</li>
+		<li><strong>Attach yourself to the case portal.</strong> After filing, ask the clerk explicitly how to attach your account to the case. You are the plaintiff. This is not automatic. Nobody volunteers this.</li>
+		<li><strong>Mediation is mandatory, free, and confidential.</strong> You MUST attend. It does not become part of the court record and does not affect your right to trial if it fails. Do not settle below your documented claim just to avoid the hearing &ndash; walk out and go to trial. If their lawyer asks for a "just want to chat" call before mediation, be very careful &ndash; it is not a friendly call. They are fishing.</li>
+		<li><strong>Beat the jurisdiction motion with data.</strong> How many residents of your state were affected, and where can those individuals practically sue? The answer is: here. They will tell you to join the class action or file in their state &ndash; nope, nope, nope.</li>
+		<li><strong>Exchange evidence 14 days before trial</strong> (Washington). Not optional &ndash; failure risks continuance or exclusion. Do it in writing, keep proof of delivery. Bring two printed copies of everything to the courtroom. The clerk makes nothing.</li>
+		<li><strong>Show up prepared.</strong> Five elements. Documented evidence. No drama. See the <a class="inline" href="PaperCuts_25CIV60102KCX_Argument.pdf" target="_blank">trial argument outline</a>.</li>
+		<li><strong>Take the check.</strong> Then file a Satisfaction of Judgment with the clerk to close the record. Your court packet includes this form. File it.</li>
 	</ol>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; Home Game &ndash; Running This in Oregon</div>
+	<p>These are Oregon's rules as I read them &ndash; I have NOT been through Oregon small claims. Read them yourself. YMMV.</p>
+	<ul class="finding-list">
+		<li><strong>$10,000 cap, no lawyers</strong> &ndash; unless the judge allows one.</li>
+		<li><strong>Over $750 claimed? They can demand a jury</strong> &ndash; which moves the case to circuit court, where lawyers are in. My $1,050 claim could have ended up in front of a jury in Oregon. Keep an Oregon claim at $750 or under, per your time logs.</li>
+		<li><strong>45-day notice deadline, not 30</strong> (ORS 646A.604). PBI's 42 days would have been legal in Oregon &ndash; lead with negligence and your documented time.</li>
+		<li><strong>Service: never you</strong> &ndash; sheriff, process server, or another adult 18+. Certified mail is the worst case and not recommended: it only counts if the right person signs (Restricted Delivery), and you have no control over refusals or unsigned cards.</li>
+		<li><strong>Breach registry:</strong> <a class="inline" href="https://justice.oregon.gov/consumer/databreach/" target="_blank">Oregon DOJ data breach search</a> (breaches affecting 250+ Oregonians).</li>
+		<li><strong>Forms and instructions:</strong> <a class="inline" href="https://www.courts.oregon.gov/forms/pages/small-claims.aspx" target="_blank">OJD Small Claims forms</a> &ndash; <a class="inline" href="https://www.courts.oregon.gov/forms/Documents/SC-INSTR-plntf.pdf" target="_blank">Plaintiff's Instructions (PDF)</a> &ndash; <a class="inline" href="https://oregonlawhelp.org/topics/money-debt-and-consumer-issues/small-claims-court" target="_blank">OregonLawHelp guides</a></li>
+	</ul>
+</div>
+
+<div class="section">
+	<div class="section-title">&#9654; What You Leave With</div>
+	<p>
+		The barrier was never lawyers. The barrier is documentation discipline &ndash; a skill this
+		community already has. (And you KNOW you started investigating the breach the minute you got
+		the letter.) You already keep logs, versions, and evidence, and you write postmortems. Those
+		ARE the skills. The lawyers will try to bluff you out of pursuing the case.
+	</p>
 </div>
 
 <div class="note">
 	<strong>NOTE:</strong> This is a legal strategy framework built from documented experience, not legal advice.
-	I am not a lawyer. Procedures, limits, and statutes vary by jurisdiction.
-	Verify your state's small claims rules before filing. IANAL.
+	I am not a lawyer. Small claims sets no binding precedent &ndash; the method replicates, the ruling does not.
+	Procedures, limits, and statutes vary by jurisdiction. Verify your state's small claims rules before filing. IANAL.
 </div>
 
 <div class="section">
 	<div class="section-title">&#9654; Speaker</div>
 	<p>
-		Ken Hollis spent 40 years in technology across aerospace (Kennedy Space Center), enterprise
-		networking, SCADA/ICS, and 18 years at Microsoft with 11 in security engineering, including
-		the Cyber Defense Operations Center and critical infrastructure security for data centers and
-		industrial control systems. He is retired and lives near Redmond, Washington. He is not a
-		lawyer. He won anyway.
+		Ken Hollis spent 40 years in technology &ndash; starting with punch cards, before the Internet &ndash;
+		across aerospace (Kennedy Space Center), enterprise networking, SCADA/ICS, and 18 years at Microsoft
+		with 11 in security engineering, including the Cyber Defense Operations Center and critical
+		infrastructure security for data centers and industrial control systems. He is retired and lives
+		near Redmond, Washington. He is not a lawyer. He won anyway.
 	</p>
+	<p>GandalfDDI &ndash; BlueSky &middot; Mastodon (ioc.exchange) &middot; <a class="inline" href="/">gandalfddi.github.io</a></p>
 </div>
 
 <footer>

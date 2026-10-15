@@ -19,8 +19,8 @@ playbook and fits the slot without padding. Not requesting 40.
 --- ABSTRACT (public-facing) ------------------------------------
 
 A Minneapolis data broker lost my name, SSN, and date of birth in
-the MOVEit/Cl0p breach, notified me 42 days late in violation of
-Washington's 30-day law, then refused my $1,050 invoice for the
+the MOVEit/Cl0p breach, notified me 42 days after discovering it -
+12 days past Washington's 30-day law - then refused my $1,050 invoice for the
 remediation time their negligence cost me. I filed in small claims,
 beat their corporate jurisdiction motion, and the judge ruled that a
 security professional's time assessing a breach is compensable at
@@ -43,11 +43,13 @@ The talk walks the room through how and why it worked, then hands them
 the template to do it themselves. Judge Finkle's findings are the spine:
 
  - Washington had jurisdiction over an out-of-state broker because
-   18,856 WA residents were affected and had no practical recourse
-   elsewhere - PBI filed breach notices with the WA AG.
+   roughly 19,000 WA residents were affected (18,856 per PBI's own
+   WA AG filings) and had no practical recourse elsewhere.
  - I could opt out of the pending class action and pursue an individual
    remedy; the class action did not bar the claim.
- - A single vulnerability with no defense-in-depth is negligence.
+ - Defense-in-depth is the standard: a single vulnerability with no
+   second layer is negligence (the addendum names MOVEit; judgment
+   was entered against PBI).
  - One hour of expert evaluation is compensable at professional rates.
    Routine tasks any victim could perform are not - the judge draws
    that line explicitly, and your documentation has to respect it.
