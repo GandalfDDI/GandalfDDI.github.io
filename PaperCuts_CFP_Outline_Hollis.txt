@@ -1,7 +1,6 @@
 ================================================================
 CFP SUBMISSION - Death by a Thousand Paper Cuts
 Case 25CIV60102KCX | King County District Court | Judgment for plaintiff
-Conference-agnostic draft (BSidesPDX 2026 primary; reusable for BSides Seattle)
 ================================================================
 
 --- TITLE -------------------------------------------------------
@@ -12,7 +11,7 @@ Expensive, One Small Claims Case at a Time
 
 --- DURATION ----------------------------------------------------
 
-20 minutes (BSidesPDX default). The content is a tight, replicable
+20 minutes. The content is a tight, replicable
 playbook and fits the slot without padding. Not requesting 40.
 
 
