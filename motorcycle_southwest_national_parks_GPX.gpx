@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="GandalfDDI" xmlns="http://www.topografix.com/GPX/1/1">
+	<metadata>
+		<name>Southwest National Parks 2026 - Park to Park, Pinnacles to Sunset Bay</name>
+		<desc>Park waypoints only, in the order visited. No gas stops, no hotels. Provided as-is, no warranty. GandalfDDI.</desc>
+	</metadata>
+	<wpt lat="36.4935" lon="-121.1466"><name>01 Pinnacles NP</name><desc>Pinnacles Visitor Center, east side. Day 4.</desc><sym>Park</sym></wpt>
+	<wpt lat="36.5643" lon="-118.7735"><name>02 Sequoia NP</name><desc>Giant Forest Museum. Day 5.</desc><sym>Park</sym></wpt>
+	<wpt lat="36.7411" lon="-118.9629"><name>03 Kings Canyon NP</name><desc>Kings Canyon Visitor Center, Grant Grove. Day 6.</desc><sym>Park</sym></wpt>
+	<wpt lat="36.4615" lon="-116.8665"><name>04 Death Valley NP</name><desc>Furnace Creek Visitor Center. Day 7, and again Days 36-37.</desc><sym>Park</sym></wpt>
+	<wpt lat="37.2001" lon="-112.9871"><name>05 Zion NP</name><desc>Zion Canyon Visitor Center, Springdale. Day 9.</desc><sym>Park</sym></wpt>
+	<wpt lat="37.6402" lon="-112.1697"><name>06 Bryce Canyon NP</name><desc>Bryce Canyon Visitor Center. Days 9-10.</desc><sym>Park</sym></wpt>
+	<wpt lat="38.2917" lon="-111.2618"><name>07 Capitol Reef NP</name><desc>Capitol Reef Visitor Center, Fruita. Day 11.</desc><sym>Park</sym></wpt>
+	<wpt lat="38.6166" lon="-109.6200"><name>08 Arches NP</name><desc>Arches Visitor Center. Days 11-12.</desc><sym>Park</sym></wpt>
+	<wpt lat="38.4597" lon="-109.8211"><name>09 Canyonlands NP</name><desc>Island in the Sky Visitor Center. Day 12.</desc><sym>Park</sym></wpt>
+	<wpt lat="37.3389" lon="-108.4069"><name>10 Mesa Verde NP</name><desc>Mesa Verde Visitor and Research Center. Days 14-15.</desc><sym>Park</sym></wpt>
+	<wpt lat="38.5543" lon="-107.6878"><name>11 Black Canyon NP</name><desc>Black Canyon of the Gunnison, South Rim Visitor Center. Day 18.</desc><sym>Park</sym></wpt>
+	<wpt lat="37.7330" lon="-105.5120"><name>12 Great Sand Dunes NP</name><desc>Great Sand Dunes Visitor Center. Day 20.</desc><sym>Park</sym></wpt>
+	<wpt lat="35.8586" lon="-106.4930"><name>13 Valles Caldera</name><desc>Valles Caldera National Preserve, Valle Grande. Day 22.</desc><sym>Park</sym></wpt>
+	<wpt lat="35.7786" lon="-106.2706"><name>14 Bandelier NM</name><desc>Bandelier National Monument Visitor Center. Day 22.</desc><sym>Park</sym></wpt>
+	<wpt lat="32.1752" lon="-104.4436"><name>15 Carlsbad Caverns NP</name><desc>Carlsbad Caverns Visitor Center. Days 25-26.</desc><sym>Park</sym></wpt>
+	<wpt lat="31.8936" lon="-104.8211"><name>16 Guadalupe Mtns NP</name><desc>Pine Springs Visitor Center, Texas. Day 26.</desc><sym>Park</sym></wpt>
+	<wpt lat="32.7797" lon="-106.1719"><name>17 White Sands NP</name><desc>White Sands Visitor Center. Day 28.</desc><sym>Park</sym></wpt>
+	<wpt lat="34.8148" lon="-109.8650"><name>18 Petrified Forest NP</name><desc>Rainbow Forest Museum, south entrance off US-180. Day 31.</desc><sym>Park</sym></wpt>
+	<wpt lat="32.2495" lon="-111.1665"><name>19 Saguaro NP</name><desc>Saguaro West, Red Hills Visitor Center. Day 33.</desc><sym>Park</sym></wpt>
+	<wpt lat="32.4270" lon="-110.9265"><name>20 Catalina SP</name><desc>Catalina State Park, Oro Valley AZ. Day 33.</desc><sym>Park</sym></wpt>
+	<wpt lat="33.7484" lon="-115.8246"><name>21 Joshua Tree NP</name><desc>Cottonwood Visitor Center, south entrance off I-10. Day 35.</desc><sym>Park</sym></wpt>
+	<wpt lat="37.8733" lon="-119.3584"><name>22 Yosemite NP</name><desc>Tuolumne Meadows Visitor Center, Tioga Road. Days 39-40. Tioga Road is closed in winter and into spring.</desc><sym>Park</sym></wpt>
+	<wpt lat="40.3084" lon="-123.9076"><name>23 Humboldt Redwoods SP</name><desc>Avenue of the Giants Visitor Center, Weott CA. Day 41.</desc><sym>Park</sym></wpt>
+	<wpt lat="43.3311" lon="-124.3736"><name>24 Sunset Bay SP</name><desc>Sunset Bay State Park, Coos Bay OR. Day 42.</desc><sym>Park</sym></wpt>
+	<rte>
+		<name>SW NP 2026 Park to Park</name>
+		<desc>Waypoints only - the GPS picks the roads between them. Add shaping points for the roads you want.</desc>
+		<rtept lat="36.4935" lon="-121.1466"><name>01 Pinnacles NP</name></rtept>
+		<rtept lat="36.5643" lon="-118.7735"><name>02 Sequoia NP</name></rtept>
+		<rtept lat="36.7411" lon="-118.9629"><name>03 Kings Canyon NP</name></rtept>
+		<rtept lat="36.4615" lon="-116.8665"><name>04 Death Valley NP</name></rtept>
+		<rtept lat="37.2001" lon="-112.9871"><name>05 Zion NP</name></rtept>
+		<rtept lat="37.6402" lon="-112.1697"><name>06 Bryce Canyon NP</name></rtept>
+		<rtept lat="38.2917" lon="-111.2618"><name>07 Capitol Reef NP</name></rtept>
+		<rtept lat="38.6166" lon="-109.6200"><name>08 Arches NP</name></rtept>
+		<rtept lat="38.4597" lon="-109.8211"><name>09 Canyonlands NP</name></rtept>
+		<rtept lat="37.3389" lon="-108.4069"><name>10 Mesa Verde NP</name></rtept>
+		<rtept lat="38.5543" lon="-107.6878"><name>11 Black Canyon NP</name></rtept>
+		<rtept lat="37.7330" lon="-105.5120"><name>12 Great Sand Dunes NP</name></rtept>
+		<rtept lat="35.8586" lon="-106.4930"><name>13 Valles Caldera</name></rtept>
+		<rtept lat="35.7786" lon="-106.2706"><name>14 Bandelier NM</name></rtept>
+		<rtept lat="32.1752" lon="-104.4436"><name>15 Carlsbad Caverns NP</name></rtept>
+		<rtept lat="31.8936" lon="-104.8211"><name>16 Guadalupe Mtns NP</name></rtept>
+		<rtept lat="32.7797" lon="-106.1719"><name>17 White Sands NP</name></rtept>
+		<rtept lat="34.8148" lon="-109.8650"><name>18 Petrified Forest NP</name></rtept>
+		<rtept lat="32.2495" lon="-111.1665"><name>19 Saguaro NP</name></rtept>
+		<rtept lat="32.4270" lon="-110.9265"><name>20 Catalina SP</name></rtept>
+		<rtept lat="33.7484" lon="-115.8246"><name>21 Joshua Tree NP</name></rtept>
+		<rtept lat="36.4615" lon="-116.8665"><name>04 Death Valley NP</name></rtept>
+		<rtept lat="37.8733" lon="-119.3584"><name>22 Yosemite NP</name></rtept>
+		<rtept lat="40.3084" lon="-123.9076"><name>23 Humboldt Redwoods SP</name></rtept>
+		<rtept lat="43.3311" lon="-124.3736"><name>24 Sunset Bay SP</name></rtept>
+	</rte>
+</gpx>

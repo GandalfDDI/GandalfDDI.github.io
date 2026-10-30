@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Motorcycle Trip Southwest National Parks Preparations and GPX Waypoints</title>
+<meta name="msvalidate.01" content="5EDDD546C69B870E0A70F093CCAF7A59" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	img { max-width: min(900px, 100%); height: auto; }
+</style>
+</head>
+<body bgcolor="#ffffff">
+
+<h2>Motorcycle Trip Southwest National Parks Preparations and GPX Waypoints &ndash; Pinnacles to Sunset Bay</h2>
+<!-- TODO: map image linked to My Maps, same as the Route 66 prep page -->
+<br>
+This page is JUST the planning for my 2026 Southwest National Parks trip: 44 days, August 13 to September 25, 7,163 miles on the odometer. Seattle area down through California, Nevada, Utah, Colorado, New Mexico, west Texas, Arizona, then back up the coast. For the stories and pictures see the <a href="motorcycle_southwest_national_parks_2026-08-13_09-25.html">trip overview</a>. For general long-trip prep see <a href="motorcycle_prep.html" target="_blank">my motorcycle preparation page</a>, and for a longer version of this kind of page see my <a href="motorcycle_trip_planning.html" target="_blank">Motorcycle Trip Planning</a> and <a href="motorcycle_route66_prep.html" target="_blank">Route 66 preparations</a>.
+<br><br>
+
+<h3>Routing &ndash; Plan for the Least Comfortable Rider and the Smallest Tank</h3>
+If you ride with someone else, ask them up front how many miles a day they are comfortable with, and how many days in a row. Plan to the LOWEST number, not the highest. A rider who is worn out at mile 280 of a 350-mile day is a safety problem, not a scheduling problem.
+<ul type=disc>
+	<li>Communications &ndash; You CAN do a trip like this without comms between riders but I VERY STRONGLY suggest that you buy the same comms, we both had <A HREF="https://www.sena.com/en-us/product/60s/" target="_blank">Sena 60S</A> and we STILL had to fiddle with the comms to set it to Mesh 3.0 on BOTH headsets otherwise they would not communicate.</li>
+	<li>Fuel range &ndash; Find the REAL range of every bike, not the brochure number. My Tiger 1200 goes 300+ miles on a tank, almost 8 gallons at around 45 MPG. My riding partner's Tiger 850 Sport was minimum of 150 miles (we learned later that was a bit conservative, but that was OK, we adjusted). The group's range is the smallest tank.</li>
+	<li>Fuel stops &ndash; Plan gas at about 80% of the smallest range (about 120 miles for a 150-mile tank). That leaves room for headwinds, detours and the gas station that turned out to be closed.</li>
+	<li>Fuel economy &ndash; Around 45 MPG average, a tank anywhere from 35 to 54. Speed and altitude were the biggest difference: about 40 MPG at 70ish MPH on the interstate, about 50 MPG in the high country, lower air drag. The Oregon coast's north wind cost a few MPG.</li>
+	<li>Long gaps &ndash; Death Valley and the Coronado Trail (US-191 in Arizona) have long stretches with no services. Fill up before you go in, even with half a tank.</li>
+	<li>Days off &ndash; 7,163 miles over 44 days is only about 163 miles a day on average, because of park days and days the bike never moved. Build them in. A day of hiking in a park is not a rest day.</li>
+	<li>Service &ndash; Check your miles to the next service and your tire life before you leave. If a trip this long will cross either one, schedule a dealer on the route ahead of time.</li>
+	<li>Heat &ndash; It was 115&deg;F to 120&deg;F crossing Death Valley in August. Ride the desert early in the morning and throw ice into / pre&ndash;freeze your hydration bladder.</li>
+</ul>
+<br>
+
+<h3>Reservations &ndash; Parks Early, Hotels Late</h3>
+<ul type=disc>
+	<li>National and state parks &ndash; Lodges and campgrounds inside the parks: book at least 3 months ahead, earlier for the popular ones. Recreation.gov and the state park systems open sites on a rolling window and the popular parks sell out the day they open. Find out when YOUR dates open and set a reminder.</li>
+	<li>National parks tours &ndash; A ranger lead tour usually opens a few weeks before the date to make reservations, same thing. Find out when YOUR dates open and set a reminder to book the tour. Early.</li>
+	<li>Park entry &ndash; Some parks require a timed-entry or vehicle reservation for part of the year. Check each park's NPS page before you go.</li>
+	<li>Hotels &ndash; For Best Westerns (or any chain) a couple of weeks ahead was usually enough. On the road I kept about 4 or 5 days of reservations lined up, same as Route 66. Most standard rates can be cancelled free until the day you arrive; the cheapest "non-refundable" rates can't, so check before you book. Being able to cancel is what lets you change the plan when weather or a tired rider changes the day.</li>
+	<li>Weekends and holidays &ndash; Labor Day weekend fell in the middle of this trip. Holiday weekends and local events fill up small towns, and some hotels require a 2-night minimum on weekends.</li>
+	<li>Park pass &ndash; With this many parks an <a href="https://www.nps.gov/planyourvisit/passes.htm" target="_blank">America the Beautiful pass</a> pays for itself quickly. With my <a href="https://www.recreation.gov/interagency-pass/types/senior-lifetime" target="_blank">senior pass</a> (yes I am an old fart) I could get two motorcycles in so I only had to show that pass for me and my riding partner to get in.</li>
+</ul>
+<br>
+
+<h3>Using Claude (LLM / AI) to Help Plan the Route</h3>
+I worked with <a href="https://claude.ai" target="_blank">Claude</a> to build the master itinerary, the fuel plan and the GPX files for Garmin BaseCamp. My final plan was version 10. It saved me a LOT of time, but it is a planning partner, not an oracle. Keep in the front of your mind 'Claude (or ANY LLM model) can occasionally produce responses that are incorrect or misleading', I had to correct a few routing issues by hand. What worked:
+<ul type=disc>
+	<li>Markdown (.md) files &ndash; Keep the plan in plain text Markdown (.MD) files. Any text editor can read them and Claude reads and writes them natively, you can do .docx files but they are more expensice token wise. Start each new session by uploading the current files so Claude works from where the plan IS, not from what it thinks it remembers. <a href="https://www.libreoffice.org/" target="_blank">Libre Office</a> opens .MD files in all of its beautiful GUI splendor.</li>
+	<li>Constraints first &ndash; Write your constraints in their own file before asking for a route: number of days, daily mileage limit for each rider, fuel range for each bike, hotels or camping, no gravel, dietary needs, parks you must see and parks you would skip. I would stack rank the parks & see how your AI routes for you. Then you can reorder.
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Be sure to ask your LLM to look up the average weather and temperatures and see if that route makes sense for the weather you will be getting yourself into</li>
+	<li>Ask for real files &ndash; A master itinerary (.docx when you get the .MD file finalized) you can print, a .gpx for <a href="https://www.garmin.com/en-US/software/basecamp/" target="_blank">BaseCamp</A> (or whatever software your GPS device uses), and a fuel plan. Install <a href="https://www.libreoffice.org/" target="_blank">LibreOffice</a> (free) to open, edit, print and export to PDF:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>winget install TheDocumentFoundation.LibreOffice</code></li>
+	<li>Version everything &ndash; Every change gets a new version number so you know which printout is current.</li>
+	<li>Check / verify the gas stops &ndash; Check on your GPS device or <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" target="_blank">Google Maps</A>, it should be able to tell you 'close gas stops'.</li>
+	<li>Check the stops for the night &ndash; Some of the hotels had changed names or no longer existed, check on a website.</li>
+	<li>Check the math &ndash; Claude's mileage is an estimate. Load the GPX into BaseCamp, get the routed mileage and feed it back. Mine was different enough to matter.</li>
+	<li>Check the facts &ndash; Road closures, construction, seasonal roads (Tioga Pass is closed in winter and into spring), park hours, whether that gas station still exists. Ask Claude to look up current information and give you its sources, then CHECK the sources.</li>
+	<li>Waypoint types matter &ndash; In BaseCamp a via point is a stop; a shaping point just pulls the route onto a road. Too few shaping points and the GPS picks the fastest road, not the one you wanted. One in the wrong place and you get a strange detour. Look at every day's route on the map.</li>
+	<li>Print it &ndash; I carried a printed master itinerary and wrote the changes on it in pen. Batteries die, and half these parks have no cell service.</li>
+	<li>Privacy &ndash; Don't publish anything with reservation numbers, your home address or other people's information in it. And DON't post your adventure to social media while you roam. Do you REALLY want to have an unwanted visitor in your house while you are gone?</li>
+</ul>
+<br>
+
+<h3>The GPX Waypoints</h3>
+<div style="text-align:center"><h2><mark>WARNING</mark></h2>
+<blockquote>These waypoints are provided As-Is, free of charge. No guarantee or warranty that they are accurate. As a rider you are responsible for your own safety and the safety of anyone riding with you. Roads close, construction happens, and GPS units will happily route you <a href="https://archive.org/download/GandalfDDI-MotorcycleMemes/motorcycle_route66_2025-06-21_GPS.jpg" target="_blank">into a concrete barrier</A>. You are responsible for the driving decisions a GPS can't make.</blockquote>
+</div>
+One GPX file with 24 waypoints, one per park, in the order I visited them: starting at Pinnacles National Park and ending at Sunset Bay State Park on the Oregon coast. It also has a route that strings them together; Death Valley shows up twice in the route because I went through it on Day 7 heading east and again on Days 36 and 37 heading north. There are NO gas stops and NO hotels in the file. Those depend on your bikes, your riders and your budget (see above). Getting from home to Pinnacles and home from Sunset Bay is up to you.
+<br><br>
+The waypoints are at visitor centers and the GPS will pick its own roads between them. If you want the roads I rode, add shaping points: Utah Highway 12 (Bryce to Capitol Reef), the Million Dollar Highway (US-550), the Coronado Trail (US-191), the Salt River Canyon (US-60) and Tioga Pass (CA-120).
+<br><br>
+<a href="motorcycle_southwest_national_parks_GPX.gpx" target="_blank">motorcycle_southwest_national_parks_GPX.gpx</a>
+<br><br>
+The parks, in order:
+<ol>
+	<li>Pinnacles National Park, California</li>
+	<li>Sequoia National Park, California</li>
+	<li>Kings Canyon National Park, California</li>
+	<li>Death Valley National Park, California</li>
+	<li>Zion National Park, Utah</li>
+	<li>Bryce Canyon National Park, Utah</li>
+	<li>Capitol Reef National Park, Utah</li>
+	<li>Arches National Park, Utah</li>
+	<li>Canyonlands National Park (Island in the Sky), Utah</li>
+	<li>Mesa Verde National Park, Colorado</li>
+	<li>Black Canyon of the Gunnison National Park, Colorado</li>
+	<li>Great Sand Dunes National Park, Colorado</li>
+	<li>Valles Caldera National Preserve, New Mexico</li>
+	<li>Bandelier National Monument, New Mexico</li>
+	<li>Carlsbad Caverns National Park, New Mexico</li>
+	<li>Guadalupe Mountains National Park, Texas</li>
+	<li>White Sands National Park, New Mexico</li>
+	<li>Petrified Forest National Park, Arizona</li>
+	<li>Saguaro National Park, Arizona</li>
+	<li>Catalina State Park, Arizona</li>
+	<li>Joshua Tree National Park, California</li>
+	<li>Yosemite National Park (Tioga Road and Tuolumne Meadows), California</li>
+	<li>Humboldt Redwoods State Park (Avenue of the Giants), California</li>
+	<li>Sunset Bay State Park, Oregon</li>
+</ol>
+<br>
+<blockquote>Things will fail. Plans will change. Don't get bent out of shape. Yesterday was the best day to leave, today is the next best day. In the end this is why you have an adverture, so you can tell stories :-)</blockquote>
+<br><br>
+
+<p style='text-align:center'><a href="motorcycle_southwest_national_parks_2026-08-13_09-25.html">Southwest National Parks Motorcycle Trip</a></p>
+<p style='text-align:center'><a href="motorcycle_trips.html">Motorcycle Trips</a></p>
+<BR><BR>
+<A HREF="https://archive.org/download/GandalfDDI-MotorcycleMemes/motorcycle_adventure_not_comfort.jpg" target="_blank"><IMG SRC="https://archive.org/download/GandalfDDI-MotorcycleMemes/motorcycle_adventure_not_comfort.jpg" style="display:block; margin:0 auto; width:800px; max-width:100%; height:auto"></A>
+<BR><BR>
+Any questions or comments send me e-mail<br>
+Username = &quot;GandalfDDI&quot; <br>
+E-Mail = &quot;Outlook.Com&quot; <br>
+Obviously to send me e-mail just put the preceding two together --&gt;
+Username@E-Mail (this is to minimize the amount of SPAM I get thank you)
+</body>
+
+</html>
