@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Triumph Diagnostic Connector - 6-Pin (Red, Euro 5) vs 16-Pin (OBD-II) by Model</TITLE>
+<META NAME="description" CONTENT="Which Triumph motorcycles have the new red 6-pin Euro 5 (ISO 19689) diagnostic connector and which have the older 16-pin OBD-II (J1962) connector, by model and model year, plus which tools can reset the service indicator, with sources and confidence levels.">
+<META NAME="keywords" CONTENT="Triumph, diagnostic connector, 6-pin, 16-pin, OBD-II, OBD2, Euro 5, Euro 5+, ISO 19689, J1962, TuneECU, DealerTool, service reset, service indicator, service interval, OBDLink LX, Tiger 1200, Tiger 900, Street Triple, Trident 660, Scrambler 1200, Speed 400">
+<STYLE TYPE="text/css">
+TABLE.dtc { border-collapse: collapse; margin: 8px 0; }
+TABLE.dtc TD, TABLE.dtc TH { border: 1px solid #888; padding: 3px 10px; text-align: left; vertical-align: top; }
+TABLE.dtc TH { background: #ddd; }
+TABLE.dtc TR.alt TD { background: #f4f4f4; }
+DIV.note { background: #fff8dc; border-left: 3px solid #c90; padding: 8px 12px; margin: 12px 0; }
+</STYLE>
+<style>
+	img { max-width: 100%; height: auto; }
+</style>
+</HEAD>
+<BODY>
+
+<H1>Triumph Diagnostic Connector - 6-Pin (Red) vs 16-Pin (OBD-II) by Model</H1>
+
+Compiled November 2026.<BR>
+<BR>
+Triumph has never published a model-by-model list of which bikes have which diagnostic connector, and I could not find one anywhere else either. This table is assembled from tool vendors, adapter fitment lists and owner reports. Every row says where it came from and how much to trust it. If you have additions or corrections send me e-mail (see bottom of page).<BR>
+
+<DIV class="note"><B>The 30 second answer:</B> pull the seat and look. A <B>black, car-sized, 16-pin trapezoid</B> is the old connector. A <B>small, red, square 6-pin</B> is the new one. Model year alone is not reliable - the change rolled through the range model by model between 2023 and 2026, and market differences are possible.<BR>
+<BR>
+<B>Here to turn off the service wrench?</B> Skip to <A HREF="#service">section 6</A>.</DIV>
+
+<H4>1. The Story</H4>
+
+<UL>
+<LI><B>Old connector</B> - every fuel-injected Hinckley Triumph up to the changeover used the same 16-pin SAE J1962 socket found under the dash of a car. Unusual for a motorcycle maker, and convenient: any car OBD-II dongle plugged straight in.</LI>
+<LI><B>New connector</B> - the red 6-pin is the standardized motorcycle diagnostic connector (ISO 19689) that came in with Euro 5. Honda, Kawasaki, Suzuki and Yamaha use the same plug.</LI>
+<LI><B>The change is not tied to "Euro 5" as such.</B> Triumph sold Euro 5 bikes for years (2020-2023) with the old 16-pin still fitted. The red plug arrived with each model's next major update, starting with the Street Triple 765 for MY2023, and is close to universal on Euro 5+ bikes.</LI>
+<LI><B>The electronics behind the plug did not change much.</B> It is still CAN. A passive 6-pin to 16-pin adapter cable (about $10) puts you back where you were.</LI>
+<LI><B>Both connectors are female on the bike side.</B> The tool or adapter carries the male pins.
+	<UL>
+	<LI><B>16-pin:</B> The harness end is a J1962 female socket, same as a car. HEX's Tiger 1200 guide describes the adaptor's male OBD-II plug mating with the bike's female OBD-II connector, and Cycle Terminal sells the J1962F female connector set as the one used on late model Triumphs.</LI>
+	<LI><B>6-pin:</B> Adapter cables for the red plug are built as 16-pin female to 6-pin ISO 19689 male, which makes the bike side the female half. The 16-pin female end of that cable then takes your existing dongle's male plug.</LI>
+	</UL></LI>
+</UL>
+What do these things LOOK like?:
+<BR>
+<A HREF="https://archive.org/download/motorcycle_obd_sae_j1962_iso_19689.jpg" target="_blank"><IMG SRC="https://archive.org/download/GandalfDDI-MotorcycleMemes/motorcycle_obd_sae_j1962_iso_19689_sm.jpg" width="1000" height="1125"></A>
+
+<H4>2. Red 6-Pin Connector (New)</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Model</TH><TH width="130">From</TH><TH width="90">Confidence</TH><TH>Source / Notes</TH></TR>
+<TR><TD>Street Triple 765 R / RS / Moto2 Edition</TD><TD>MY2023</TD><TD>High</TD><TD>First model to get it. DealerTool names it "2023 onwards". Owner-confirmed on a 2024 RS - red plug in the tail.</TD></TR>
+<TR class="alt"><TD>Tiger 900 GT / GT Pro / Rally Pro</TD><TD>MY2024</TD><TD>High</TD><TD>Multiple owner reports (US and Canada). Red plug is in the tool tray area under the seat. 2020-2023 bikes are 16-pin.</TD></TR>
+<TR><TD>Tiger 850 Sport</TD><TD>MY2024</TD><TD>Medium</TD><TD>Named alongside the Tiger 900 in DealerTool's 6-pin list.</TD></TR>
+<TR class="alt"><TD>Tiger Sport 800</TD><TD>MY2025 (launch)</TD><TD>Medium</TD><TD>Adapter fitment list only. New model, so no 16-pin version exists.</TD></TR>
+<TR><TD>Speed 400 / Scrambler 400 X</TD><TD>MY2024 (launch)</TD><TD>High</TD><TD>Owner-confirmed: red 6-pin under the seat next to the fuse box. Never had a 16-pin.</TD></TR>
+<TR class="alt"><TD>Scrambler 1200 X / XE</TD><TD>MY2024</TD><TD>High</TD><TD>DealerTool list plus adapter fitment (XC / X / XE Euro 5+). The earlier XC / XE (2019-2023) are 16-pin.</TD></TR>
+<TR><TD>Trident 660</TD><TD>MY2024-2025</TD><TD>Medium</TD><TD>Piggyback tuner vendors sell a separate "red connector" kit for 2024-2025. 2021-2023 bikes are 16-pin. Exact year of the switch not nailed down - look.</TD></TR>
+<TR class="alt"><TD>Bonneville T100 / T120</TD><TD>Euro 5+ (MY2025-2026)</TD><TD>Medium</TD><TD>Adapter fitment list (Classicbike Raisch). Vendor says check the bike before ordering.</TD></TR>
+<TR><TD>Bobber / Speedmaster</TD><TD>Euro 5+ (MY2025-2026)</TD><TD>Medium</TD><TD>Same vendor list.</TD></TR>
+<TR class="alt"><TD>Speed Twin 900 / Scrambler 900</TD><TD>Euro 5+ (MY2025)</TD><TD>Medium</TD><TD>Same vendor list.</TD></TR>
+<TR><TD>Speed Twin 1200 / 1200 RS</TD><TD>Euro 5+ (MY2025)</TD><TD>Medium</TD><TD>Same vendor list.</TD></TR>
+<TR class="alt"><TD>Tiger 1200 GT / Rally (later production)</TD><TD>After MY2024 - not established</TD><TD>Low</TD><TD>HEX ezCAN's install guide says both connector types exist on 2022+ Tiger 1200s depending on model year, without giving the year. My own 2024 is 16-pin, so the switch is later than that. See section 4.</TD></TR>
+</TABLE>
+
+<H4>3. Black 16-Pin OBD-II Connector (Old)</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Model</TH><TH width="130">Years</TH><TH width="90">Confidence</TH><TH>Source / Notes</TH></TR>
+<TR><TD>All fuel-injected Triumphs</TD><TD>Up to the changeover</TD><TD>High</TD><TD>DealerTool FAQ. Usually under the seat. Sprint 1050 and Trophy have it in the right front storage compartment. Some models have it behind a side panel.</TD></TR>
+<TR class="alt"><TD>Street Triple 675 / 765</TD><TD>Through MY2022</TD><TD>High</TD><TD>By elimination from the MY2023 change.</TD></TR>
+<TR><TD>Tiger 800 / Tiger 900 / Tiger 850 Sport</TD><TD>Through MY2023</TD><TD>High</TD><TD>Owner-confirmed on 2022 and 2023 Tiger 900 GT Pro.</TD></TR>
+<TR class="alt"><TD>Tiger Sport 660</TD><TD>MY2022-2023</TD><TD>High</TD><TD>Owner-confirmed on 2022 (TuneECU, no adapter needed). Later years unverified.</TD></TR>
+<TR><TD>Trident 660</TD><TD>MY2021-2023</TD><TD>Medium</TD><TD>See note in section 2.</TD></TR>
+<TR class="alt"><TD>Speed Triple 1200 RS / RR</TD><TD>MY2021-2024</TD><TD>High</TD><TD>Owner-confirmed on a 2022 RS and a 2024 RR - full-size OBD-II under the seat with a rubber shroud. One of the last holdouts.</TD></TR>
+<TR><TD>Tiger 1200 GT / Rally</TD><TD>MY2022-2024</TD><TD>High</TD><TD>My 2024 Tiger 1200 Rally Explorer has the 16-pin. HEX ezCAN install guide photographs it under the front seat, behind the fuse box.</TD></TR>
+<TR class="alt"><TD>Tiger 1200 Explorer / XR / XC</TD><TD>2012-2021</TD><TD>High</TD><TD>Pre-dates the change.</TD></TR>
+<TR><TD>Modern Classics (Bonneville, Bobber, Speedmaster, Speed Twin, Street Twin, Thruxton, Scrambler 900 / 1200 XC / XE)</TD><TD>Euro 4 and Euro 5 (2016 to about 2023-2024)</TD><TD>Medium</TD><TD>The Raisch adapter list only covers the Euro 5+ versions, which implies the Euro 4 / Euro 5 versions kept the 16-pin.</TD></TR>
+<TR class="alt"><TD>Rocket 3 R / GT (2019-2023)</TD><TD>MY2019-2023</TD><TD>Medium</TD><TD>Pre-dates the change. Storm (2024+) unverified.</TD></TR>
+</TABLE>
+
+<H4>4. Not Established - Go Look</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Model</TH><TH>What is not known</TH></TR>
+<TR><TD>Tiger 1200 GT / Rally (2025+)</TD><TD>Both connectors exist on this generation. MY2024 (the engine / damping refresh) is still the old 16-pin - confirmed on my own bike - so the red plug arrived some time after that. The model year or VIN is not documented anywhere I found.</TD></TR>
+<TR class="alt"><TD>Rocket 3 Storm R / GT (2024+)</TD><TD>No reliable report either way.</TD></TR>
+<TR><TD>Daytona 660 (2024+)</TD><TD>No reliable report either way.</TD></TR>
+<TR class="alt"><TD>Tiger Sport 660 (2024+)</TD><TD>2022-2023 are 16-pin. Later bikes unverified.</TD></TR>
+<TR><TD>Speed Triple 1200 RS (2025+) / RX</TD><TD>2024 RR is 16-pin. The 2025 update is unverified.</TD></TR>
+<TR class="alt"><TD>TF 250-X / TF 450 (motocross)</TD><TD>Different animal. Triumph issued a dedicated dealer adapter (T3880543) that must not be used on road models. Aftermarket tools do not support them.</TD></TR>
+</TABLE>
+
+<H4>5. Pinout and Adapter Notes</H4>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Signal</TH><TH width="130">16-Pin (J1962)</TH><TH>6-Pin (Red)</TH></TR>
+<TR><TD>CAN High</TD><TD>6</TD><TD>2</TD></TR>
+<TR class="alt"><TD>CAN Low</TD><TD>14</TD><TD>5</TD></TR>
+<TR><TD>K-Line (older bikes only)</TD><TD>7</TD><TD>-</TD></TR>
+<TR class="alt"><TD>Ground</TD><TD>4 / 5</TD><TD>Not verified here</TD></TR>
+<TR><TD>Battery +12V</TD><TD>16</TD><TD>Not verified here</TD></TR>
+</TABLE>
+
+CAN pins on the 6-pin are from AiM's Triumph CAN documentation. I have not verified the power and ground pins, so they are left out on purpose.<BR>
+
+<UL>
+<LI><B>Not every 6-to-16 adapter cable works.</B> One owner's first Amazon cable would not talk to an OBDLink MX+ / TuneECU on a 2024 Tiger 900. A different cable did. Cables sold for Honda Euro 5 bikes are widely reported to work.</LI>
+<LI><B>Two red-ish 6-pin plugs can live next to each other</B> on some bikes. If the adapter will not mate, you have the wrong one.</LI>
+<LI><B>The 16-pin has no latch.</B> If you leave something plugged in (CAN accessory controller, etc.), tape the joint.</LI>
+<LI><B>Connector does not equal tool support.</B> Which plug the bike has tells you which cable to buy, not whether a given tool can reset the service indicator. See section 6.</LI>
+</UL>
+
+<H4><A NAME="service">6. Resetting the Service Indicator</A></H4>
+
+This is why most people go looking for the diagnostic port in the first place. The reset is a software question, not a connector question - the 6-pin adapter cable only gets you connected.<BR>
+
+<DIV class="note"><B>Short version:</B> TuneECU for Android with a Bluetooth OBDLink LX covers the widest range of bikes, including the ones DealerTool cannot reset. If the bike has the red plug, add a 6-to-16 adapter cable.</DIV>
+
+<B>The tools</B><BR>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Tool</TH><TH width="130">Runs on</TH><TH>Service reset</TH></TR>
+<TR><TD>TuneECU</TD><TD>Android, Bluetooth</TD><TD>Yes on bikes in its list, "when supported". The reset only works over Bluetooth - a USB cable will not do it. Paid subscription.</TD></TR>
+<TR class="alt"><TD>DealerTool</TD><TD>Windows, USB (16-pin lead)</TD><TD>Yes on most older models. No on nearly every bike with the red 6-pin plug - see the table below. It still connects to those bikes (with its adapter lead) for everything else.</TD></TR>
+<TR><TD>Triumph Diagnostic Tool (TDT)</TD><TD>Dealer only</TD><TD>Everything. Not sold to owners.</TD></TR>
+<TR class="alt"><TD>Healtech Maintenance Mate</TD><TD>Standalone plug-in</TD><TD>Sold for BMW and Triumph service reset, with a 6-pin version. Unverified - I found owners asking about it, not owners confirming it.</TD></TR>
+</TABLE>
+
+<B>By model</B><BR>
+
+<TABLE class="dtc" width="100%">
+<TR><TH width="230">Model</TH><TH width="230">TuneECU</TH><TH width="230">DealerTool</TH><TH>Notes</TH></TR>
+<TR><TD>Tiger 1200 GT / Rally (MY2022 on)</TD><TD>Yes - <B>OBDLink LX or MX only</B></TD><TD><B>No</B></TD><TD>TuneECU states the adapter restriction outright. It lists "up to MY 2023" and "from MY 2024" as separate entries - pick the right one.</TD></TR>
+<TR class="alt"><TD>Tiger 900 (2020-2023)</TD><TD>Yes</TD><TD>Yes</TD><TD>Owner-confirmed with TuneECU + OBDLink MX+ on a 2022 (16-pin).</TD></TR>
+<TR><TD>Tiger 900 (MY2024 on)</TD><TD>Yes</TD><TD><B>No</B></TD><TD>Owner-confirmed with TuneECU + OBDLink MX+ + adapter cable on a 2024 GT Pro.</TD></TR>
+<TR class="alt"><TD>Tiger 850 Sport (2021-2023)</TD><TD>Listed - reset expected</TD><TD>Yes</TD><TD>Same platform as the Tiger 900. No 850-specific owner report found.</TD></TR>
+<TR><TD>Tiger 850 Sport (MY2024 on)</TD><TD>Listed - reset expected</TD><TD><B>No</B></TD><TD>DealerTool lists it as "Tiger 850 (2024+)". The 850 Sport is the only Tiger 850 there is.</TD></TR>
+<TR class="alt"><TD>Tiger Sport 800 (2025 on)</TD><TD>Check its list</TD><TD><B>No</B></TD><TD></TD></TR>
+<TR><TD>Street Triple 675 / 765 (through 2022)</TD><TD>Yes</TD><TD>Yes</TD><TD></TD></TR>
+<TR class="alt"><TD>Street Triple 765 (MY2023 on)</TD><TD>Yes</TD><TD><B>No</B></TD><TD>Owner-confirmed with TuneECU + OBDLink MX+ + adapter cable on a 2024 RS.</TD></TR>
+<TR><TD>Trident 660 / Tiger Sport 660 / Daytona 660</TD><TD>Listed - reset expected</TD><TD><B>No</B></TD><TD>DealerTool: "any 660 model". It does the other functions on these, not the reset.</TD></TR>
+<TR class="alt"><TD>Speed Triple 1200 RS / RR (2022 on)</TD><TD>Listed - reset expected</TD><TD><B>No</B></TD><TD></TD></TR>
+<TR><TD>Speed Twin (2024 / 2025 on)</TD><TD>Check its list</TD><TD><B>No</B></TD><TD>DealerTool does not say whether that means the 900, the 1200 or both. Assume both.</TD></TR>
+<TR class="alt"><TD>Scrambler 1200 X / XE (MY2024 on)</TD><TD>Check its list</TD><TD><B>No</B></TD><TD>DealerTool lists "Scrambler X (2024+)". A forum report says the same for the 2024 XE: everything works except the service reset.</TD></TR>
+<TR><TD>Bonneville T100 / T120, Bobber, Speedmaster and the other liquid-cooled twins (2016 to about 2023)</TD><TD>Listed - reset expected</TD><TD>Yes</TD><TD>TuneECU keys the newer ones by VIN, not year. Not on DealerTool's no-reset list. The Euro 5+ (red plug) versions are not named on that list either, but given the pattern below I would not count on it.</TD></TR>
+<TR class="alt"><TD>Speed 400 / Scrambler 400 X</TD><TD>Check its list</TD><TD><B>Not supported at all</B></TD><TD>TuneECU did not support the 400s at launch. Check the current list before buying anything.</TD></TR>
+<TR><TD>TF 250-X / TF 450 (motocross)</TD><TD>No</TD><TD><B>Not supported at all</B></TD><TD>Dealer.</TD></TR>
+</TABLE>
+
+<DIV class="note"><B>The pattern:</B> DealerTool's no-reset list is very nearly the list of bikes with the red 6-pin plug, plus the newer-generation 660s, Speed Triple 1200 and Tiger 1200. Rule of thumb: <B>red plug = DealerTool will not clear the wrench.</B> Black 16-pin bikes other than those three families generally reset fine.</DIV>
+
+"Listed - reset expected" means the bike is in TuneECU's compatibility list and nothing says the reset is excluded, but I did not find an owner report for that exact model. "Yes" under DealerTool means the model is not on the no-reset list in DealerTool's FAQ (item 13, as read November 2026) - the FAQ only promises the reset on "most models with service indicators". That list has grown over time, so read it again before buying.<BR>
+
+<UL>
+<LI><B>What to buy for TuneECU:</B> an Android phone or tablet, an OBDLink LX (the one adapter that works on everything, and the only kind that works on the 2022+ Tiger 1200 besides the MX), a 6-pin to 16-pin adapter cable if the bike has the red plug, and the TuneECU subscription.</LI>
+<LI><B>If the bike is not in TuneECU's list, it is not compatible.</B> That is their rule, stated on the list itself. Check it before buying the adapter.</LI>
+<LI><B>Cheap ELM327 clones are a gamble.</B> The owner reports that work are nearly all OBDLink LX / MX / MX+.</LI>
+<LI><B>Do not press "Reset Adaptions" when you mean "Reset Service".</B> They are different functions. Resetting adaptions wipes learned values and on some models means going through a relearn procedure afterwards.</LI>
+<LI><B>DealerTool reset ran but the wrench is still lit?</B> On a supported bike, DealerTool says three things must match between the bike and the PC: the date (same format), the time (to the minute, same 12 / 24 hour format), and the distance units (miles vs km). Also use a current software version (6.57b or 6.60b at the time of writing).</LI>
+<LI><B>The reset only clears the reminder.</B> It does not do the service.</LI>
+</UL>
+
+<H4>7. Sources</H4>
+
+<UL>
+<LI><A HREF="https://dealertool.co.uk/" target="_blank">DealerTool</A> and its <A HREF="https://dealertool.co.uk/faq" target="_blank">FAQ</A> - 6-pin model list, connector locations, support limits, service reset exclusions</LI>
+<LI><A HREF="https://tuneecu.net/TuneECU_En/index.html" target="_blank">TuneECU</A> and its <A HREF="https://tuneecu.fr/docs/_en/Basic_guide.html" target="_blank">Basic Guide</A> - motorcycle support list, service reset adapter requirements, and where to get the Bluetooth adapter</LI>
+<LI><A HREF="https://www.classicbike-raisch.de/en/TRIUMPH-LC-FROM-2016/Engine-accessories-Tuning-Performance/Engine-accessories-amp-performance/Adapter-plug-Diagnostic-plug-to-OBD/CB13099" target="_blank">Classicbike Raisch 16-to-6 adapter</A> - Modern Classic Euro 5+ fitment list</LI>
+<LI><A HREF="https://aim-sportline.com/download/ecu/stock/triumph/Triumph_CAN_2013+_100_eng.pdf" target="_blank">AiM - Triumph CAN 2013+</A> - connector description and CAN pins</LI>
+<LI><A HREF="https://hexezcan.com/ezcan-tagus-for-triumph-tiger-1200-installation-guide/" target="_blank">HEX ezCAN - Tiger 1200 (2022+) installation guide</A> - both connector types on the Tiger 1200</LI>
+<LI><A HREF="https://www.triumphrat.net/threads/tiger-900-2024-obd-reset-maintenance-by-healtech.1010313/" target="_blank">TriumphRat - Tiger 900 2024 service reset options</A> - Healtech question, DealerTool / Scrambler 1200 XE note</LI>
+</UL>
+
+<H4>8. Finding that #%^ Diagnostic Port</H4>
+
+<UL>
+<LI><A HREF="https://www.triumphrat.net/threads/2024-tiger-900-6-pin-obd-connector-red.1007782/" target="_blank">TriumphRat - 2024 Tiger 900 6-pin connector</A></LI>
+<LI><A HREF="https://www.triumphrat.net/threads/2024-street-triple-rs.1001783/" target="_blank">TriumphRat - 2024 Street Triple RS</A></LI>
+<LI><A HREF="https://www.thetriumphforum.com/threads/obd-connector-on-a-2024-tiger-900.40480/" target="_blank">The Triumph Forum - OBD connector on a 2024 Tiger 900</A></LI>
+<LI><A HREF="https://www.thetriumphforum.com/threads/speed-triple-1200-rr-diagnostics-port.44448/" target="_blank">The Triumph Forum - Speed Triple 1200 RR diagnostics port</A></LI>
+<LI><A HREF="https://www.triumph400forum.com/threads/diagnostic-port-fyi.35/" target="_blank">Triumph 400 Forum - diagnostic port</A></LI>
+<LI><A HREF="https://static.nhtsa.gov/odi/tsbs/2024/MC-10253643-9999.pdf" target="_blank">Triumph Technical Bulletin TB239 (via NHTSA)</A> - TF 250-X diagnostic adapter</LI>
+</UL>
+
+<BR><BR>
+<p align=center><a href="motorcycle.html">Back To The Motorcycle Page</a></p>
+<BR>
+</BODY>
+</HTML>
