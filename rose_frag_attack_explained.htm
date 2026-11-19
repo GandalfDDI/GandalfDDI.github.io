@@ -1,15 +1,17 @@
 <html>
 
 <head>
+<meta charset="utf-8">
 <meta name=Title content="The Rose Fragmentation Attack">
 <meta name=Keywords content="Rose NewDawn IP Fragmentation Attack">
 <title>The Rose Fragmentation Attack</title>
 </head>
+<body>
 
 <p><span style='font-family:Courier'>This document
 is located at the following URLs and will be updated as needed:<br>
-<a href="Rose_Frag_Attack_Explained.htm">Rose_Frag_Attack_Explained.htm</a><br>
-<a href="Rose_Frag_Attack_Explained.txt">Rose_Frag_Attack_Explained.txt</a><br>
+<a href="rose_frag_attack_explained.htm">Rose_Frag_Attack_Explained.htm</a><br>
+<a href="rose_frag_attack_explained.txt">Rose_Frag_Attack_Explained.txt</a><br>
 <br>
 &nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item1">Introduction</a><br>
 &nbsp;&nbsp; o&nbsp;&nbsp; <a href="#item2">Rose Fragmentation Attack</a><br>
@@ -31,7 +33,7 @@ href="#item3b">New Dawn Fragmentation Attack Conclusions</a><br>
 =============<br>
 The &quot;Rose attack&quot; was conceived from a need to disrupt a network for
 my SANS GIAC GCFW practical:<br>
-<a href="William_Hollis_GCFW.pdf">William_Hollis_GCFW.pdf</a><br>
+<a href="william_hollis_gcfw.pdf">William_Hollis_GCFW.pdf</a><br>
 <br>
 This attack is a combination of the SYN attack and the &quot;Unknown&quot; ICMP
 attack in the GCFW coursework:<br>
@@ -153,12 +155,12 @@ http://www.laurentconstantin.com/en/netw/netwox/<br>
 Save the files Picmpdata.txt Ptcpdata.txt and Pudpdata.txt in the
 C:\nemesis-1.4beta3 directory (see attached).&nbsp; These files are
 &quot;sized&quot; correctly to make &quot;legal&quot; fragmented packets.<br>
-<a href="Ptcpdata.txt">Ptcpdata.txt</a><br>
-<a href="Pudpdata.txt">Pudpdata.txt</a><br>
-<a href="Picmpdata.txt">Picmpdata.txt</a><br>
+<a href="ptcpdata.txt">Ptcpdata.txt</a><br>
+<a href="pudpdata.txt">Pudpdata.txt</a><br>
+<a href="picmpdata.txt">Picmpdata.txt</a><br>
 <br>
 Bring Up nemITUrnd.xls:<br>
-<a href="nemITUrnd.xls">nemITUrnd.xls</a><br>
+<a href="nemiturnd.xls">nemITUrnd.xls</a><br>
 <br>
 Change the IP Address of the destination machine if needed.<br>
 <br>
@@ -298,15 +300,15 @@ track of all those different little pieces. &nbsp; Fun huh?&quot;<br>
 <a name=item3a>New Dawn Fragmentation Attack Tools</a><br>
 ===================================<br>
 Chuck's code to spike a Windows machine to 100 percent:<br>
-<a href="NewDawn.c">NewDawn.c</a><br>
-<a href="NewDawn2.c">NewDawn2.c</a><br>
+<a href="newdawn.c">NewDawn.c</a><br>
+<a href="newdawn2.c">NewDawn2.c</a><br>
 <br>
 I spent some time looking at and trying to compile NewDawn.c and NewDawn2.c but
 could not get it to work on a Mandrake 9.2 box, so I took the code from rose.c
 and modified it to send tiny intermediate fragments and then re-write the final
 fragment to implement the second attack.&nbsp; Those files are:<br>
-<a href="NewDawn3.c">NewDawn3.c</a><br>
-<a href="NewDawn4.c">NewDawn4.c</a><br>
+<a href="newdawn3.c">NewDawn3.c</a><br>
+<a href="newdawn4.c">NewDawn4.c</a><br>
 <br>Clem1 has compiled some <a href="http://clem1.be/ipv6-attacks/">IPv6 attack tools</a>.  
 One of the tools is for New Dawn:<br>
 <a href="http://clem1.be/ipv6-attacks/newrose.py">http://clem1.be/ipv6-attacks/newrose.py</a><br>
@@ -379,14 +381,14 @@ rose.c = <a href="rose.c">rose.c</a><br>
 <br>
 The second Rose Attack (parts of a fragmented packet are sent, last fragment
 repeated many times, 32 byte fragments)<br>
-NewDawn3.c = <a href="NewDawn3.c">NewDawn3.c</a><br>
+NewDawn3.c = <a href="newdawn3.c">NewDawn3.c</a><br>
 <br>
 The second Rose Attack (parts of a fragmented packet are sent, last fragment
 repeated many times, 8 byte fragments)<br>
-NewDawn4.c = <a href="NewDawn4.c">NewDawn4.c</a><br>
+NewDawn4.c = <a href="newdawn4.c">NewDawn4.c</a><br>
 <br>
-(I could never get <a href="NewDawn.c">NewDawn.c</a>
-or <a href="NewDawn2.c">NewDawn2.c</a>
+(I could never get <a href="newdawn.c">NewDawn.c</a>
+or <a href="newdawn2.c">NewDawn2.c</a>
 to work, either piece of that software.&nbsp; So I rewrote the first part of
 the code into NewDawn3.c and NewDawn4.c. Chuck tells me that he compiled it on
 gcc version 3.2.2 20030222 (Red Hat Linux 3.2.2-5) Redhat 9 , custom 2.6.2
