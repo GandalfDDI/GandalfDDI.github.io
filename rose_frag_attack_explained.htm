@@ -37,7 +37,7 @@ my SANS GIAC GCFW practical:<br>
 <br>
 This attack is a combination of the SYN attack and the &quot;Unknown&quot; ICMP
 attack in the GCFW coursework:<br>
-<a href="http://www.sans.org/local/track2.php">http://www.sans.org/local/track2.php</a><br>
+<a href="https://web.archive.org/web/20080821162413/http://www.sans.org/local/track2.php">http://www.sans.org/local/track2.php</a><br>
 <br>
 When I looked at these attacks, I realized that the source address and source
 port could be spoofed.&nbsp; No TCP handshake was required.&nbsp; In fact I
@@ -61,10 +61,10 @@ over and over again.&nbsp; Chuck wrote the second variation of the attack that
 I call NewDawn.c and NewDawn2.c (named NewDawn to preclude confusion with the
 original &quot;Rose attack&quot;).&nbsp; I chose this name because New Dawn is
 a particularly thorny and nasty Rose variation:<br>
-<a href="http://www.au.gardenweb.com/forums/load/roses/msg0621503720247.html">http://www.au.gardenweb.com/forums/load/roses/msg0621503720247.html</a><br>
+<a href="https://web.archive.org/web/20041113015416/http://www.au.gardenweb.com:80/forums/load/roses/msg0621503720247.html">http://www.au.gardenweb.com/forums/load/roses/msg0621503720247.html</a><br>
 <br>
 Finally, IPV6 was not tested.&nbsp; IPV6 allows fragmentation and per 
-<a href="http://clem1.be/ipv6-attacks/">the IPv6 attack tools</a> Clem1 has 
+<a href="https://web.archive.org/web/20190105042128/http://clem1.be:80/ipv6-attacks/">the IPv6 attack tools</a> Clem1 has 
 on his website some or all of the below attacks are applicable to IPV6.<br>
 <br>
 I would like to thank Chris Brenton, Laurent Constantin and Chuck for their
@@ -106,22 +106,22 @@ be found at the following URL:<br>
 <a href="rose.c">rose.c</a><br>
 <br>
 Library netwib must be installed to run rose.c:<br>
-<a href="http://www.laurentconstantin.com/en/netw/netwib/">http://www.laurentconstantin.com/en/netw/netwib/</a><br>
-<a href="http://go.to/laurentconstantin">http://go.to/laurentconstantin</a><br>
+<a href="https://web.archive.org/web/20220706160708/http://www.laurentconstantin.com/en/netw/netwib/">http://www.laurentconstantin.com/en/netw/netwib/</a><br>
+<a href="https://web.archive.org/web/20121019164757/http://go.to:80/laurentconstantin/">http://go.to/laurentconstantin</a><br>
 <br>
 Mike has implemented the attack in Python.&nbsp; There is a difference in that
 the first Packet is at Frag Offset 1 (Byte 4) and the last one at frag Offset
 16330 (Byte 65324).&nbsp; This should not make any difference in the attack as
 long as the last packet byte is &lt; 65475 (so that this would not look like a
 Ping O' Death attack):<br>
-<a href="http://anyplay.tznetz.com/exploits/rosefrag_py.html">http://anyplay.tznetz.com/exploits/rosefrag_py.html</a><br>
+<a href="https://web.archive.org/web/20051026104548/http://anyplay.tznetz.com:80/exploits/rosefrag_py.html">http://anyplay.tznetz.com/exploits/rosefrag_py.html</a><br>
 <br>
 Ventsislav Genchev wrote a perl script to implement this:<br>
 <a
 href="http://citadelle.intrinsec.com/mailing/current/HTML/ml_bugtraq/11997.html">http://citadelle.intrinsec.com/mailing/current/HTML/ml_bugtraq/11997.html</a><br>
-<br>Clem1 has compiled some <a href="http://clem1.be/ipv6-attacks/">IPv6 attack tools</a>.  
+<br>Clem1 has compiled some <a href="https://web.archive.org/web/20190105042128/http://clem1.be:80/ipv6-attacks/">IPv6 attack tools</a>.  
 One of the tools is for the original Rose Attack:<br>
-<a href="http://clem1.be/ipv6-attacks/rose.py">http://clem1.be/ipv6-attacks/rose.py</a><br>
+<a href="https://web.archive.org/web/20190105041943/http://clem1.be:80/ipv6-attacks/rose.py">http://clem1.be/ipv6-attacks/rose.py</a><br>
 <br>
 <br>
 <a name=item2b>Rose Fragmentation Manual Method</a><br>
@@ -264,7 +264,7 @@ trying to reassemble all the fragments, but of course it doesn't have them all
 yet. &nbsp; On many devices CPU utilization spikes up 30% or up to 100%.<br>
 <br>
 Paul Starzetz gives a nice description:<br>
-<a href="http://seclists.org/lists/bugtraq/2004/Apr/0107.html">http://seclists.org/lists/bugtraq/2004/Apr/0107.html</a><br>
+<a href="https://seclists.org/bugtraq/2004/Apr/107">http://seclists.org/lists/bugtraq/2004/Apr/0107.html</a><br>
 <br>
 Chuck found that he could spike the CPU of a Windows 2000 machine to 100
 percent.&nbsp; &nbsp;Chuck's explanation:<br>
@@ -309,9 +309,9 @@ and modified it to send tiny intermediate fragments and then re-write the final
 fragment to implement the second attack.&nbsp; Those files are:<br>
 <a href="newdawn3.c">NewDawn3.c</a><br>
 <a href="newdawn4.c">NewDawn4.c</a><br>
-<br>Clem1 has compiled some <a href="http://clem1.be/ipv6-attacks/">IPv6 attack tools</a>.  
+<br>Clem1 has compiled some <a href="https://web.archive.org/web/20190105042128/http://clem1.be:80/ipv6-attacks/">IPv6 attack tools</a>.  
 One of the tools is for New Dawn:<br>
-<a href="http://clem1.be/ipv6-attacks/newrose.py">http://clem1.be/ipv6-attacks/newrose.py</a><br>
+<a href="https://web.archive.org/web/20190105041928/http://clem1.be:80/ipv6-attacks/newrose.py">http://clem1.be/ipv6-attacks/newrose.py</a><br>
 <br>
 <br>
 <a name=item3b>New Dawn Fragmentation Attack Conclusions</a><br>
